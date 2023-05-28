@@ -2,7 +2,7 @@
 
 namespace RV::Bindings 
 {
-    class __declspec(dllexport) vector3
+    struct __declspec(dllexport) vector3
     {
     public:
 
