@@ -6,9 +6,11 @@
 
 #include <filesystem>
 
+game_value testFunction();
 
 // keep this global, so commands can't go out of scope.
 Commands& commands = Commands::get();
+Nethostfxr host;
 
 void createConsole()
 {
@@ -31,12 +33,24 @@ void intercept::pre_start() {
     string_t assemblyName{STR("arma_code")};
     string_t assemblyClassName{ STR("Printer") };
     std::filesystem::path path{ STR("E:/SteamLibrary/steamapps/common/Arma 3/@rvcss/assembly/") };
-    Nethostfxr host{ assemblyName, assemblyClassName,  path };
-    auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>({STR("EntryLocation")});
-    hello();
+    host = Nethostfxr{ assemblyName, assemblyClassName,  path };
+   
+    commands.addCommand("callFunction", "testFunction for C#", userFunctionWrapper<testFunction>, game_data_type::NOTHING);
+}
 
+void intercept::post_init()
+{
+    
 }
 
 void intercept::pre_init() {
     intercept::sqf::system_chat("The Intercept template plugin is running!");
 }
+
+game_value testFunction()
+{
+    auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>({ STR("EntryLocation") });
+    hello();
+    return {};
+}
+

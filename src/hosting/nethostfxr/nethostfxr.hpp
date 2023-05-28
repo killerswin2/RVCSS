@@ -51,6 +51,7 @@ private:
 
 
 public:
+    Nethostfxr() {};
     Nethostfxr(string_t& assemblyName, string_t& assemblyStaticClassName, std::filesystem::path& configPath);
     void Invoke();
     template<typename t1>
