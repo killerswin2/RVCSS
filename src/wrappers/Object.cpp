@@ -8,8 +8,6 @@ namespace RV::Bindings
 {
 	Object::Object(const char* type, vector3 position)
 	{
-		
-		std::cout << position.x << " " << position.y << " " << position.z << " " << "\n";
 		_internalObject = intercept::sqf::create_vehicle({ type }, position);
 	}
 
