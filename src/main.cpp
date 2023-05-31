@@ -49,7 +49,7 @@ void intercept::pre_init() {
 
 game_value testFunction()
 {
-    auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>({ STR("EntryLocation") });
+    auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(STR("EntryLocation"), STR("CustomEntryPointDelegate"));
     hello();
     return {};
 }

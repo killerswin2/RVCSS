@@ -57,7 +57,7 @@ public:
     Bindings() {}
     Bindings(string_t& assemblyName, string_t assemblyStaticClassName, std::filesystem::path& assemblyPath, load_assembly_and_get_function_pointer_fn functionPointer);
     template<typename t1>
-    t1 get_function_pointer_from_assembly(const string_t& methodName);
+    t1 get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate);
 };
 
 Bindings::Bindings(string_t& assemblyName, string_t assemblyStaticClassName, std::filesystem::path& assemblyPath, load_assembly_and_get_function_pointer_fn functionPointer) : _assemblyName{ std::move(assemblyName) }, _assemblyStaticClassName{ std::move(assemblyStaticClassName) }
@@ -82,11 +82,11 @@ Bindings::Bindings(string_t& assemblyName, string_t assemblyStaticClassName, std
 
 //@TODO: make this cached.
 template<typename t1>
-t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName)
+t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate)
 {
 
     const string_t dotnetType = _assemblyName + STR(".") + _assemblyStaticClassName + STR(", ") + _assemblyName;
-    const string_t delegateTypeName = _assemblyName + STR(".") + _assemblyStaticClassName + STR("+") + STR("CustomEntryPointDelegate") + STR(", ") + _assemblyName;
+    const string_t delegateTypeName = _assemblyName + STR(".") + _assemblyStaticClassName + STR("+") + customDelegate + STR(", ") + _assemblyName;
 
     t1 custom = nullptr;
     int rc = _load_assembly_and_get_function_pointer(

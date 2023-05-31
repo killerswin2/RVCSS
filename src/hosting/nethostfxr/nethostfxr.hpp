@@ -55,7 +55,7 @@ public:
     Nethostfxr(string_t& assemblyName, string_t& assemblyStaticClassName, std::filesystem::path& configPath);
     void Invoke();
     template<typename t1>
-    t1 get_function_pointer(const string_t& methodName);
+    t1 get_function_pointer(const string_t& methodName, const string_t& customDelegate);
 };
 
 Nethostfxr::Nethostfxr(string_t& assemblyName, string_t& assemblyStaticClassName, std::filesystem::path& configPath) : _assemblyName{ assemblyName }
@@ -139,7 +139,7 @@ bool Nethostfxr::load_hostfxr()
 }
 
 template<typename t1>
-t1 Nethostfxr::get_function_pointer(const string_t& methodName)
+t1 Nethostfxr::get_function_pointer(const string_t& methodName, const string_t& customDelegate)
 {
-    return _binding.get_function_pointer_from_assembly<t1>(methodName);
+    return _binding.get_function_pointer_from_assembly<t1>(methodName, customDelegate);
 }
