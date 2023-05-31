@@ -32,7 +32,7 @@ void intercept::pre_start() {
     createConsole();
     string_t assemblyName{STR("arma_code")};
     string_t assemblyClassName{ STR("Printer") };
-    std::filesystem::path path{ STR("E:/SteamLibrary/steamapps/common/Arma 3/@rvcss/assembly/") };
+    std::filesystem::path path{ STR("@rvcss/assembly/") };
     host = Nethostfxr{ assemblyName, assemblyClassName,  path };
    
     commands.addCommand("callFunction", "testFunction for C#", userFunctionWrapper<testFunction>, game_data_type::NOTHING);
