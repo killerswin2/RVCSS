@@ -52,3 +52,7 @@ CTestTestfile.cmake
 
 # JetBrains
 .idea/
+
+# .NET Outpput and Intermediate Directories
+**/bin/**
+**/obj/**

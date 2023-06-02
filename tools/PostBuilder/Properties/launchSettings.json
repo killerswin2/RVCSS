@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PostBuilder": {
+      "commandName": "Project",
+      "commandLineArgs": "TestArg_Set_In_launchSettings_dot_json",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}
