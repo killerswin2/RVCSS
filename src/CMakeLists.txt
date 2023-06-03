@@ -94,10 +94,10 @@ target_include_directories(${INTERCEPT_PLUGIN_NAME} PUBLIC ${DOTNET_SDK_ROOT_PAT
 target_link_libraries(${INTERCEPT_PLUGIN_NAME} PUBLIC nethost)
 
 
-find_program(POSTBUILDER NAMES postbuilder PATHS "${CMAKE_SOURCE_DIR}/tools/postbuilder")
-message(${POSTBUILDER})
+find_program(DOTNET NAMES dotnet)
+message(${DOTNET})
 
 
 add_custom_command(TARGET ${INTERCEPT_PLUGIN_NAME} 
 				POST_BUILD
-				COMMAND ${POSTBUILDER} "${CMAKE_SOURCE_DIR}/tools/postbuilder")
+				COMMAND ${DOTNET} run --project "${CMAKE_SOURCE_DIR}/tools/PostBuilder" -- "${CMAKE_SOURCE_DIR}/tools/PostBuilder")
