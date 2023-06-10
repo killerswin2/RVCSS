@@ -1,9 +1,56 @@
 #include <intercept.hpp>
 #include "client/pointers.hpp"
 
+#include <vector>
+
 using host = intercept::client::host;
 using __sqf = intercept::client::__sqf;
 
+extern "C" __declspec(dllexport) intercept::types::game_value* CreateGameValue()
+{
+	return new game_value();
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueFloat(float value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueInt(int value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueBool(bool value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueString(const char* value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueArray(intercept::types::game_value* array, int length)
+{
+	std::vector<game_value> object{array, array + length};
+	return new game_value(object);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueVector2(intercept::types::vector2 value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueVector3(intercept::types::vector3 value)
+{
+	return new game_value(value);
+}
+
+extern "C" __declspec(dllexport) void DeleteGameValue(intercept::types::game_value * value)
+{
+	delete value;
+}
 
 extern "C" __declspec(dllexport) intercept::types::game_value* acctime()
 {
