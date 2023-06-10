@@ -2101,9 +2101,6 @@ namespace RV
         private static extern IntPtr distributionregion();
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern IntPtr do(IntPtr leftGameValue, IntPtr rightGameValue);
-
-[SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr do3denaction(IntPtr rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
@@ -3399,10 +3396,8 @@ namespace RV
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr importance(IntPtr rightGameValue);
 
-        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern IntPtr in(IntPtr leftGameValue, IntPtr rightGameValue);
 
-[SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr inarea(IntPtr leftGameValue, IntPtr rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
@@ -7586,4 +7581,12 @@ namespace RV
         {
             DeleteGameValue(_internalGameValue);
         }
+
+        public static void systemChat(string message)
+        {
+            // create 
+            GameValue gameString = new GameValue(message);
+            systemchat(gameString._internalGameValue);
+        }
     }
+}
