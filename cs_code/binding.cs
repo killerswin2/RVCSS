@@ -28,6 +28,9 @@ namespace RV
         private static extern IntPtr CreateGameValueArray(IntPtr pointer, int length);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern IntPtr CreateGameValueArrayEmpty();
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr CreateGameValueVector2(Vector2 vector);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
@@ -35,6 +38,26 @@ namespace RV
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern void DeleteGameValue(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataString(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataInt(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataFloat(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataBool(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataVector2(IntPtr gameValuePointer);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void GetDataVector3(IntPtr gameValuePointer);
+
+
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr acctime();
@@ -7547,7 +7570,7 @@ namespace RV
             _internalGameValue = CreateGameValueBool(value);
         }
 
-        private GameValue(string value)
+        public GameValue(string value)
         {
             _internalGameValue = CreateGameValueString(value);
         }
@@ -7557,6 +7580,16 @@ namespace RV
             _internalGameValue = CreateGameValueArray(array._internalGameValue, length);
         }
 
+        public GameValue(List<int> list)
+        {
+            _internalGameValue = CreateGameValueArrayEmpty();
+            for (int i = 0; i < list.Count; i++)
+            {
+                var temp = new GameValue(list[i]);
+                pushback(_internalGameValue, temp._internalGameValue);
+            }
+        }
+
         private GameValue(IntPtr array, int length)
         {
             _internalGameValue = CreateGameValueArray(array, length);
@@ -7564,7 +7597,7 @@ namespace RV
 
         private GameValue(Vector2 value)
         {
-            _internalGameValue = CreateGameValueVector2(value); ;
+            _internalGameValue = CreateGameValueVector2(value);
         }
 
         private GameValue(Vector3 value)
@@ -7582,11 +7615,31 @@ namespace RV
             DeleteGameValue(_internalGameValue);
         }
 
-        public static void systemChat(string message)
+        public static void SystemChat(string message)
         {
             // create 
             GameValue gameString = new GameValue(message);
             systemchat(gameString._internalGameValue);
+        }
+
+        public static void SystemChat(GameValue message)
+        {
+            systemchat(message._internalGameValue);
+        }
+
+        public static void PushBack(GameValue array, GameValue data)
+        {
+            pushback(array._internalGameValue, data._internalGameValue);
+        }
+
+        public static void PushBackUnique(GameValue array, GameValue data)
+        {
+            pushbackunique(array._internalGameValue, data._internalGameValue);
+        }
+
+        public static GameValue Str(GameValue gameValue)
+        {
+            return new GameValue(str(gameValue._internalGameValue));
         }
     }
 }
