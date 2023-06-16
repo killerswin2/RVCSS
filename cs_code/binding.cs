@@ -7,7 +7,10 @@ using System.Numerics;
 
 namespace RV
 {
-    public class GameValue
+    /// <summary>
+    /// Class <c>GameValue</c> handles rv engine types and functions used by the engine.
+    /// </summary>
+	public class GameValue
     {
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr CreateGameValue();
@@ -40,22 +43,22 @@ namespace RV
         private static extern void DeleteGameValue(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataString(IntPtr gameValuePointer);
+        private static extern IntPtr GetDataString(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataInt(IntPtr gameValuePointer);
+        private static extern int GetDataInt(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataFloat(IntPtr gameValuePointer);
+        private static extern float GetDataFloat(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataBool(IntPtr gameValuePointer);
+        private static extern bool GetDataBool(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataVector2(IntPtr gameValuePointer);
+        private static extern IntPtr GetDataVector2(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        private static extern void GetDataVector3(IntPtr gameValuePointer);
+        private static extern IntPtr GetDataVector3(IntPtr gameValuePointer);
 
 
 
@@ -7613,6 +7616,58 @@ namespace RV
         ~GameValue()
         {
             DeleteGameValue(_internalGameValue);
+        }
+
+        /// <summary>
+        /// Method <c>GetString</c> returns a c# type from an GameValue instance from the RV engine
+        /// </summery>
+        public static String GetString(GameValue instance)
+        {
+            var pointer = GetDataString(instance._internalGameValue);
+            String? message = String.Empty;
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                message = Marshal.PtrToStringUni(pointer);
+            }
+            else
+            {
+                message = Marshal.PtrToStringUTF8(pointer);
+            }
+
+            if (message != null)
+            {
+                return message;
+            }
+            else
+            {
+                return String.Empty;
+            }
+
+        }
+
+        public static float GetFloat(GameValue instance)
+        {
+            return GetDataFloat(instance._internalGameValue);
+        }
+
+        public static int GetInt(GameValue instance)
+        {
+            return GetDataInt(instance._internalGameValue);
+        }
+
+        public static bool GetBool(GameValue instance)
+        {
+            return GetDataBool(instance._internalGameValue);
+        }
+
+        public static Vector2 GetVector2(GameValue instance)
+        {
+            return Marshal.PtrToStructure<Vector2>(GetDataVector2(instance._internalGameValue));
+        }
+
+        public static Vector3 GetVector3(GameValue instance)
+        {
+            return Marshal.PtrToStructure<Vector3>(GetDataVector3(instance._internalGameValue));
         }
 
         public static void SystemChat(string message)

@@ -1,7 +1,17 @@
+
+
 #include <intercept.hpp>
 #include "client/pointers.hpp"
 
 #include <vector>
+
+#ifdef _WIN32
+#include <windows.h>
+#define char_t wchar_t
+
+#else
+#define char_t char
+#endif
 
 #pragma warning(disable: 4996)
 
@@ -60,7 +70,7 @@ extern "C" __declspec(dllexport) void DeleteGameValue(intercept::types::game_val
 	delete value;
 }
 
-extern "C" __declspec(dllexport) void GetDataString(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) char_t* GetDataString(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
 
@@ -68,15 +78,22 @@ extern "C" __declspec(dllexport) void GetDataString(intercept::types::game_value
 	if (value->type() == game_data_string::type_def)
 	{
 		auto GameDataStringPointer = reinterpret_cast<game_data_string*>(GameDataPointer);
-		std::cout << GameDataStringPointer->raw_string << "\n";
+		auto stringData = GameDataStringPointer->raw_string.c_str();
+		auto size = GameDataStringPointer->raw_string.size() + 1;
+
+		char_t* str = rv_allocator<char_t>::allocate(size);
+		int rc = MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED, stringData, -1, str, size);
+		return str;
 	}
 	else
 	{
+		// this is dangerous, but easy to do
 		std::cout << "Not A String\n";
+		return nullptr;
 	}
 }
 
-extern "C" __declspec(dllexport) void GetDataFloat(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) float GetDataFloat(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
 
@@ -84,20 +101,21 @@ extern "C" __declspec(dllexport) void GetDataFloat(intercept::types::game_value 
 	if (value->type() == game_data_number::type_def)
 	{
 		auto GameDataNumberPointer = reinterpret_cast<game_data_number*>(GameDataPointer);
-		std::cout << GameDataNumberPointer->number << "\n";
+		return GameDataNumberPointer->number;
 	}
 	else
 	{
 		std::cout << "Not A Number\n";
+		return 0.0;
 	}
 }
 
-extern "C" __declspec(dllexport) void GetDataInt(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) int GetDataInt(intercept::types::game_value * value)
 {
-	GetDataFloat(value);
+	return static_cast<int>(GetDataFloat(value));
 }
 
-extern "C" __declspec(dllexport) void GetDataBool(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) bool GetDataBool(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
 
@@ -105,43 +123,47 @@ extern "C" __declspec(dllexport) void GetDataBool(intercept::types::game_value *
 	if (value->type() == game_data_bool::type_def)
 	{
 		auto GameDataBoolPointer = reinterpret_cast<game_data_bool*>(GameDataPointer);
-		std::cout << GameDataBoolPointer->val << "\n";
+		return GameDataBoolPointer->val;
 	}
 	else
 	{
 		std::cout << "Not A Bool\n";
+		// yes this is dumb, but it's what I want to do at 11 pm
+		return false;
 	}
 }
 
-extern "C" __declspec(dllexport) void GetDataVector2(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) vector2* GetDataVector2(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
 
-	//bool
 	if (value->type() == game_data_array::type_def && value->size() == 2)
 	{
-		vector2 vec2 = *value;
-		std::cout << "vec2: " << vec2.x << " " << vec2.y << "\n";
+		vector2 temp = *value;
+		return rv_allocator<vector2>::create_single(temp);
 	}
 	else
 	{
 		std::cout << "Not A Vec2\n";
+		return nullptr;
 	}
 }
 
-extern "C" __declspec(dllexport) void GetDataVector3(intercept::types::game_value * value)
+extern "C" __declspec(dllexport) vector3* GetDataVector3(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
 
-	//bool
 	if (value->type() == game_data_array::type_def && value->size() == 3)
 	{
-		vector3 vec3 = *value;
-		std::cout << "vec3: " << vec3.x << " " << vec3.y << " " << vec3.z << "\n";
+		vector3 temp = *value;
+		auto pointer = rv_allocator<vector3>::create_single(temp);
+		std::cout << pointer->x << " " << pointer->y << " " << pointer->z << "\n";
+		return pointer;
 	}
 	else
 	{
 		std::cout << "Not A Vec3\n";
+		return nullptr;
 	}
 }
 
@@ -7270,11 +7292,6 @@ extern "C" __declspec(dllexport) game_value * matrixtranspose(game_value * right
 	return new game_value(host::functions.invoke_raw_unary(__sqf::unary__matrixtranspose__array__ret__array, *right_arg));
 }
 
-extern "C" __declspec(dllexport) game_value * max(game_value * left_arg, game_value * right_arg)
-{
-	return new game_value(host::functions.invoke_raw_binary(__sqf::binary__max__scalar_nan__scalar_nan__ret__scalar_nan, *left_arg, *right_arg));
-}
-
 extern "C" __declspec(dllexport) game_value * maxload(game_value * right_arg)
 {
 	return new game_value(host::functions.invoke_raw_unary(__sqf::unary__maxload__object__ret__scalar, *right_arg));
@@ -7423,11 +7440,6 @@ extern "C" __declspec(dllexport) game_value * menuvalue(game_value * left_arg, g
 extern "C" __declspec(dllexport) game_value * merge(game_value * left_arg, game_value * right_arg)
 {
 	return new game_value(host::functions.invoke_raw_binary(__sqf::binary__merge__hashmap__hashmap_array__ret__nothing, *left_arg, *right_arg));
-}
-
-extern "C" __declspec(dllexport) game_value * min(game_value * left_arg, game_value * right_arg)
-{
-	return new game_value(host::functions.invoke_raw_binary(__sqf::binary__min__scalar_nan__scalar_nan__ret__scalar_nan, *left_arg, *right_arg));
 }
 
 extern "C" __declspec(dllexport) game_value * mineactive(game_value * right_arg)
@@ -9121,7 +9133,7 @@ extern "C" __declspec(dllexport) game_value * secondaryweaponmagazine(game_value
 	return new game_value(host::functions.invoke_raw_unary(__sqf::unary__secondaryweaponmagazine__object__ret__array, *right_arg));
 }
 
-extern "C" __declspec(dllexport) game_value * select(game_value * left_arg, game_value * right_arg)
+extern "C" __declspec(dllexport) game_value * Select(game_value * left_arg, game_value * right_arg)
 {
 	return new game_value(host::functions.invoke_raw_binary(__sqf::binary__select__string__array__ret__string, *left_arg, *right_arg));
 }
