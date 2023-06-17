@@ -61,6 +61,7 @@ namespace RV
         private static extern IntPtr GetDataVector3(IntPtr gameValuePointer);
 
 
+        // "Static functions here"
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr acctime();
@@ -4203,8 +4204,8 @@ namespace RV
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr locationposition(IntPtr rightGameValue);
 
-        //[SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
-        //private static extern IntPtr lock(IntPtr leftGameValue, IntPtr rightGameValue);
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern IntPtr Lock(IntPtr leftGameValue, IntPtr rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr lockcamerato(IntPtr leftGameValue, IntPtr rightGameValue);
@@ -7605,7 +7606,7 @@ namespace RV
 
         private GameValue(Vector3 value)
         {
-            _internalGameValue = CreateGameValueVector3(value); ;
+            _internalGameValue = CreateGameValueVector3(value);
         }
 
         private GameValue(IntPtr gamePointer)
@@ -7620,7 +7621,7 @@ namespace RV
 
         /// <summary>
         /// Method <c>GetString</c> returns a c# type from an GameValue instance from the RV engine
-        /// </summery>
+        /// </summary>
         public static String GetString(GameValue instance)
         {
             var pointer = GetDataString(instance._internalGameValue);
@@ -7670,31 +7671,25514 @@ namespace RV
             return Marshal.PtrToStructure<Vector3>(GetDataVector3(instance._internalGameValue));
         }
 
-        public static void SystemChat(string message)
+        //static methods
+
+
+        /// <summary>
+        /// Returns the current simulation acceleration factor
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AccTime()
         {
-            // create 
-            GameValue gameString = new GameValue(message);
-            systemchat(gameString._internalGameValue);
+            return new GameValue(acctime());
         }
 
-        public static void SystemChat(GameValue message)
+        /// <summary>
+        /// Make a unit perform an action
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Action(GameValue leftInstance, GameValue rightInstance)
         {
-            systemchat(message._internalGameValue);
+            return new GameValue(action(leftInstance._internalGameValue, rightInstance._internalGameValue));
         }
 
-        public static void PushBack(GameValue array, GameValue data)
+        /// <summary>
+        /// Returns Array of Numbers, where numbers are IDs of all user actions added to given entity with addAction command
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActionIDs(GameValue rightInstance)
         {
-            pushback(array._internalGameValue, data._internalGameValue);
+            return new GameValue(actionids(rightInstance._internalGameValue));
         }
 
-        public static void PushBackUnique(GameValue array, GameValue data)
+        /// <summary>
+        /// Returns Array containing dikCodes of keys, buttons and combos assigned to the given user action
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActionKeys(GameValue rightInstance)
         {
-            pushbackunique(array._internalGameValue, data._internalGameValue);
+            return new GameValue(actionkeys(rightInstance._internalGameValue));
         }
 
-        public static GameValue Str(GameValue gameValue)
+        /// <summary>
+        /// Gives a broken down version of actionKeys return. Returns an Array containing the breakdowns of the dikCodes of keys, buttons and combos assigned to the given user action.
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActionKeysEx(GameValue rightInstance)
         {
-            return new GameValue(str(gameValue._internalGameValue));
+            return new GameValue(actionkeysex(rightInstance._internalGameValue));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue ActionKeysImages(GameValue rightInstance)
+        {
+            return new GameValue(actionkeysimages(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ActionKeysNames(GameValue rightInstance)
+        {
+            return new GameValue(actionkeysnames(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActionKeysNamesArray(GameValue rightInstance)
+        {
+            return new GameValue(actionkeysnamesarray(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ActionName(GameValue rightInstance)
+        {
+            return new GameValue(actionname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActionParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(actionparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ActivateAddons(GameValue rightInstance)
+        {
+            return new GameValue(activateaddons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActivatedAddons()
+        {
+            return new GameValue(activatedaddons());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ActivateKey(GameValue rightInstance)
+        {
+            return new GameValue(activatekey(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ActiveTitleEffectParams(GameValue rightInstance)
+        {
+            return new GameValue(activetitleeffectparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Add3DENConnection(GameValue rightInstance)
+        {
+            return new GameValue(add3denconnection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Add3DENEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(add3deneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Add3DENLayer(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(add3denlayer(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing_scalar</returns>
+        public static GameValue AddAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddBackpack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addbackpack(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddBackpackCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addbackpackcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddBackpackCargoGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addbackpackcargoglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddBackpackGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addbackpackglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddBinocularItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addbinocularitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCamShake(GameValue rightInstance)
+        {
+            return new GameValue(addcamshake(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCuratorAddons(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addcuratoraddons(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCuratorCameraArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addcuratorcameraarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCuratorEditableObjects(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addcuratoreditableobjects(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCuratorEditingArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addcuratoreditingarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddCuratorPoints(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addcuratorpoints(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue AddEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addeditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing_scalar</returns>
+        public static GameValue AddEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddForce(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addforce(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddForceGeneratorRTD(GameValue rightInstance)
+        {
+            return new GameValue(addforcegeneratorrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddGoggles(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addgoggles(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddGroupIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addgroupicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddHandgunItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addhandgunitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddHeadgear(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addheadgear(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additemcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemCargoGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additemcargoglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemPool(GameValue rightInstance)
+        {
+            return new GameValue(additempool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemToBackpack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additemtobackpack(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemToUniform(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additemtouniform(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddItemToVest(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(additemtovest(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddLiveStats(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addlivestats(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazineAmmoCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazineammocargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazineCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazinecargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazineCargoGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazinecargoglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazineGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazineglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazinePool(GameValue rightInstance)
+        {
+            return new GameValue(addmagazinepool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazines(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazines(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddMagazineTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmagazineturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddMenu(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmenu(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddMenuItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmenuitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddMissionEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(addmissioneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing_scalar</returns>
+        public static GameValue AddMPEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addmpeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddMusicEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(addmusiceventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AddonFiles(GameValue rightInstance)
+        {
+            return new GameValue(addonfiles(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddOwnedMine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addownedmine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddPlayerScores(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addplayerscores(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddPrimaryWeaponItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addprimaryweaponitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddPublicVariableEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addpublicvariableeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddRating(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addrating(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddResources(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addresources(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddScore(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addscore(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddScoreSide(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addscoreside(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddSecondaryWeaponItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addsecondaryweaponitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddSwitchableUnit(GameValue rightInstance)
+        {
+            return new GameValue(addswitchableunit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddTeamMember(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addteammember(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddToRemainsCollector(GameValue rightInstance)
+        {
+            return new GameValue(addtoremainscollector(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddTorque(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addtorque(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddUniform(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(adduniform(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AddUserActionEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(adduseractioneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addvehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddVest(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addvest(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AddWaypoint(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addwaypoint(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeapon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweapon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponCargoGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponcargoglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponPool(GameValue rightInstance)
+        {
+            return new GameValue(addweaponpool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponWithAttachmentsCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponwithattachmentscargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AddWeaponWithAttachmentsCargoGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(addweaponwithattachmentscargoglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Admin(GameValue rightInstance)
+        {
+            return new GameValue(admin(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Agent(GameValue rightInstance)
+        {
+            return new GameValue(agent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Agents()
+        {
+            return new GameValue(agents());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AGLToASL(GameValue rightInstance)
+        {
+            return new GameValue(agltoasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AimedAtTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(aimedattarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AimPos(GameValue rightInstance)
+        {
+            return new GameValue(aimpos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AirDensityCurveRTD()
+        {
+            return new GameValue(airdensitycurvertd());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AirDensityRTD(GameValue rightInstance)
+        {
+            return new GameValue(airdensityrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AirplaneThrottle(GameValue rightInstance)
+        {
+            return new GameValue(airplanethrottle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue side</returns>
+        public static GameValue AirportSide(GameValue rightInstance)
+        {
+            return new GameValue(airportside(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AISFinishHeal(GameValue rightInstance)
+        {
+            return new GameValue(aisfinishheal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Alive(GameValue rightInstance)
+        {
+            return new GameValue(alive(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue All3DENEntities()
+        {
+            return new GameValue(all3denentities());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllActiveTitleEffects()
+        {
+            return new GameValue(allactivetitleeffects());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllAddonsInfo()
+        {
+            return new GameValue(alladdonsinfo());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllAirports()
+        {
+            return new GameValue(allairports());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllControls(GameValue rightInstance)
+        {
+            return new GameValue(allcontrols(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllCurators()
+        {
+            return new GameValue(allcurators());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllCutLayers()
+        {
+            return new GameValue(allcutlayers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllDead()
+        {
+            return new GameValue(alldead());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllDeadMen()
+        {
+            return new GameValue(alldeadmen());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllDiaryRecords(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(alldiaryrecords(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllDiarySubjects(GameValue rightInstance)
+        {
+            return new GameValue(alldiarysubjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllDisplays()
+        {
+            return new GameValue(alldisplays());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllEnv3DSoundSources()
+        {
+            return new GameValue(allenv3dsoundsources());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllGroups()
+        {
+            return new GameValue(allgroups());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllLODs(GameValue rightInstance)
+        {
+            return new GameValue(alllods(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllMapMarkers()
+        {
+            return new GameValue(allmapmarkers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllMines()
+        {
+            return new GameValue(allmines());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllMissionObjects(GameValue rightInstance)
+        {
+            return new GameValue(allmissionobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllObjects(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allobjects(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Allow3DMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allow3dmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowCrewInImmobile(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowcrewinimmobile(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowCuratorLogicIgnoreAreas(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowcuratorlogicignoreareas(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowDamage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowdamage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowDammage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowdammage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AllowedService(GameValue rightInstance)
+        {
+            return new GameValue(allowedservice(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowFileOperations(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowfileoperations(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowFleeing(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowfleeing(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowGetIn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowgetin(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowService(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowservice(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AllowSprint(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(allowsprint(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllPlayers()
+        {
+            return new GameValue(allplayers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllSimpleObjects(GameValue rightInstance)
+        {
+            return new GameValue(allsimpleobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllSites()
+        {
+            return new GameValue(allsites());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllTurrets(GameValue rightInstance)
+        {
+            return new GameValue(allturrets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllUnits()
+        {
+            return new GameValue(allunits());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllUnitsUAV()
+        {
+            return new GameValue(allunitsuav());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllUsers()
+        {
+            return new GameValue(allusers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AllVariables(GameValue rightInstance)
+        {
+            return new GameValue(allvariables(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue AmbientTemperature()
+        {
+            return new GameValue(ambienttemperature());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Ammo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ammo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AmmoOnPylon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ammoonpylon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue And(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(and(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Animate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AnimateBay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animatebay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AnimateDoor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animatedoor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AnimatePylon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animatepylon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AnimateSource(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animatesource(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AnimationNames(GameValue rightInstance)
+        {
+            return new GameValue(animationnames(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AnimationPhase(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animationphase(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue AnimationSourcePhase(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(animationsourcephase(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue AnimationState(GameValue rightInstance)
+        {
+            return new GameValue(animationstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue ApertureParams()
+        {
+            return new GameValue(apertureparams());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Append(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(append(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Apply(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(apply(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ArmoryPoints()
+        {
+            return new GameValue(armorypoints());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ArrayIntersect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(arrayintersect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Asin(GameValue rightInstance)
+        {
+            return new GameValue(asin(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ASLToAGL(GameValue rightInstance)
+        {
+            return new GameValue(asltoagl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ASLToATL(GameValue rightInstance)
+        {
+            return new GameValue(asltoatl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Assert(GameValue rightInstance)
+        {
+            return new GameValue(assert(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignascargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsCargoIndex(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignascargoindex(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsCommander(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignascommander(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsDriver(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignasdriver(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsGunner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignasgunner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignAsTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignasturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignCurator(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assigncurator(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AssignedCargo(GameValue rightInstance)
+        {
+            return new GameValue(assignedcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AssignedCommander(GameValue rightInstance)
+        {
+            return new GameValue(assignedcommander(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AssignedDriver(GameValue rightInstance)
+        {
+            return new GameValue(assigneddriver(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue group</returns>
+        public static GameValue AssignedGroup(GameValue rightInstance)
+        {
+            return new GameValue(assignedgroup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AssignedGunner(GameValue rightInstance)
+        {
+            return new GameValue(assignedgunner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AssignedItems(GameValue rightInstance)
+        {
+            return new GameValue(assigneditems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AssignedTarget(GameValue rightInstance)
+        {
+            return new GameValue(assignedtarget(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue AssignedTeam(GameValue rightInstance)
+        {
+            return new GameValue(assignedteam(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AssignedVehicle(GameValue rightInstance)
+        {
+            return new GameValue(assignedvehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AssignedVehicleRole(GameValue rightInstance)
+        {
+            return new GameValue(assignedvehiclerole(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AssignedVehicles(GameValue rightInstance)
+        {
+            return new GameValue(assignedvehicles(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignTeam(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assignteam(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AssignToAirport(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(assigntoairport(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Atan(GameValue rightInstance)
+        {
+            return new GameValue(atan(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Atan2(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(atan2(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Atg(GameValue rightInstance)
+        {
+            return new GameValue(atg(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ATLToASL(GameValue rightInstance)
+        {
+            return new GameValue(atltoasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AttachedObject(GameValue rightInstance)
+        {
+            return new GameValue(attachedobject(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue AttachedObjects(GameValue rightInstance)
+        {
+            return new GameValue(attachedobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue AttachedTo(GameValue rightInstance)
+        {
+            return new GameValue(attachedto(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AttachObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(attachobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue AttachTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(attachto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue AttackEnabled(GameValue rightInstance)
+        {
+            return new GameValue(attackenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Awake(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(awake(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Backpack(GameValue rightInstance)
+        {
+            return new GameValue(backpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BackpackCargo(GameValue rightInstance)
+        {
+            return new GameValue(backpackcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue BackpackContainer(GameValue rightInstance)
+        {
+            return new GameValue(backpackcontainer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BackpackItems(GameValue rightInstance)
+        {
+            return new GameValue(backpackitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BackpackMagazines(GameValue rightInstance)
+        {
+            return new GameValue(backpackmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BackpackSpaceFor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(backpackspacefor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Behaviour(GameValue rightInstance)
+        {
+            return new GameValue(behaviour(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Benchmark()
+        {
+            return new GameValue(benchmark());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BezierInterpolation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(bezierinterpolation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Binocular(GameValue rightInstance)
+        {
+            return new GameValue(binocular(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BinocularItems(GameValue rightInstance)
+        {
+            return new GameValue(binocularitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue BinocularMagazine(GameValue rightInstance)
+        {
+            return new GameValue(binocularmagazine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue Blufor()
+        {
+            return new GameValue(blufor());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BoundingBox(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(boundingbox(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BoundingBoxReal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(boundingboxreal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BoundingCenter(GameValue rightInstance)
+        {
+            return new GameValue(boundingcenter(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue BrakesDisabled(GameValue rightInstance)
+        {
+            return new GameValue(brakesdisabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue BreakOut(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(breakout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue BreakTo(GameValue rightInstance)
+        {
+            return new GameValue(breakto(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue BreakWith(GameValue rightInstance)
+        {
+            return new GameValue(breakwith(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue BriefingName()
+        {
+            return new GameValue(briefingname());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BuildingExit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(buildingexit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue BuildingPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(buildingpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Buldozer_EnableRoadDiag(GameValue rightInstance)
+        {
+            return new GameValue(buldozer_enableroaddiag(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Buldozer_IsEnabledRoadDiag()
+        {
+            return new GameValue(buldozer_isenabledroaddiag());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Buldozer_LoadNewRoads(GameValue rightInstance)
+        {
+            return new GameValue(buldozer_loadnewroads(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Buldozer_reloadOperMap()
+        {
+            return new GameValue(buldozer_reloadopermap());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ButtonAction(GameValue rightInstance)
+        {
+            return new GameValue(buttonaction(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ButtonSetAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(buttonsetaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CadetMode()
+        {
+            return new GameValue(cadetmode());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CalculatePath(GameValue rightInstance)
+        {
+            return new GameValue(calculatepath(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CalculatePlayerVisibilityByFriendly(GameValue rightInstance)
+        {
+            return new GameValue(calculateplayervisibilitybyfriendly(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Call(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(call(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CallExtension(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(callextension(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamCommand(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camcommand(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamCommit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camcommit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamCommitPrepared(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camcommitprepared(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CamCommitted(GameValue rightInstance)
+        {
+            return new GameValue(camcommitted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamConstuctionSetParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camconstuctionsetparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CamCreate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camcreate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamDestroy(GameValue rightInstance)
+        {
+            return new GameValue(camdestroy(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CameraEffect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cameraeffect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CameraEffectEnableHUD(GameValue rightInstance)
+        {
+            return new GameValue(cameraeffectenablehud(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CameraInterest(GameValue rightInstance)
+        {
+            return new GameValue(camerainterest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue CameraOn()
+        {
+            return new GameValue(cameraon());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue CameraView()
+        {
+            return new GameValue(cameraview());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue config</returns>
+        public static GameValue CampaignConfigFile()
+        {
+            return new GameValue(campaignconfigfile());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPreload(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CamPreloaded(GameValue rightInstance)
+        {
+            return new GameValue(campreloaded(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareBank(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparebank(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparedir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareDive(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparedive(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareFocus(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparefocus(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareFov(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparefov(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareFovRange(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparefovrange(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPreparePos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparepos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareRelPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparerelpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamPrepareTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(campreparetarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetBank(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetbank(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetdir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetDive(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetdive(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetFocus(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetfocus(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetFov(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetfov(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetFovRange(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetfovrange(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetRelPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsetrelpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamSetTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(camsettarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CamTarget(GameValue rightInstance)
+        {
+            return new GameValue(camtarget(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CamUseNVG(GameValue rightInstance)
+        {
+            return new GameValue(camusenvg(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanAddItemToBackpack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canadditemtobackpack(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanAddItemToUniform(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canadditemtouniform(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanAddItemToVest(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canadditemtovest(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CancelSimpleTaskDestination(GameValue rightInstance)
+        {
+            return new GameValue(cancelsimpletaskdestination(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanDeployWeapon(GameValue rightInstance)
+        {
+            return new GameValue(candeployweapon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanFire(GameValue rightInstance)
+        {
+            return new GameValue(canfire(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanMove(GameValue rightInstance)
+        {
+            return new GameValue(canmove(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanSlingLoad(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canslingload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanStand(GameValue rightInstance)
+        {
+            return new GameValue(canstand(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanSuspend()
+        {
+            return new GameValue(cansuspend());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanTriggerDynamicSimulation(GameValue rightInstance)
+        {
+            return new GameValue(cantriggerdynamicsimulation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CanUnloadInCombat(GameValue rightInstance)
+        {
+            return new GameValue(canunloadincombat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CanVehicleCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(canvehiclecargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Captive(GameValue rightInstance)
+        {
+            return new GameValue(captive(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CaptiveNum(GameValue rightInstance)
+        {
+            return new GameValue(captivenum(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CbChecked(GameValue rightInstance)
+        {
+            return new GameValue(cbchecked(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CbSetChecked(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cbsetchecked(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Ceil(GameValue rightInstance)
+        {
+            return new GameValue(ceil(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ChannelEnabled(GameValue rightInstance)
+        {
+            return new GameValue(channelenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CheatsEnabled()
+        {
+            return new GameValue(cheatsenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CheckAIFeature(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(checkaifeature(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CheckVisibility(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(checkvisibility(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue Civilian()
+        {
+            return new GameValue(civilian());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ClassName(GameValue rightInstance)
+        {
+            return new GameValue(classname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Clear3DENAttribute(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(clear3denattribute(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Clear3DENInventory(GameValue rightInstance)
+        {
+            return new GameValue(clear3deninventory(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearAllItemsFromBackpack(GameValue rightInstance)
+        {
+            return new GameValue(clearallitemsfrombackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearBackpackCargo(GameValue rightInstance)
+        {
+            return new GameValue(clearbackpackcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearBackpackCargoGlobal(GameValue rightInstance)
+        {
+            return new GameValue(clearbackpackcargoglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearForcesRTD()
+        {
+            return new GameValue(clearforcesrtd());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearGroupIcons(GameValue rightInstance)
+        {
+            return new GameValue(cleargroupicons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearItemCargo(GameValue rightInstance)
+        {
+            return new GameValue(clearitemcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearItemCargoGlobal(GameValue rightInstance)
+        {
+            return new GameValue(clearitemcargoglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearItemPool()
+        {
+            return new GameValue(clearitempool());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearMagazineCargo(GameValue rightInstance)
+        {
+            return new GameValue(clearmagazinecargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearMagazineCargoGlobal(GameValue rightInstance)
+        {
+            return new GameValue(clearmagazinecargoglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearMagazinePool()
+        {
+            return new GameValue(clearmagazinepool());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearOverlay(GameValue rightInstance)
+        {
+            return new GameValue(clearoverlay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearRadio()
+        {
+            return new GameValue(clearradio());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearWeaponCargo(GameValue rightInstance)
+        {
+            return new GameValue(clearweaponcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearWeaponCargoGlobal(GameValue rightInstance)
+        {
+            return new GameValue(clearweaponcargoglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ClearWeaponPool()
+        {
+            return new GameValue(clearweaponpool());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ClientOwner()
+        {
+            return new GameValue(clientowner());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CloseDialog(GameValue rightInstance)
+        {
+            return new GameValue(closedialog(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CloseDisplay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(closedisplay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CloseOverlay(GameValue rightInstance)
+        {
+            return new GameValue(closeoverlay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CollapseObjectTree(GameValue rightInstance)
+        {
+            return new GameValue(collapseobjecttree(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Collect3DENHistory(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(collect3denhistory(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CollectiveRTD(GameValue rightInstance)
+        {
+            return new GameValue(collectivertd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CollisionDisabledWith(GameValue rightInstance)
+        {
+            return new GameValue(collisiondisabledwith(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CombatBehaviour(GameValue rightInstance)
+        {
+            return new GameValue(combatbehaviour(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CombatMode(GameValue rightInstance)
+        {
+            return new GameValue(combatmode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandArtilleryFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandartilleryfire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandchat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Commander(GameValue rightInstance)
+        {
+            return new GameValue(commander(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandfire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandFollow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandfollow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandFSM(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandfsm(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandGetOut(GameValue rightInstance)
+        {
+            return new GameValue(commandgetout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue CommandingMenu()
+        {
+            return new GameValue(commandingmenu());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandMove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandmove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandStop(GameValue rightInstance)
+        {
+            return new GameValue(commandstop(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandSuppressiveFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandsuppressivefire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandtarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommandWatch(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(commandwatch(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Comment(GameValue rightInstance)
+        {
+            return new GameValue(comment(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CommitOverlay(GameValue rightInstance)
+        {
+            return new GameValue(commitoverlay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CompatibleItems(GameValue rightInstance)
+        {
+            return new GameValue(compatibleitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CompatibleMagazines(GameValue rightInstance)
+        {
+            return new GameValue(compatiblemagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue code</returns>
+        public static GameValue Compile(GameValue rightInstance)
+        {
+            return new GameValue(compile(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue code</returns>
+        public static GameValue CompileFinal(GameValue rightInstance)
+        {
+            return new GameValue(compilefinal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue code</returns>
+        public static GameValue CompileScript(GameValue rightInstance)
+        {
+            return new GameValue(compilescript(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CompletedFSM(GameValue rightInstance)
+        {
+            return new GameValue(completedfsm(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue ComposeText(GameValue rightInstance)
+        {
+            return new GameValue(composetext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ConfigClasses(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(configclasses(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue config</returns>
+        public static GameValue ConfigFile()
+        {
+            return new GameValue(configfile());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ConfigHierarchy(GameValue rightInstance)
+        {
+            return new GameValue(confighierarchy(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ConfigName(GameValue rightInstance)
+        {
+            return new GameValue(configname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue config</returns>
+        public static GameValue ConfigNull()
+        {
+            return new GameValue(confignull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue config</returns>
+        public static GameValue ConfigOf(GameValue rightInstance)
+        {
+            return new GameValue(configof(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ConfigProperties(GameValue rightInstance)
+        {
+            return new GameValue(configproperties(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ConfigSourceAddonList(GameValue rightInstance)
+        {
+            return new GameValue(configsourceaddonlist(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ConfigSourceMod(GameValue rightInstance)
+        {
+            return new GameValue(configsourcemod(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ConfigSourceModList(GameValue rightInstance)
+        {
+            return new GameValue(configsourcemodlist(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ConfirmSensorTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(confirmsensortarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ConnectTerminalToUAV(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(connectterminaltouav(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ConnectToServer(GameValue rightInstance)
+        {
+            return new GameValue(connecttoserver(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue ContinueWith(GameValue rightInstance)
+        {
+            return new GameValue(continuewith(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue control</returns>
+        public static GameValue ControlNull()
+        {
+            return new GameValue(controlnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue ControlsGroupCtrl(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(controlsgroupctrl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ConversationDisabled(GameValue rightInstance)
+        {
+            return new GameValue(conversationdisabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue CopyFromClipboard()
+        {
+            return new GameValue(copyfromclipboard());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CopyToClipboard(GameValue rightInstance)
+        {
+            return new GameValue(copytoclipboard(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CopyWaypoints(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(copywaypoints(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Cos(GameValue rightInstance)
+        {
+            return new GameValue(cos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Count(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(count(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CountEnemy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(countenemy(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CountFriendly(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(countfriendly(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CountSide(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(countside(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CountType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(counttype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CountUnknown(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(countunknown(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Create3DENComposition(GameValue rightInstance)
+        {
+            return new GameValue(create3dencomposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Create3DENEntity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(create3denentity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateAgent(GameValue rightInstance)
+        {
+            return new GameValue(createagent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue side</returns>
+        public static GameValue CreateCenter(GameValue rightInstance)
+        {
+            return new GameValue(createcenter(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue CreateDialog(GameValue rightInstance)
+        {
+            return new GameValue(createdialog(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CreateDiaryLink(GameValue rightInstance)
+        {
+            return new GameValue(creatediarylink(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue diary_record</returns>
+        public static GameValue CreateDiaryRecord(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(creatediaryrecord(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CreateDiarySubject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(creatediarysubject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue CreateDisplay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createdisplay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CreateGearDialog(GameValue rightInstance)
+        {
+            return new GameValue(creategeardialog(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue group</returns>
+        public static GameValue CreateGroup(GameValue rightInstance)
+        {
+            return new GameValue(creategroup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CreateGuardedPoint(GameValue rightInstance)
+        {
+            return new GameValue(createguardedpoint(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue hashmap</returns>
+        public static GameValue CreateHashMap()
+        {
+            return new GameValue(createhashmap());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue hashmap</returns>
+        public static GameValue CreateHashMapFromArray(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createhashmapfromarray(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue location</returns>
+        public static GameValue CreateLocation(GameValue rightInstance)
+        {
+            return new GameValue(createlocation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CreateMarker(GameValue rightInstance)
+        {
+            return new GameValue(createmarker(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CreateMarkerLocal(GameValue rightInstance)
+        {
+            return new GameValue(createmarkerlocal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CreateMenu(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createmenu(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateMine(GameValue rightInstance)
+        {
+            return new GameValue(createmine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue CreateMissionDisplay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createmissiondisplay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CreateMPCampaignDisplay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(creatempcampaigndisplay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateSimpleObject(GameValue rightInstance)
+        {
+            return new GameValue(createsimpleobject(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue task</returns>
+        public static GameValue CreateSimpleTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createsimpletask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateSite(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createsite(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateSoundSource(GameValue rightInstance)
+        {
+            return new GameValue(createsoundsource(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue task</returns>
+        public static GameValue CreateTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createtask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue team_member</returns>
+        public static GameValue CreateTeam(GameValue rightInstance)
+        {
+            return new GameValue(createteam(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateTrigger(GameValue rightInstance)
+        {
+            return new GameValue(createtrigger(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateUnit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createunit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createvehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue group</returns>
+        public static GameValue CreateVehicleCrew(GameValue rightInstance)
+        {
+            return new GameValue(createvehiclecrew(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CreateVehicleLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(createvehiclelocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Crew(GameValue rightInstance)
+        {
+            return new GameValue(crew(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtAddHeader(GameValue rightInstance)
+        {
+            return new GameValue(ctaddheader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtAddRow(GameValue rightInstance)
+        {
+            return new GameValue(ctaddrow(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtClear(GameValue rightInstance)
+        {
+            return new GameValue(ctclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtCurSel(GameValue rightInstance)
+        {
+            return new GameValue(ctcursel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtFindHeaderRows(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctfindheaderrows(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtFindRowHeader(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctfindrowheader(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtHeaderControls(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctheadercontrols(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtHeaderCount(GameValue rightInstance)
+        {
+            return new GameValue(ctheadercount(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtRemoveHeaders(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctremoveheaders(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtRemoveRows(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctremoverows(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlActivate(GameValue rightInstance)
+        {
+            return new GameValue(ctrlactivate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlAddEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrladdeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlAngle(GameValue rightInstance)
+        {
+            return new GameValue(ctrlangle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlAnimateModel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlanimatemodel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlAnimationPhaseModel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlanimationphasemodel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue CtrlAt(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlAutoScrollDelay(GameValue rightInstance)
+        {
+            return new GameValue(ctrlautoscrolldelay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlAutoScrollRewind(GameValue rightInstance)
+        {
+            return new GameValue(ctrlautoscrollrewind(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlAutoScrollSpeed(GameValue rightInstance)
+        {
+            return new GameValue(ctrlautoscrollspeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlBackgroundColor(GameValue rightInstance)
+        {
+            return new GameValue(ctrlbackgroundcolor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlChecked(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlchecked(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlClassName(GameValue rightInstance)
+        {
+            return new GameValue(ctrlclassname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlCommit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlcommit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlCommitted(GameValue rightInstance)
+        {
+            return new GameValue(ctrlcommitted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue CtrlCreate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlcreate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlDelete(GameValue rightInstance)
+        {
+            return new GameValue(ctrldelete(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlEnable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlenable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlEnabled(GameValue rightInstance)
+        {
+            return new GameValue(ctrlenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlFade(GameValue rightInstance)
+        {
+            return new GameValue(ctrlfade(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlFontHeight(GameValue rightInstance)
+        {
+            return new GameValue(ctrlfontheight(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlForegroundColor(GameValue rightInstance)
+        {
+            return new GameValue(ctrlforegroundcolor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlHTMLLoaded(GameValue rightInstance)
+        {
+            return new GameValue(ctrlhtmlloaded(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlIDC(GameValue rightInstance)
+        {
+            return new GameValue(ctrlidc(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlIDD(GameValue rightInstance)
+        {
+            return new GameValue(ctrlidd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlMapAnimAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapanimadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlMapAnimClear(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapanimclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlMapAnimCommit(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapanimcommit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlMapAnimDone(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapanimdone(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlMapCursor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapcursor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlMapMouseOver(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapmouseover(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlMapPosition(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlMapScale(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapscale(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlMapScreenToWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapscreentoworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlMapSetPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapsetposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlMapWorldToScreen(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlmapworldtoscreen(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlModel(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmodel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlModelDirAndUp(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmodeldirandup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlModelScale(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmodelscale(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlMousePosition(GameValue rightInstance)
+        {
+            return new GameValue(ctrlmouseposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue CtrlParent(GameValue rightInstance)
+        {
+            return new GameValue(ctrlparent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue CtrlParentControlsGroup(GameValue rightInstance)
+        {
+            return new GameValue(ctrlparentcontrolsgroup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlPosition(GameValue rightInstance)
+        {
+            return new GameValue(ctrlposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlRemoveAllEventHandlers(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlremovealleventhandlers(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlRemoveEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlremoveeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlScale(GameValue rightInstance)
+        {
+            return new GameValue(ctrlscale(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlScrollValues(GameValue rightInstance)
+        {
+            return new GameValue(ctrlscrollvalues(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetActiveColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetactivecolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetAngle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetangle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetAutoScrollDelay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetautoscrolldelay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetAutoScrollRewind(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetautoscrollrewind(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetAutoScrollSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetautoscrollspeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetBackgroundColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetbackgroundcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetChecked(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetchecked(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetDisabledColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetdisabledcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlseteventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFade(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfade(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFocus(GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfocus(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFont(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfont(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH1(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth1(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH1B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth1b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH2(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth2(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH2B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth2b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH3(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth3(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH3B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth3b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH4(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth4(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH4B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth4b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH5(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth5(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH5B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth5b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH6(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth6(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontH6B(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfonth6b(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH1(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth1(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH2(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth2(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH3(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth3(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH4(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth4(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH5(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth5(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightH6(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheighth6(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontHeightSecondary(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontheightsecondary(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontP(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontp(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontPB(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontpb(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetFontSecondary(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetfontsecondary(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetForegroundColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetforegroundcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetModel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetmodel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetModelDirAndUp(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetmodeldirandup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetModelScale(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetmodelscale(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetMousePosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetmouseposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPixelPrecision(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetpixelprecision(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPositionH(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetpositionh(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPositionW(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetpositionw(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPositionX(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetpositionx(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetPositionY(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetpositiony(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetScale(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetscale(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetScrollValues(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetscrollvalues(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetShadow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetshadow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetStructuredText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsetstructuredtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTextColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettextcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTextColorSecondary(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettextcolorsecondary(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTextSecondary(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettextsecondary(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTextSelection(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettextselection(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTooltipColorBox(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettooltipcolorbox(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTooltipColorShade(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettooltipcolorshade(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetTooltipColorText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettooltipcolortext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlSetTooltipMaxWidth(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlsettooltipmaxwidth(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetURL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlseturl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlSetURLOverlayMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlseturloverlaymode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlShadow(GameValue rightInstance)
+        {
+            return new GameValue(ctrlshadow(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtrlShow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrlshow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlShown(GameValue rightInstance)
+        {
+            return new GameValue(ctrlshown(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlStyle(GameValue rightInstance)
+        {
+            return new GameValue(ctrlstyle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlText(GameValue rightInstance)
+        {
+            return new GameValue(ctrltext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlTextColor(GameValue rightInstance)
+        {
+            return new GameValue(ctrltextcolor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlTextHeight(GameValue rightInstance)
+        {
+            return new GameValue(ctrltextheight(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlTextSecondary(GameValue rightInstance)
+        {
+            return new GameValue(ctrltextsecondary(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtrlTextSelection(GameValue rightInstance)
+        {
+            return new GameValue(ctrltextselection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlTextWidth(GameValue rightInstance)
+        {
+            return new GameValue(ctrltextwidth(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlTooltip(GameValue rightInstance)
+        {
+            return new GameValue(ctrltooltip(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlType(GameValue rightInstance)
+        {
+            return new GameValue(ctrltype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CtrlURL(GameValue rightInstance)
+        {
+            return new GameValue(ctrlurl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtrlURLOverlayMode(GameValue rightInstance)
+        {
+            return new GameValue(ctrlurloverlaymode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CtrlVisible(GameValue rightInstance)
+        {
+            return new GameValue(ctrlvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CtRowControls(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctrowcontrols(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtRowCount(GameValue rightInstance)
+        {
+            return new GameValue(ctrowcount(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtSetCurSel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctsetcursel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtSetData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctsetdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtSetHeaderTemplate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctsetheadertemplate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtSetRowTemplate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctsetrowtemplate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CtSetValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctsetvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CtValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ctvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorAddons(GameValue rightInstance)
+        {
+            return new GameValue(curatoraddons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue CuratorCamera()
+        {
+            return new GameValue(curatorcamera());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorCameraArea(GameValue rightInstance)
+        {
+            return new GameValue(curatorcameraarea(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CuratorCameraAreaCeiling(GameValue rightInstance)
+        {
+            return new GameValue(curatorcameraareaceiling(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CuratorCoef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(curatorcoef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorEditableObjects(GameValue rightInstance)
+        {
+            return new GameValue(curatoreditableobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorEditingArea(GameValue rightInstance)
+        {
+            return new GameValue(curatoreditingarea(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue CuratorEditingAreaType(GameValue rightInstance)
+        {
+            return new GameValue(curatoreditingareatype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue CuratorMouseOver()
+        {
+            return new GameValue(curatormouseover());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CuratorPoints(GameValue rightInstance)
+        {
+            return new GameValue(curatorpoints(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorRegisteredObjects(GameValue rightInstance)
+        {
+            return new GameValue(curatorregisteredobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue CuratorSelected()
+        {
+            return new GameValue(curatorselected());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CuratorWaypointCost(GameValue rightInstance)
+        {
+            return new GameValue(curatorwaypointcost(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue Current3DENOperation()
+        {
+            return new GameValue(current3denoperation());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CurrentChannel()
+        {
+            return new GameValue(currentchannel());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentCommand(GameValue rightInstance)
+        {
+            return new GameValue(currentcommand(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentMagazine(GameValue rightInstance)
+        {
+            return new GameValue(currentmagazine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CurrentMagazineDetail(GameValue rightInstance)
+        {
+            return new GameValue(currentmagazinedetail(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentMagazineDetailTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(currentmagazinedetailturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentMagazineTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(currentmagazineturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentMuzzle(GameValue rightInstance)
+        {
+            return new GameValue(currentmuzzle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue CurrentNamespace()
+        {
+            return new GameValue(currentnamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue CurrentPilot(GameValue rightInstance)
+        {
+            return new GameValue(currentpilot(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue task</returns>
+        public static GameValue CurrentTask(GameValue rightInstance)
+        {
+            return new GameValue(currenttask(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CurrentTasks(GameValue rightInstance)
+        {
+            return new GameValue(currenttasks(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CurrentThrowable(GameValue rightInstance)
+        {
+            return new GameValue(currentthrowable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CurrentVisionMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(currentvisionmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue CurrentWaypoint(GameValue rightInstance)
+        {
+            return new GameValue(currentwaypoint(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentWeapon(GameValue rightInstance)
+        {
+            return new GameValue(currentweapon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentWeaponMode(GameValue rightInstance)
+        {
+            return new GameValue(currentweaponmode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue CurrentWeaponTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(currentweaponturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue CurrentZeroing(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(currentzeroing(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue CursorObject()
+        {
+            return new GameValue(cursorobject());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue CursorTarget()
+        {
+            return new GameValue(cursortarget());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CustomChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(customchat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CustomRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(customradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue CustomWaypointPosition()
+        {
+            return new GameValue(customwaypointposition());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CutFadeOut(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cutfadeout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CutObj(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cutobj(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CutRsc(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cutrsc(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue CutText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(cuttext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Damage(GameValue rightInstance)
+        {
+            return new GameValue(damage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Date()
+        {
+            return new GameValue(date());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DateToNumber(GameValue rightInstance)
+        {
+            return new GameValue(datetonumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DayTime()
+        {
+            return new GameValue(daytime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeActivateKey(GameValue rightInstance)
+        {
+            return new GameValue(deactivatekey(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DebriefingText(GameValue rightInstance)
+        {
+            return new GameValue(debriefingtext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DebugFSM(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(debugfsm(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DebugLog(GameValue rightInstance)
+        {
+            return new GameValue(debuglog(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue DecayGraphValues(GameValue rightInstance)
+        {
+            return new GameValue(decaygraphvalues(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Deg(GameValue rightInstance)
+        {
+            return new GameValue(deg(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Delete3DENEntities(GameValue rightInstance)
+        {
+            return new GameValue(delete3denentities(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue DeleteAt(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deleteat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteCenter(GameValue rightInstance)
+        {
+            return new GameValue(deletecenter(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteCollection(GameValue rightInstance)
+        {
+            return new GameValue(deletecollection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue DeleteEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deleteeditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteGroup(GameValue rightInstance)
+        {
+            return new GameValue(deletegroup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteGroupWhenEmpty(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deletegroupwhenempty(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DeleteIdentity(GameValue rightInstance)
+        {
+            return new GameValue(deleteidentity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteLocation(GameValue rightInstance)
+        {
+            return new GameValue(deletelocation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteMarker(GameValue rightInstance)
+        {
+            return new GameValue(deletemarker(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteMarkerLocal(GameValue rightInstance)
+        {
+            return new GameValue(deletemarkerlocal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteRange(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deleterange(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteResources(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deleteresources(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteSite(GameValue rightInstance)
+        {
+            return new GameValue(deletesite(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DeleteStatus(GameValue rightInstance)
+        {
+            return new GameValue(deletestatus(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteTeam(GameValue rightInstance)
+        {
+            return new GameValue(deleteteam(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteVehicle(GameValue rightInstance)
+        {
+            return new GameValue(deletevehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteVehicleCrew(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(deletevehiclecrew(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DeleteWaypoint(GameValue rightInstance)
+        {
+            return new GameValue(deletewaypoint(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Detach(GameValue rightInstance)
+        {
+            return new GameValue(detach(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue DetectedMines(GameValue rightInstance)
+        {
+            return new GameValue(detectedmines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_activeMissionFSMs()
+        {
+            return new GameValue(diag_activemissionfsms());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_activeScripts()
+        {
+            return new GameValue(diag_activescripts());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_activeSQFScripts()
+        {
+            return new GameValue(diag_activesqfscripts());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_activeSQSScripts()
+        {
+            return new GameValue(diag_activesqsscripts());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_allMissionEventHandlers()
+        {
+            return new GameValue(diag_allmissioneventhandlers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_codePerformance(GameValue rightInstance)
+        {
+            return new GameValue(diag_codeperformance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_deltaTime()
+        {
+            return new GameValue(diag_deltatime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Diag_dynamicSimulationEnd(GameValue rightInstance)
+        {
+            return new GameValue(diag_dynamicsimulationend(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_fps()
+        {
+            return new GameValue(diag_fps());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_fpsmin()
+        {
+            return new GameValue(diag_fpsmin());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_frameno()
+        {
+            return new GameValue(diag_frameno());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Diag_lightNewLoad(GameValue rightInstance)
+        {
+            return new GameValue(diag_lightnewload(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_localized(GameValue rightInstance)
+        {
+            return new GameValue(diag_localized(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Diag_log(GameValue rightInstance)
+        {
+            return new GameValue(diag_log(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_scope()
+        {
+            return new GameValue(diag_scope());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Diag_setLightNew(GameValue rightInstance)
+        {
+            return new GameValue(diag_setlightnew(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Diag_stacktrace()
+        {
+            return new GameValue(diag_stacktrace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Diag_tickTime()
+        {
+            return new GameValue(diag_ticktime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Dialog()
+        {
+            return new GameValue(dialog());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue task</returns>
+        public static GameValue DiaryRecordNull()
+        {
+            return new GameValue(diaryrecordnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DiarySubjectExists(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(diarysubjectexists(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DidJIP()
+        {
+            return new GameValue(didjip());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DidJIPOwner(GameValue rightInstance)
+        {
+            return new GameValue(didjipowner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Difficulty()
+        {
+            return new GameValue(difficulty());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DifficultyEnabled(GameValue rightInstance)
+        {
+            return new GameValue(difficultyenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DifficultyEnabledRTD()
+        {
+            return new GameValue(difficultyenabledrtd());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DifficultyOption(GameValue rightInstance)
+        {
+            return new GameValue(difficultyoption(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Direction(GameValue rightInstance)
+        {
+            return new GameValue(direction(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DirectionStabilizationEnabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(directionstabilizationenabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DirectSay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(directsay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableAI(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disableai(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableBrakes(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disablebrakes(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableCollisionWith(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disablecollisionwith(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableConversation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disableconversation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableDebriefingStats()
+        {
+            return new GameValue(disabledebriefingstats());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableMapIndicators(GameValue rightInstance)
+        {
+            return new GameValue(disablemapindicators(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableNVGEquipment(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disablenvgequipment(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableRemoteSensors(GameValue rightInstance)
+        {
+            return new GameValue(disableremotesensors(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableSerialization()
+        {
+            return new GameValue(disableserialization());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableTIEquipment(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disabletiequipment(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableUAVConnectability(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(disableuavconnectability(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisableUserInput(GameValue rightInstance)
+        {
+            return new GameValue(disableuserinput(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DisplayAddEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(displayaddeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue DisplayChild(GameValue rightInstance)
+        {
+            return new GameValue(displaychild(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue DisplayCtrl(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(displayctrl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue display</returns>
+        public static GameValue DisplayNull()
+        {
+            return new GameValue(displaynull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue DisplayParent(GameValue rightInstance)
+        {
+            return new GameValue(displayparent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisplayRemoveAllEventHandlers(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(displayremovealleventhandlers(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisplayRemoveEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(displayremoveeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisplaySetEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(displayseteventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue DisplayUniqueName(GameValue rightInstance)
+        {
+            return new GameValue(displayuniquename(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DisplayUpdate(GameValue rightInstance)
+        {
+            return new GameValue(displayupdate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DissolveTeam(GameValue rightInstance)
+        {
+            return new GameValue(dissolveteam(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Distance(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(distance(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Distance2D(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(distance2d(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DistanceSqr(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(distancesqr(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DistributionRegion()
+        {
+            return new GameValue(distributionregion());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Do3DENAction(GameValue rightInstance)
+        {
+            return new GameValue(do3denaction(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoArtilleryFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(doartilleryfire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dofire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoFollow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dofollow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoFSM(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dofsm(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoGetOut(GameValue rightInstance)
+        {
+            return new GameValue(dogetout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoMove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(domove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DoorPhase(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(doorphase(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoStop(GameValue rightInstance)
+        {
+            return new GameValue(dostop(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoSuppressiveFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dosuppressivefire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dotarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DoWatch(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(dowatch(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawArrow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawarrow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawEllipse(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawellipse(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawIcon3D(GameValue rightInstance)
+        {
+            return new GameValue(drawicon3d(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawLaser(GameValue rightInstance)
+        {
+            return new GameValue(drawlaser(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawLine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawline(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawLine3D(GameValue rightInstance)
+        {
+            return new GameValue(drawline3d(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawLink(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawlink(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawLocation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawlocation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawPolygon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawpolygon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawRectangle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawrectangle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue DrawTriangle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(drawtriangle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Driver(GameValue rightInstance)
+        {
+            return new GameValue(driver(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Drop(GameValue rightInstance)
+        {
+            return new GameValue(drop(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DynamicSimulationDistance(GameValue rightInstance)
+        {
+            return new GameValue(dynamicsimulationdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue DynamicSimulationDistanceCoef(GameValue rightInstance)
+        {
+            return new GameValue(dynamicsimulationdistancecoef(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DynamicSimulationEnabled(GameValue rightInstance)
+        {
+            return new GameValue(dynamicsimulationenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue DynamicSimulationSystemEnabled()
+        {
+            return new GameValue(dynamicsimulationsystemenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue East()
+        {
+            return new GameValue(east());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Echo(GameValue rightInstance)
+        {
+            return new GameValue(echo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Edit3DENMissionAttributes(GameValue rightInstance)
+        {
+            return new GameValue(edit3denmissionattributes(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue EditObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(editobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EditorSetEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(editorseteventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue EffectiveCommander(GameValue rightInstance)
+        {
+            return new GameValue(effectivecommander(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ElevatePeriscope(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(elevateperiscope(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue EmptyPositions(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(emptypositions(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableAI(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableai(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableAIFeature(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableaifeature(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableAimPrecision(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableaimprecision(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableAttack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableattack(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue EnableAudioFeature(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableaudiofeature(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableAutoStartUpRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableautostartuprtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue EnableAutoTrimRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableautotrimrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableCamShake(GameValue rightInstance)
+        {
+            return new GameValue(enablecamshake(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableCaustics(GameValue rightInstance)
+        {
+            return new GameValue(enablecaustics(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableChannel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablechannel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableCollisionWith(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablecollisionwith(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableCopilot(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablecopilot(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableDebriefingStats(GameValue rightInstance)
+        {
+            return new GameValue(enabledebriefingstats(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableDiagLegend(GameValue rightInstance)
+        {
+            return new GameValue(enablediaglegend(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableDirectionStabilization(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enabledirectionstabilization(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableDynamicSimulation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enabledynamicsimulation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableDynamicSimulationSystem(GameValue rightInstance)
+        {
+            return new GameValue(enabledynamicsimulationsystem(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableEndDialog()
+        {
+            return new GameValue(enableenddialog());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableEngineArtillery(GameValue rightInstance)
+        {
+            return new GameValue(enableengineartillery(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableEnvironment(GameValue rightInstance)
+        {
+            return new GameValue(enableenvironment(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableFatigue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablefatigue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableGunLights(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablegunlights(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue EnableInfoPanelComponent(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableinfopanelcomponent(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableIRLasers(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableirlasers(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableMimics(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablemimics(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnablePersonTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablepersonturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableRadio(GameValue rightInstance)
+        {
+            return new GameValue(enableradio(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableReload(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablereload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableRopeAttach(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableropeattach(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableSatNormalOnDetail(GameValue rightInstance)
+        {
+            return new GameValue(enablesatnormalondetail(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableSaving(GameValue rightInstance)
+        {
+            return new GameValue(enablesaving(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableSentences(GameValue rightInstance)
+        {
+            return new GameValue(enablesentences(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableSimulation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablesimulation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableSimulationGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablesimulationglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableStamina(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablestamina(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableStressDamage(GameValue rightInstance)
+        {
+            return new GameValue(enablestressdamage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableTeamSwitch(GameValue rightInstance)
+        {
+            return new GameValue(enableteamswitch(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableTraffic(GameValue rightInstance)
+        {
+            return new GameValue(enabletraffic(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableUAVConnectability(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableuavconnectability(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableUAVWaypoints(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableuavwaypoints(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableVehicleCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablevehiclecargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableVehicleSensor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enablevehiclesensor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EnableWeaponDisassembly(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(enableweapondisassembly(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue Endl()
+        {
+            return new GameValue(endl());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EndLoadingScreen()
+        {
+            return new GameValue(endloadingscreen());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EndMission(GameValue rightInstance)
+        {
+            return new GameValue(endmission(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EngineOn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(engineon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EnginesIsOnRTD(GameValue rightInstance)
+        {
+            return new GameValue(enginesisonrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EnginesPowerRTD(GameValue rightInstance)
+        {
+            return new GameValue(enginespowerrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EnginesRpmRTD(GameValue rightInstance)
+        {
+            return new GameValue(enginesrpmrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EnginesTorqueRTD(GameValue rightInstance)
+        {
+            return new GameValue(enginestorquertd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Entities(GameValue rightInstance)
+        {
+            return new GameValue(entities(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue EnvironmentEnabled()
+        {
+            return new GameValue(environmentenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue EnvironmentVolume()
+        {
+            return new GameValue(environmentvolume());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EquipmentDisabled(GameValue rightInstance)
+        {
+            return new GameValue(equipmentdisabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue EstimatedEndServerTime()
+        {
+            return new GameValue(estimatedendservertime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue EstimatedTimeLeft(GameValue rightInstance)
+        {
+            return new GameValue(estimatedtimeleft(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue EvalObjectArgument(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(evalobjectargument(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EveryBackpack(GameValue rightInstance)
+        {
+            return new GameValue(everybackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EveryContainer(GameValue rightInstance)
+        {
+            return new GameValue(everycontainer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Exec(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(exec(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue ExecEditorScript(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(execeditorscript(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ExecFSM(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(execfsm(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue script</returns>
+        public static GameValue ExecVM(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(execvm(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Exit()
+        {
+            return new GameValue(exit());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue ExitWith(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(exitwith(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Exp(GameValue rightInstance)
+        {
+            return new GameValue(exp(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ExpectedDestination(GameValue rightInstance)
+        {
+            return new GameValue(expecteddestination(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ExportJIPMessages(GameValue rightInstance)
+        {
+            return new GameValue(exportjipmessages(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EyeDirection(GameValue rightInstance)
+        {
+            return new GameValue(eyedirection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue EyePos(GameValue rightInstance)
+        {
+            return new GameValue(eyepos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Face(GameValue rightInstance)
+        {
+            return new GameValue(face(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Faction(GameValue rightInstance)
+        {
+            return new GameValue(faction(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FadeEnvironment(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fadeenvironment(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FadeMusic(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fademusic(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FadeRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(faderadio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FadeSound(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fadesound(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FadeSpeech(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fadespeech(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FailMission(GameValue rightInstance)
+        {
+            return new GameValue(failmission(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue FileExists(GameValue rightInstance)
+        {
+            return new GameValue(fileexists(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FillWeaponsFromPool(GameValue rightInstance)
+        {
+            return new GameValue(fillweaponsfrompool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Find(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(find(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue FindAny(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findany(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FindCover(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findcover(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue display</returns>
+        public static GameValue FindDisplay(GameValue rightInstance)
+        {
+            return new GameValue(finddisplay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue FindEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findeditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue FindEmptyPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findemptyposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue FindEmptyPositionReady(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findemptypositionready(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue FindIf(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findif(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FindNearestEnemy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(findnearestenemy(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FinishMissionInit()
+        {
+            return new GameValue(finishmissioninit());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Finite(GameValue rightInstance)
+        {
+            return new GameValue(finite(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Fire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue FireAtTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(fireattarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FirstBackpack(GameValue rightInstance)
+        {
+            return new GameValue(firstbackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Flag(GameValue rightInstance)
+        {
+            return new GameValue(flag(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue FlagAnimationPhase(GameValue rightInstance)
+        {
+            return new GameValue(flaganimationphase(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FlagOwner(GameValue rightInstance)
+        {
+            return new GameValue(flagowner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue side</returns>
+        public static GameValue FlagSide(GameValue rightInstance)
+        {
+            return new GameValue(flagside(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue FlagTexture(GameValue rightInstance)
+        {
+            return new GameValue(flagtexture(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Flatten(GameValue rightInstance)
+        {
+            return new GameValue(flatten(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Fleeing(GameValue rightInstance)
+        {
+            return new GameValue(fleeing(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Floor(GameValue rightInstance)
+        {
+            return new GameValue(floor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FlyInHeight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(flyinheight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue FlyInHeightASL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(flyinheightasl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue control</returns>
+        public static GameValue FocusedCtrl(GameValue rightInstance)
+        {
+            return new GameValue(focusedctrl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Fog()
+        {
+            return new GameValue(fog());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue FogForecast()
+        {
+            return new GameValue(fogforecast());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue FogParams()
+        {
+            return new GameValue(fogparams());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceAddUniform(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forceadduniform(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ForceAtPositionRTD(GameValue rightInstance)
+        {
+            return new GameValue(forceatpositionrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ForceCadetDifficulty(GameValue rightInstance)
+        {
+            return new GameValue(forcecadetdifficulty(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue ForcedMap()
+        {
+            return new GameValue(forcedmap());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceEnd()
+        {
+            return new GameValue(forceend());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceFlagTexture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forceflagtexture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceFollowRoad(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forcefollowroad(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ForceGeneratorRTD(GameValue rightInstance)
+        {
+            return new GameValue(forcegeneratorrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceMap(GameValue rightInstance)
+        {
+            return new GameValue(forcemap(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceRespawn(GameValue rightInstance)
+        {
+            return new GameValue(forcerespawn(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forcespeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceUnicode(GameValue rightInstance)
+        {
+            return new GameValue(forceunicode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceWalk(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forcewalk(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceWeaponFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forceweaponfire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForceWeatherChange()
+        {
+            return new GameValue(forceweatherchange());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForEachMember(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(foreachmember(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForEachMemberAgent(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(foreachmemberagent(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForEachMemberTeam(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(foreachmemberteam(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ForgetTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(forgettarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Format(GameValue rightInstance)
+        {
+            return new GameValue(format(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Formation(GameValue rightInstance)
+        {
+            return new GameValue(formation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue FormationDirection(GameValue rightInstance)
+        {
+            return new GameValue(formationdirection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FormationLeader(GameValue rightInstance)
+        {
+            return new GameValue(formationleader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue FormationMembers(GameValue rightInstance)
+        {
+            return new GameValue(formationmembers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue FormationPosition(GameValue rightInstance)
+        {
+            return new GameValue(formationposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue FormationTask(GameValue rightInstance)
+        {
+            return new GameValue(formationtask(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue FormatText(GameValue rightInstance)
+        {
+            return new GameValue(formattext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue FormLeader(GameValue rightInstance)
+        {
+            return new GameValue(formleader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool_nothing</returns>
+        public static GameValue FreeExtension(GameValue rightInstance)
+        {
+            return new GameValue(freeextension(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue FreeLook()
+        {
+            return new GameValue(freelook());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue for</returns>
+        public static GameValue From(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(from(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue FromEditor(GameValue rightInstance)
+        {
+            return new GameValue(fromeditor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Fuel(GameValue rightInstance)
+        {
+            return new GameValue(fuel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue FullCrew(GameValue rightInstance)
+        {
+            return new GameValue(fullcrew(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GearIDCAmmoCount(GameValue rightInstance)
+        {
+            return new GameValue(gearidcammocount(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GearSlotAmmoCount(GameValue rightInstance)
+        {
+            return new GameValue(gearslotammocount(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GearSlotData(GameValue rightInstance)
+        {
+            return new GameValue(gearslotdata(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GestureState(GameValue rightInstance)
+        {
+            return new GameValue(gesturestate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Get(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(get(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Get3DENActionState(GameValue rightInstance)
+        {
+            return new GameValue(get3denactionstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENAttribute(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(get3denattribute(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue Get3DENCamera()
+        {
+            return new GameValue(get3dencamera());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENConnections(GameValue rightInstance)
+        {
+            return new GameValue(get3denconnections(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Get3DENEntity(GameValue rightInstance)
+        {
+            return new GameValue(get3denentity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Get3DENEntityID(GameValue rightInstance)
+        {
+            return new GameValue(get3denentityid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Get3DENGrid(GameValue rightInstance)
+        {
+            return new GameValue(get3dengrid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENIconsVisible()
+        {
+            return new GameValue(get3deniconsvisible());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENLayerEntities(GameValue rightInstance)
+        {
+            return new GameValue(get3denlayerentities(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENLinesVisible()
+        {
+            return new GameValue(get3denlinesvisible());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Get3DENMissionAttribute(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(get3denmissionattribute(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENMouseOver()
+        {
+            return new GameValue(get3denmouseover());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Get3DENSelected(GameValue rightInstance)
+        {
+            return new GameValue(get3denselected(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetAimingCoef(GameValue rightInstance)
+        {
+            return new GameValue(getaimingcoef(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllEnv3DSoundControllers(GameValue rightInstance)
+        {
+            return new GameValue(getallenv3dsoundcontrollers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllEnvSoundControllers(GameValue rightInstance)
+        {
+            return new GameValue(getallenvsoundcontrollers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllHitPointsDamage(GameValue rightInstance)
+        {
+            return new GameValue(getallhitpointsdamage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllOwnedMines(GameValue rightInstance)
+        {
+            return new GameValue(getallownedmines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllPylonsInfo(GameValue rightInstance)
+        {
+            return new GameValue(getallpylonsinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllSoundControllers(GameValue rightInstance)
+        {
+            return new GameValue(getallsoundcontrollers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAllUnitTraits(GameValue rightInstance)
+        {
+            return new GameValue(getallunittraits(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetAmmoCargo(GameValue rightInstance)
+        {
+            return new GameValue(getammocargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetAnimAimPrecision(GameValue rightInstance)
+        {
+            return new GameValue(getanimaimprecision(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetAnimSpeedCoef(GameValue rightInstance)
+        {
+            return new GameValue(getanimspeedcoef(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetArray(GameValue rightInstance)
+        {
+            return new GameValue(getarray(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetArtilleryAmmo(GameValue rightInstance)
+        {
+            return new GameValue(getartilleryammo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetArtilleryComputerSettings()
+        {
+            return new GameValue(getartillerycomputersettings());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetArtilleryETA(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getartilleryeta(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAssetDLCInfo(GameValue rightInstance)
+        {
+            return new GameValue(getassetdlcinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetAssignedCuratorLogic(GameValue rightInstance)
+        {
+            return new GameValue(getassignedcuratorlogic(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetAssignedCuratorUnit(GameValue rightInstance)
+        {
+            return new GameValue(getassignedcuratorunit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetAttackTarget(GameValue rightInstance)
+        {
+            return new GameValue(getattacktarget(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetAudioOptionVolumes()
+        {
+            return new GameValue(getaudiooptionvolumes());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetBackpackCargo(GameValue rightInstance)
+        {
+            return new GameValue(getbackpackcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetBleedingRemaining(GameValue rightInstance)
+        {
+            return new GameValue(getbleedingremaining(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetBurningValue(GameValue rightInstance)
+        {
+            return new GameValue(getburningvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue GetCalculatePlayerVisibilityByFriendly()
+        {
+            return new GameValue(getcalculateplayervisibilitybyfriendly());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetCameraViewDirection(GameValue rightInstance)
+        {
+            return new GameValue(getcameraviewdirection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetCargoIndex(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getcargoindex(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetCenterOfMass(GameValue rightInstance)
+        {
+            return new GameValue(getcenterofmass(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetClientState()
+        {
+            return new GameValue(getclientstate());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetClientStateNumber()
+        {
+            return new GameValue(getclientstatenumber());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetCompatiblePylonMagazines(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getcompatiblepylonmagazines(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetConnectedUAV(GameValue rightInstance)
+        {
+            return new GameValue(getconnecteduav(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetConnectedUAVUnit(GameValue rightInstance)
+        {
+            return new GameValue(getconnecteduavunit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetContainerMaxLoad(GameValue rightInstance)
+        {
+            return new GameValue(getcontainermaxload(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetCorpse(GameValue rightInstance)
+        {
+            return new GameValue(getcorpse(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetCruiseControl(GameValue rightInstance)
+        {
+            return new GameValue(getcruisecontrol(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetCursorObjectParams()
+        {
+            return new GameValue(getcursorobjectparams());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetCustomAimCoef(GameValue rightInstance)
+        {
+            return new GameValue(getcustomaimcoef(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetCustomSoundController(GameValue rightInstance)
+        {
+            return new GameValue(getcustomsoundcontroller(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetCustomSoundControllerCount(GameValue rightInstance)
+        {
+            return new GameValue(getcustomsoundcontrollercount(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetDammage(GameValue rightInstance)
+        {
+            return new GameValue(getdammage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetDebriefingText(GameValue rightInstance)
+        {
+            return new GameValue(getdebriefingtext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetDescription(GameValue rightInstance)
+        {
+            return new GameValue(getdescription(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getdir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetDirVisual(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getdirvisual(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue GetDiverState(GameValue rightInstance)
+        {
+            return new GameValue(getdiverstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetDLCAssetsUsage()
+        {
+            return new GameValue(getdlcassetsusage());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetDLCAssetsUsageByName(GameValue rightInstance)
+        {
+            return new GameValue(getdlcassetsusagebyname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetDLCs(GameValue rightInstance)
+        {
+            return new GameValue(getdlcs(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetDLCUsageTime(GameValue rightInstance)
+        {
+            return new GameValue(getdlcusagetime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetEditorCamera(GameValue rightInstance)
+        {
+            return new GameValue(geteditorcamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetEditorMode(GameValue rightInstance)
+        {
+            return new GameValue(geteditormode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetEditorObjectScope(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(geteditorobjectscope(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetElevationOffset()
+        {
+            return new GameValue(getelevationoffset());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetEngineTargetRPMRTD(GameValue rightInstance)
+        {
+            return new GameValue(getenginetargetrpmrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetEnv3DSoundController(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getenv3dsoundcontroller(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetEnvSoundController(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getenvsoundcontroller(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetEventHandlerInfo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(geteventhandlerinfo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetFatigue(GameValue rightInstance)
+        {
+            return new GameValue(getfatigue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetFieldManualStartPage(GameValue rightInstance)
+        {
+            return new GameValue(getfieldmanualstartpage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetForcedFlagTexture(GameValue rightInstance)
+        {
+            return new GameValue(getforcedflagtexture(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetForcedSpeed(GameValue rightInstance)
+        {
+            return new GameValue(getforcedspeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetFriend(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getfriend(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue GetFSMVariable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getfsmvariable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetFuelCargo(GameValue rightInstance)
+        {
+            return new GameValue(getfuelcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetGraphValues(GameValue rightInstance)
+        {
+            return new GameValue(getgraphvalues(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetGroupIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getgroupicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetGroupIconParams(GameValue rightInstance)
+        {
+            return new GameValue(getgroupiconparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetGroupIcons(GameValue rightInstance)
+        {
+            return new GameValue(getgroupicons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetHideFrom(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(gethidefrom(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetHit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(gethit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetHitIndex(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(gethitindex(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetHitPointDamage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(gethitpointdamage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetItemCargo(GameValue rightInstance)
+        {
+            return new GameValue(getitemcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetLighting()
+        {
+            return new GameValue(getlighting());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetLightingAt(GameValue rightInstance)
+        {
+            return new GameValue(getlightingat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetLoadedModsInfo()
+        {
+            return new GameValue(getloadedmodsinfo());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMagazineCargo(GameValue rightInstance)
+        {
+            return new GameValue(getmagazinecargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetMarkerColor(GameValue rightInstance)
+        {
+            return new GameValue(getmarkercolor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMarkerPos(GameValue rightInstance)
+        {
+            return new GameValue(getmarkerpos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMarkerSize(GameValue rightInstance)
+        {
+            return new GameValue(getmarkersize(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetMarkerType(GameValue rightInstance)
+        {
+            return new GameValue(getmarkertype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetMass(GameValue rightInstance)
+        {
+            return new GameValue(getmass(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue config</returns>
+        public static GameValue GetMissionConfig(GameValue rightInstance)
+        {
+            return new GameValue(getmissionconfig(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array_string</returns>
+        public static GameValue GetMissionConfigValue(GameValue rightInstance)
+        {
+            return new GameValue(getmissionconfigvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMissionDLCs()
+        {
+            return new GameValue(getmissiondlcs());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMissionLayerEntities(GameValue rightInstance)
+        {
+            return new GameValue(getmissionlayerentities(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMissionLayers()
+        {
+            return new GameValue(getmissionlayers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetMissionPath(GameValue rightInstance)
+        {
+            return new GameValue(getmissionpath(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetModelInfo(GameValue rightInstance)
+        {
+            return new GameValue(getmodelinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetMousePosition()
+        {
+            return new GameValue(getmouseposition());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetMusicPlayedTime()
+        {
+            return new GameValue(getmusicplayedtime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetNumber(GameValue rightInstance)
+        {
+            return new GameValue(getnumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetObjectArgument(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getobjectargument(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetObjectChildren(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getobjectchildren(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetObjectDLC(GameValue rightInstance)
+        {
+            return new GameValue(getobjectdlc(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetObjectFOV(GameValue rightInstance)
+        {
+            return new GameValue(getobjectfov(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetObjectID(GameValue rightInstance)
+        {
+            return new GameValue(getobjectid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetObjectMaterials(GameValue rightInstance)
+        {
+            return new GameValue(getobjectmaterials(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetObjectProxy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getobjectproxy(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetObjectScale(GameValue rightInstance)
+        {
+            return new GameValue(getobjectscale(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetObjectTextures(GameValue rightInstance)
+        {
+            return new GameValue(getobjecttextures(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetObjectType(GameValue rightInstance)
+        {
+            return new GameValue(getobjecttype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetObjectViewDistance()
+        {
+            return new GameValue(getobjectviewdistance());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetOpticsMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getopticsmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue GetOrDefault(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getordefault(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue GetOrDefaultCall(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getordefaultcall(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetOxygenRemaining(GameValue rightInstance)
+        {
+            return new GameValue(getoxygenremaining(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPersonUsedDLCs(GameValue rightInstance)
+        {
+            return new GameValue(getpersonuseddlcs(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPilotCameraDirection(GameValue rightInstance)
+        {
+            return new GameValue(getpilotcameradirection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPilotCameraPosition(GameValue rightInstance)
+        {
+            return new GameValue(getpilotcameraposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPilotCameraRotation(GameValue rightInstance)
+        {
+            return new GameValue(getpilotcamerarotation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPilotCameraTarget(GameValue rightInstance)
+        {
+            return new GameValue(getpilotcameratarget(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetPiPViewDistance()
+        {
+            return new GameValue(getpipviewdistance());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetPlateNumber(GameValue rightInstance)
+        {
+            return new GameValue(getplatenumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetPlayerChannel(GameValue rightInstance)
+        {
+            return new GameValue(getplayerchannel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetPlayerID(GameValue rightInstance)
+        {
+            return new GameValue(getplayerid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPlayerScores(GameValue rightInstance)
+        {
+            return new GameValue(getplayerscores(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetPlayerUID(GameValue rightInstance)
+        {
+            return new GameValue(getplayeruid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetPlayerVoNVolume(GameValue rightInstance)
+        {
+            return new GameValue(getplayervonvolume(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosASL(GameValue rightInstance)
+        {
+            return new GameValue(getposasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosASLVisual(GameValue rightInstance)
+        {
+            return new GameValue(getposaslvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosASLW(GameValue rightInstance)
+        {
+            return new GameValue(getposaslw(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosATL(GameValue rightInstance)
+        {
+            return new GameValue(getposatl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosATLVisual(GameValue rightInstance)
+        {
+            return new GameValue(getposatlvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosVisual(GameValue rightInstance)
+        {
+            return new GameValue(getposvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosWorld(GameValue rightInstance)
+        {
+            return new GameValue(getposworld(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPosWorldVisual(GameValue rightInstance)
+        {
+            return new GameValue(getposworldvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetPylonMagazines(GameValue rightInstance)
+        {
+            return new GameValue(getpylonmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetRelDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getreldir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetRelPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getrelpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue GetRemoteSensorsDisabled()
+        {
+            return new GameValue(getremotesensorsdisabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetRepairCargo(GameValue rightInstance)
+        {
+            return new GameValue(getrepaircargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetResolution()
+        {
+            return new GameValue(getresolution());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetRoadInfo(GameValue rightInstance)
+        {
+            return new GameValue(getroadinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetRotorBrakeRTD(GameValue rightInstance)
+        {
+            return new GameValue(getrotorbrakertd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetSensorTargets(GameValue rightInstance)
+        {
+            return new GameValue(getsensortargets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetSensorThreats(GameValue rightInstance)
+        {
+            return new GameValue(getsensorthreats(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetShadowDistance()
+        {
+            return new GameValue(getshadowdistance());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetShotParents(GameValue rightInstance)
+        {
+            return new GameValue(getshotparents(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetSlingLoad(GameValue rightInstance)
+        {
+            return new GameValue(getslingload(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetSoundController(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getsoundcontroller(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetSoundControllerResult(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getsoundcontrollerresult(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getspeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetStamina(GameValue rightInstance)
+        {
+            return new GameValue(getstamina(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetStatValue(GameValue rightInstance)
+        {
+            return new GameValue(getstatvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetSteamFriendsServers()
+        {
+            return new GameValue(getsteamfriendsservers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetSubtitleOptions()
+        {
+            return new GameValue(getsubtitleoptions());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetSuppression(GameValue rightInstance)
+        {
+            return new GameValue(getsuppression(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetTerrainGrid()
+        {
+            return new GameValue(getterraingrid());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetTerrainHeight(GameValue rightInstance)
+        {
+            return new GameValue(getterrainheight(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetTerrainHeightASL(GameValue rightInstance)
+        {
+            return new GameValue(getterrainheightasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetTerrainInfo()
+        {
+            return new GameValue(getterraininfo());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetText(GameValue rightInstance)
+        {
+            return new GameValue(gettext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue GetTextRaw(GameValue rightInstance)
+        {
+            return new GameValue(gettextraw(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetTextureInfo(GameValue rightInstance)
+        {
+            return new GameValue(gettextureinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetTextWidth(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(gettextwidth(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue hashmap</returns>
+        public static GameValue GetTiParameters()
+        {
+            return new GameValue(gettiparameters());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetTotalDLCUsageTime()
+        {
+            return new GameValue(gettotaldlcusagetime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue GetTowParent(GameValue rightInstance)
+        {
+            return new GameValue(gettowparent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetTrimOffsetRTD(GameValue rightInstance)
+        {
+            return new GameValue(gettrimoffsetrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetTurretLimits(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getturretlimits(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GetTurretOpticsMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getturretopticsmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUnitFreefallInfo(GameValue rightInstance)
+        {
+            return new GameValue(getunitfreefallinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUnitLoadout(GameValue rightInstance)
+        {
+            return new GameValue(getunitloadout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing_bool</returns>
+        public static GameValue GetUnitTrait(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getunittrait(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUnloadInCombat(GameValue rightInstance)
+        {
+            return new GameValue(getunloadincombat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUserInfo(GameValue rightInstance)
+        {
+            return new GameValue(getuserinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUserMFDText(GameValue rightInstance)
+        {
+            return new GameValue(getusermfdtext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetUserMFDValue(GameValue rightInstance)
+        {
+            return new GameValue(getusermfdvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue GetVariable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(getvariable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetVehicleCargo(GameValue rightInstance)
+        {
+            return new GameValue(getvehiclecargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetVehicleTiPars(GameValue rightInstance)
+        {
+            return new GameValue(getvehicletipars(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue hashmap</returns>
+        public static GameValue GetVideoOptions()
+        {
+            return new GameValue(getvideooptions());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetWeaponCargo(GameValue rightInstance)
+        {
+            return new GameValue(getweaponcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetWeaponSway(GameValue rightInstance)
+        {
+            return new GameValue(getweaponsway(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetWingsOrientationRTD(GameValue rightInstance)
+        {
+            return new GameValue(getwingsorientationrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GetWingsPositionRTD(GameValue rightInstance)
+        {
+            return new GameValue(getwingspositionrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GetWPPos(GameValue rightInstance)
+        {
+            return new GameValue(getwppos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GlanceAt(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(glanceat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GlobalChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(globalchat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GlobalRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(globalradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Goggles(GameValue rightInstance)
+        {
+            return new GameValue(goggles(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue group</returns>
+        public static GameValue Group(GameValue rightInstance)
+        {
+            return new GameValue(group(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GroupChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(groupchat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue group</returns>
+        public static GameValue GroupFromNetId(GameValue rightInstance)
+        {
+            return new GameValue(groupfromnetid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue GroupIconSelectable()
+        {
+            return new GameValue(groupiconselectable());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue GroupIconsVisible()
+        {
+            return new GameValue(groupiconsvisible());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GroupID(GameValue rightInstance)
+        {
+            return new GameValue(groupid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue GroupOwner(GameValue rightInstance)
+        {
+            return new GameValue(groupowner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GroupRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(groupradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Groups(GameValue rightInstance)
+        {
+            return new GameValue(groups(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue GroupSelectedUnits(GameValue rightInstance)
+        {
+            return new GameValue(groupselectedunits(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue GroupSelectUnit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(groupselectunit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue group</returns>
+        public static GameValue GrpNull()
+        {
+            return new GameValue(grpnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Gunner(GameValue rightInstance)
+        {
+            return new GameValue(gunner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Gusts()
+        {
+            return new GameValue(gusts());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Halt()
+        {
+            return new GameValue(halt());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue HandgunItems(GameValue rightInstance)
+        {
+            return new GameValue(handgunitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue HandgunMagazine(GameValue rightInstance)
+        {
+            return new GameValue(handgunmagazine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue HandgunWeapon(GameValue rightInstance)
+        {
+            return new GameValue(handgunweapon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue HandsHit(GameValue rightInstance)
+        {
+            return new GameValue(handshit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue HashValue(GameValue rightInstance)
+        {
+            return new GameValue(hashvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue HasInterface()
+        {
+            return new GameValue(hasinterface());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue HasPilotCamera(GameValue rightInstance)
+        {
+            return new GameValue(haspilotcamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue HasWeapon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hasweapon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue HcAllGroups(GameValue rightInstance)
+        {
+            return new GameValue(hcallgroups(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue HcGroupParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hcgroupparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue HcLeader(GameValue rightInstance)
+        {
+            return new GameValue(hcleader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HcRemoveAllGroups(GameValue rightInstance)
+        {
+            return new GameValue(hcremoveallgroups(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HcRemoveGroup(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hcremovegroup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue HcSelected(GameValue rightInstance)
+        {
+            return new GameValue(hcselected(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HcSelectGroup(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hcselectgroup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HcSetGroup(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hcsetgroup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HcShowBar(GameValue rightInstance)
+        {
+            return new GameValue(hcshowbar(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue HcShownBar()
+        {
+            return new GameValue(hcshownbar());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Headgear(GameValue rightInstance)
+        {
+            return new GameValue(headgear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HideBody(GameValue rightInstance)
+        {
+            return new GameValue(hidebody(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HideObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hideobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HideObjectGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hideobjectglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HideSelection(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hideselection(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Hint(GameValue rightInstance)
+        {
+            return new GameValue(hint(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HintC(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(hintc(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HintCadet(GameValue rightInstance)
+        {
+            return new GameValue(hintcadet(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HintSilent(GameValue rightInstance)
+        {
+            return new GameValue(hintsilent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Hmd(GameValue rightInstance)
+        {
+            return new GameValue(hmd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HostMission(GameValue rightInstance)
+        {
+            return new GameValue(hostmission(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue HtmlLoad(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(htmlload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue HUDMovementLevels()
+        {
+            return new GameValue(hudmovementlevels());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Humidity()
+        {
+            return new GameValue(humidity());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue Image(GameValue rightInstance)
+        {
+            return new GameValue(image(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ImportAllGroups(GameValue rightInstance)
+        {
+            return new GameValue(importallgroups(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Importance(GameValue rightInstance)
+        {
+            return new GameValue(importance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue InArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue InAreaArray(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inareaarray(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue IncapacitatedState(GameValue rightInstance)
+        {
+            return new GameValue(incapacitatedstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue Independent()
+        {
+            return new GameValue(independent());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Inflame(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inflame(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Inflamed(GameValue rightInstance)
+        {
+            return new GameValue(inflamed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue InfoPanel(GameValue rightInstance)
+        {
+            return new GameValue(infopanel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue InfoPanelComponentEnabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(infopanelcomponentenabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue InfoPanelComponents(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(infopanelcomponents(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue InfoPanels(GameValue rightInstance)
+        {
+            return new GameValue(infopanels(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue InGameUISetEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(ingameuiseteventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue config</returns>
+        public static GameValue InheritsFrom(GameValue rightInstance)
+        {
+            return new GameValue(inheritsfrom(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue InitAmbientLife()
+        {
+            return new GameValue(initambientlife());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue InPolygon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inpolygon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue InputAction(GameValue rightInstance)
+        {
+            return new GameValue(inputaction(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue InputController(GameValue rightInstance)
+        {
+            return new GameValue(inputcontroller(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue InputMouse(GameValue rightInstance)
+        {
+            return new GameValue(inputmouse(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue InRangeOfArtillery(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inrangeofartillery(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Insert(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(insert(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue InsertEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(inserteditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue InsideBuilding(GameValue rightInstance)
+        {
+            return new GameValue(insidebuilding(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Intersect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(intersect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Is3DEN()
+        {
+            return new GameValue(is3den());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Is3DENMultiplayer()
+        {
+            return new GameValue(is3denmultiplayer());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Is3DENPreview()
+        {
+            return new GameValue(is3denpreview());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAbleToBreathe(GameValue rightInstance)
+        {
+            return new GameValue(isabletobreathe(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsActionMenuVisible()
+        {
+            return new GameValue(isactionmenuvisible());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAgent(GameValue rightInstance)
+        {
+            return new GameValue(isagent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAimPrecisionEnabled(GameValue rightInstance)
+        {
+            return new GameValue(isaimprecisionenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAllowedCrewInImmobile(GameValue rightInstance)
+        {
+            return new GameValue(isallowedcrewinimmobile(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsArray(GameValue rightInstance)
+        {
+            return new GameValue(isarray(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAutoHoverOn(GameValue rightInstance)
+        {
+            return new GameValue(isautohoveron(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAutonomous(GameValue rightInstance)
+        {
+            return new GameValue(isautonomous(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue IsAutoStartUpEnabledRTD(GameValue rightInstance)
+        {
+            return new GameValue(isautostartupenabledrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAutotest()
+        {
+            return new GameValue(isautotest());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAutoTrimOnRTD(GameValue rightInstance)
+        {
+            return new GameValue(isautotrimonrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsAwake(GameValue rightInstance)
+        {
+            return new GameValue(isawake(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsBleeding(GameValue rightInstance)
+        {
+            return new GameValue(isbleeding(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsBurning(GameValue rightInstance)
+        {
+            return new GameValue(isburning(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsClass(GameValue rightInstance)
+        {
+            return new GameValue(isclass(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsCollisionLightOn(GameValue rightInstance)
+        {
+            return new GameValue(iscollisionlighton(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsCopilotEnabled(GameValue rightInstance)
+        {
+            return new GameValue(iscopilotenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsDamageAllowed(GameValue rightInstance)
+        {
+            return new GameValue(isdamageallowed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsDedicated()
+        {
+            return new GameValue(isdedicated());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsDLCAvailable(GameValue rightInstance)
+        {
+            return new GameValue(isdlcavailable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEngineOn(GameValue rightInstance)
+        {
+            return new GameValue(isengineon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualRef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequalref(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequalto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequaltype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualTypeAll(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequaltypeall(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualTypeAny(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequaltypeany(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualTypeArray(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequaltypearray(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsEqualTypeParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isequaltypeparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsFilePatchingEnabled()
+        {
+            return new GameValue(isfilepatchingenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsFinal(GameValue rightInstance)
+        {
+            return new GameValue(isfinal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsFlashlightOn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isflashlighton(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue IsFlatEmpty(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isflatempty(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsForcedWalk(GameValue rightInstance)
+        {
+            return new GameValue(isforcedwalk(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsFormationLeader(GameValue rightInstance)
+        {
+            return new GameValue(isformationleader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsGameFocused()
+        {
+            return new GameValue(isgamefocused());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsGamePaused()
+        {
+            return new GameValue(isgamepaused());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsGroupDeletedWhenEmpty(GameValue rightInstance)
+        {
+            return new GameValue(isgroupdeletedwhenempty(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsHidden(GameValue rightInstance)
+        {
+            return new GameValue(ishidden(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsInRemainsCollector(GameValue rightInstance)
+        {
+            return new GameValue(isinremainscollector(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsInstructorFigureEnabled()
+        {
+            return new GameValue(isinstructorfigureenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsIRLaserOn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isirlaseron(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsKeyActive(GameValue rightInstance)
+        {
+            return new GameValue(iskeyactive(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsKindOf(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(iskindof(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsLaserOn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(islaseron(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsLightOn(GameValue rightInstance)
+        {
+            return new GameValue(islighton(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsLocalized(GameValue rightInstance)
+        {
+            return new GameValue(islocalized(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsManualFire(GameValue rightInstance)
+        {
+            return new GameValue(ismanualfire(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsMarkedForCollection(GameValue rightInstance)
+        {
+            return new GameValue(ismarkedforcollection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsMissionProfileNamespaceLoaded()
+        {
+            return new GameValue(ismissionprofilenamespaceloaded());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsMultiplayer()
+        {
+            return new GameValue(ismultiplayer());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsMultiplayerSolo()
+        {
+            return new GameValue(ismultiplayersolo());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsNil(GameValue rightInstance)
+        {
+            return new GameValue(isnil(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsNotEqualRef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isnotequalref(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsNotEqualTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isnotequalto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsNull(GameValue rightInstance)
+        {
+            return new GameValue(isnull(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsNumber(GameValue rightInstance)
+        {
+            return new GameValue(isnumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsObjectHidden(GameValue rightInstance)
+        {
+            return new GameValue(isobjecthidden(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsObjectRTD(GameValue rightInstance)
+        {
+            return new GameValue(isobjectrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsOnRoad(GameValue rightInstance)
+        {
+            return new GameValue(isonroad(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsPiPEnabled()
+        {
+            return new GameValue(ispipenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsPlayer(GameValue rightInstance)
+        {
+            return new GameValue(isplayer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsRealTime(GameValue rightInstance)
+        {
+            return new GameValue(isrealtime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsRemoteExecuted()
+        {
+            return new GameValue(isremoteexecuted());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsRemoteExecutedJIP()
+        {
+            return new GameValue(isremoteexecutedjip());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSaving()
+        {
+            return new GameValue(issaving());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSensorTargetConfirmed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(issensortargetconfirmed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsServer()
+        {
+            return new GameValue(isserver());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsShowing3DIcons(GameValue rightInstance)
+        {
+            return new GameValue(isshowing3dicons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSimpleObject(GameValue rightInstance)
+        {
+            return new GameValue(issimpleobject(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSprintAllowed(GameValue rightInstance)
+        {
+            return new GameValue(issprintallowed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsStaminaEnabled(GameValue rightInstance)
+        {
+            return new GameValue(isstaminaenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSteamMission()
+        {
+            return new GameValue(issteammission());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsSteamOverlayEnabled()
+        {
+            return new GameValue(issteamoverlayenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsStreamFriendlyUIEnabled()
+        {
+            return new GameValue(isstreamfriendlyuienabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsStressDamageEnabled()
+        {
+            return new GameValue(isstressdamageenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsText(GameValue rightInstance)
+        {
+            return new GameValue(istext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsTouchingGround(GameValue rightInstance)
+        {
+            return new GameValue(istouchingground(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsTurnedOut(GameValue rightInstance)
+        {
+            return new GameValue(isturnedout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsTutHintsEnabled()
+        {
+            return new GameValue(istuthintsenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsUAVConnectable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isuavconnectable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsUAVConnected(GameValue rightInstance)
+        {
+            return new GameValue(isuavconnected(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsUIContext()
+        {
+            return new GameValue(isuicontext());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsUniformAllowed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isuniformallowed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue IsVehicleCargo(GameValue rightInstance)
+        {
+            return new GameValue(isvehiclecargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsVehicleRadarOn(GameValue rightInstance)
+        {
+            return new GameValue(isvehicleradaron(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue IsVehicleSensorEnabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(isvehiclesensorenabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsWalking(GameValue rightInstance)
+        {
+            return new GameValue(iswalking(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsWeaponDeployed(GameValue rightInstance)
+        {
+            return new GameValue(isweapondeployed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue IsWeaponRested(GameValue rightInstance)
+        {
+            return new GameValue(isweaponrested(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ItemCargo(GameValue rightInstance)
+        {
+            return new GameValue(itemcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Items(GameValue rightInstance)
+        {
+            return new GameValue(items(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ItemsWithMagazines(GameValue rightInstance)
+        {
+            return new GameValue(itemswithmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Join(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(join(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue JoinAs(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(joinas(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue JoinAsSilent(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(joinassilent(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue JoinSilent(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(joinsilent(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue JoinString(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(joinstring(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue KbAddDatabase(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbadddatabase(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue KbAddDatabaseTargets(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbadddatabasetargets(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue KbAddTopic(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbaddtopic(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue KbHasTopic(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbhastopic(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue KbReact(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbreact(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue KbRemoveTopic(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbremovetopic(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue KbTell(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbtell(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue KbWasSaid(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(kbwassaid(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue KeyImage(GameValue rightInstance)
+        {
+            return new GameValue(keyimage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue KeyName(GameValue rightInstance)
+        {
+            return new GameValue(keyname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Keys(GameValue rightInstance)
+        {
+            return new GameValue(keys(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue KnowsAbout(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(knowsabout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Land(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(land(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LandAt(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(landat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LandResult(GameValue rightInstance)
+        {
+            return new GameValue(landresult(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue Language()
+        {
+            return new GameValue(language());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue LaserTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lasertarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LbAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbClear(GameValue rightInstance)
+        {
+            return new GameValue(lbclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LbColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LbColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbcolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LbCurSel(GameValue rightInstance)
+        {
+            return new GameValue(lbcursel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbDelete(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbdelete(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LbIsSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbisselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LbSelection(GameValue rightInstance)
+        {
+            return new GameValue(lbselection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetcolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetCurSel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetcursel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturecolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureColorDisabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturecolordisabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureColorSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturecolorselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureRightColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturerightcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureRightColorDisabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturerightcolordisabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetPictureRightColorSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetpicturerightcolorselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetSelectColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetselectcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetSelectColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetselectcolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsettext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetTextRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsettextright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsettooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSetValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsetvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LbSize(GameValue rightInstance)
+        {
+            return new GameValue(lbsize(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSort(GameValue rightInstance)
+        {
+            return new GameValue(lbsort(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSortBy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbsortby(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LbSortByValue(GameValue rightInstance)
+        {
+            return new GameValue(lbsortbyvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbTextRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbtextright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LbTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbtooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LbValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lbvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue team_member</returns>
+        public static GameValue Leader(GameValue rightInstance)
+        {
+            return new GameValue(leader(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardDeInit(GameValue rightInstance)
+        {
+            return new GameValue(leaderboarddeinit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LeaderboardGetRows(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardgetrows(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardInit(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardinit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardRequestRowsFriends(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardrequestrowsfriends(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardRequestRowsGlobal(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardrequestrowsglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardRequestRowsGlobalAroundUser(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardrequestrowsglobalarounduser(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardsRequestUploadScore(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardsrequestuploadscore(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LeaderboardsRequestUploadScoreKeepBest(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardsrequestuploadscorekeepbest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LeaderboardState(GameValue rightInstance)
+        {
+            return new GameValue(leaderboardstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LeaveVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(leavevehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue LibraryCredits()
+        {
+            return new GameValue(librarycredits());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue LibraryDisclaimers()
+        {
+            return new GameValue(librarydisclaimers());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LifeState(GameValue rightInstance)
+        {
+            return new GameValue(lifestate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LightAttachObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lightattachobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LightDetachObject(GameValue rightInstance)
+        {
+            return new GameValue(lightdetachobject(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LightIsOn(GameValue rightInstance)
+        {
+            return new GameValue(lightison(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Lightnings()
+        {
+            return new GameValue(lightnings());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LimitSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(limitspeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LinearConversion(GameValue rightInstance)
+        {
+            return new GameValue(linearconversion(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue text</returns>
+        public static GameValue LineBreak()
+        {
+            return new GameValue(linebreak());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LineIntersects(GameValue rightInstance)
+        {
+            return new GameValue(lineintersects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LineIntersectsObjs(GameValue rightInstance)
+        {
+            return new GameValue(lineintersectsobjs(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LineIntersectsSurfaces(GameValue rightInstance)
+        {
+            return new GameValue(lineintersectssurfaces(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LineIntersectsWith(GameValue rightInstance)
+        {
+            return new GameValue(lineintersectswith(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LinkItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(linkitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue List(GameValue rightInstance)
+        {
+            return new GameValue(list(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ListObjects(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(listobjects(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ListRemoteTargets(GameValue rightInstance)
+        {
+            return new GameValue(listremotetargets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ListVehicleSensors(GameValue rightInstance)
+        {
+            return new GameValue(listvehiclesensors(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Ln(GameValue rightInstance)
+        {
+            return new GameValue(ln(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LnbAddArray(GameValue rightInstance)
+        {
+            return new GameValue(lnbaddarray(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LnbAddColumn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbaddcolumn(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LnbAddRow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbaddrow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbClear(GameValue rightInstance)
+        {
+            return new GameValue(lnbclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LnbColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LnbColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbcolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LnbCurSelRow(GameValue rightInstance)
+        {
+            return new GameValue(lnbcurselrow(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LnbData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbDeleteColumn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbdeletecolumn(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbDeleteRow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbdeleterow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LnbGetColumnsPosition(GameValue rightInstance)
+        {
+            return new GameValue(lnbgetcolumnsposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LnbPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LnbPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetcolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetColumnsPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetcolumnspos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetCurSelRow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetcurselrow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPictureColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpicturecolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPictureColorRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpicturecolorright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPictureColorSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpicturecolorselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPictureColorSelectedRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpicturecolorselectedright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsettext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetTextRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsettextright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsettooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSetValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsetvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LnbSize(GameValue rightInstance)
+        {
+            return new GameValue(lnbsize(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSort(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsort(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSortBy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsortby(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LnbSortByValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbsortbyvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LnbText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LnbTextRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbtextright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LnbValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lnbvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Load(GameValue rightInstance)
+        {
+            return new GameValue(load(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LoadAbs(GameValue rightInstance)
+        {
+            return new GameValue(loadabs(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LoadBackpack(GameValue rightInstance)
+        {
+            return new GameValue(loadbackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue config</returns>
+        public static GameValue LoadConfig(GameValue rightInstance)
+        {
+            return new GameValue(loadconfig(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue LoadFile(GameValue rightInstance)
+        {
+            return new GameValue(loadfile(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LoadGame()
+        {
+            return new GameValue(loadgame());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LoadIdentity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(loadidentity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LoadMagazine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(loadmagazine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LoadOverlay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(loadoverlay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LoadStatus(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(loadstatus(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LoadUniform(GameValue rightInstance)
+        {
+            return new GameValue(loaduniform(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LoadVest(GameValue rightInstance)
+        {
+            return new GameValue(loadvest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Local(GameValue rightInstance)
+        {
+            return new GameValue(local(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Localize(GameValue rightInstance)
+        {
+            return new GameValue(localize(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue LocalNamespace()
+        {
+            return new GameValue(localnamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue location</returns>
+        public static GameValue LocationNull()
+        {
+            return new GameValue(locationnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue LocationPosition(GameValue rightInstance)
+        {
+            return new GameValue(locationposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Lock(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(Lock(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockCameraTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockcamerato(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockDriver(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockdriver(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Locked(GameValue rightInstance)
+        {
+            return new GameValue(locked(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing_object</returns>
+        public static GameValue LockedCameraTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockedcamerato(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LockedCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockedcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LockedDriver(GameValue rightInstance)
+        {
+            return new GameValue(lockeddriver(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LockedInventory(GameValue rightInstance)
+        {
+            return new GameValue(lockedinventory(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LockedTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockedturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue LockIdentity(GameValue rightInstance)
+        {
+            return new GameValue(lockidentity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockInventory(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockinventory(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LockWp(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lockwp(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LogEntities()
+        {
+            return new GameValue(logentities());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue LogNetwork(GameValue rightInstance)
+        {
+            return new GameValue(lognetwork(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LogNetworkTerminate(GameValue rightInstance)
+        {
+            return new GameValue(lognetworkterminate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LookAt(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lookat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue LookAtPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(lookatpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazineCargo(GameValue rightInstance)
+        {
+            return new GameValue(magazinecargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Magazines(GameValue rightInstance)
+        {
+            return new GameValue(magazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesAllTurrets(GameValue rightInstance)
+        {
+            return new GameValue(magazinesallturrets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesAmmo(GameValue rightInstance)
+        {
+            return new GameValue(magazinesammo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesAmmoCargo(GameValue rightInstance)
+        {
+            return new GameValue(magazinesammocargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesAmmoFull(GameValue rightInstance)
+        {
+            return new GameValue(magazinesammofull(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesDetail(GameValue rightInstance)
+        {
+            return new GameValue(magazinesdetail(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesDetailBackpack(GameValue rightInstance)
+        {
+            return new GameValue(magazinesdetailbackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesDetailUniform(GameValue rightInstance)
+        {
+            return new GameValue(magazinesdetailuniform(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesDetailVest(GameValue rightInstance)
+        {
+            return new GameValue(magazinesdetailvest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MagazinesTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(magazinesturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MagazineTurretAmmo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(magazineturretammo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MapAnimAdd(GameValue rightInstance)
+        {
+            return new GameValue(mapanimadd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MapAnimClear()
+        {
+            return new GameValue(mapanimclear());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MapAnimCommit()
+        {
+            return new GameValue(mapanimcommit());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MapAnimDone()
+        {
+            return new GameValue(mapanimdone());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MapCenterOnCamera(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(mapcenteroncamera(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MapGridPosition(GameValue rightInstance)
+        {
+            return new GameValue(mapgridposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MarkAsFinishedOnSteam()
+        {
+            return new GameValue(markasfinishedonsteam());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MarkerAlpha(GameValue rightInstance)
+        {
+            return new GameValue(markeralpha(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerBrush(GameValue rightInstance)
+        {
+            return new GameValue(markerbrush(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerChannel(GameValue rightInstance)
+        {
+            return new GameValue(markerchannel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerColor(GameValue rightInstance)
+        {
+            return new GameValue(markercolor(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MarkerDir(GameValue rightInstance)
+        {
+            return new GameValue(markerdir(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MarkerPolyline(GameValue rightInstance)
+        {
+            return new GameValue(markerpolyline(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MarkerPos(GameValue rightInstance)
+        {
+            return new GameValue(markerpos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MarkerShadow(GameValue rightInstance)
+        {
+            return new GameValue(markershadow(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerShape(GameValue rightInstance)
+        {
+            return new GameValue(markershape(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MarkerSize(GameValue rightInstance)
+        {
+            return new GameValue(markersize(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerText(GameValue rightInstance)
+        {
+            return new GameValue(markertext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MarkerType(GameValue rightInstance)
+        {
+            return new GameValue(markertype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MatrixMultiply(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(matrixmultiply(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MatrixTranspose(GameValue rightInstance)
+        {
+            return new GameValue(matrixtranspose(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Max(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(max(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MaxLoad(GameValue rightInstance)
+        {
+            return new GameValue(maxload(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Members(GameValue rightInstance)
+        {
+            return new GameValue(members(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MenuAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MenuChecked(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuchecked(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuClear(GameValue rightInstance)
+        {
+            return new GameValue(menuclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuCollapse(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menucollapse(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menudata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuDelete(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menudelete(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuEnable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuenable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MenuEnabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuenabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuExpand(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuexpand(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MenuHover(GameValue rightInstance)
+        {
+            return new GameValue(menuhover(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menupicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetCheck(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetcheck(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetShortcut(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetshortcut(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusettext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetURL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuseturl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSetValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusetvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MenuShortcut(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menushortcut(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuShortcutText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menushortcuttext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MenuSize(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusize(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MenuSort(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menusort(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menutext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue MenuURL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuurl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MenuValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(menuvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Merge(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(merge(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Min(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(min(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MineActive(GameValue rightInstance)
+        {
+            return new GameValue(mineactive(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MineDetectedBy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(minedetectedby(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue MissileTarget(GameValue rightInstance)
+        {
+            return new GameValue(missiletarget(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue MissileTargetPos(GameValue rightInstance)
+        {
+            return new GameValue(missiletargetpos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue config</returns>
+        public static GameValue MissionConfigFile()
+        {
+            return new GameValue(missionconfigfile());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MissionDifficulty()
+        {
+            return new GameValue(missiondifficulty());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue MissionEnd()
+        {
+            return new GameValue(missionend());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue MissionName()
+        {
+            return new GameValue(missionname());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue MissionNameSource()
+        {
+            return new GameValue(missionnamesource());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue MissionNamespace()
+        {
+            return new GameValue(missionnamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue MissionProfileNamespace()
+        {
+            return new GameValue(missionprofilenamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue MissionStart()
+        {
+            return new GameValue(missionstart());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MissionVersion()
+        {
+            return new GameValue(missionversion());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Mod(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(mod(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ModelToWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(modeltoworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ModelToWorldVisual(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(modeltoworldvisual(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ModelToWorldVisualWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(modeltoworldvisualworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ModelToWorldWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(modeltoworldworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ModParams(GameValue rightInstance)
+        {
+            return new GameValue(modparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MoonIntensity()
+        {
+            return new GameValue(moonintensity());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MoonPhase(GameValue rightInstance)
+        {
+            return new GameValue(moonphase(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Morale(GameValue rightInstance)
+        {
+            return new GameValue(morale(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Move(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(move(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Move3DENCamera(GameValue rightInstance)
+        {
+            return new GameValue(move3dencamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MoveInAny(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveinany(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveInCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveincargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveInCommander(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveincommander(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveInDriver(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveindriver(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveInGunner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveingunner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveInTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveinturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveObjectToEnd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveobjecttoend(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveOut(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MoveTime(GameValue rightInstance)
+        {
+            return new GameValue(movetime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue MoveTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(moveto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MoveToCompleted(GameValue rightInstance)
+        {
+            return new GameValue(movetocompleted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue MoveToFailed(GameValue rightInstance)
+        {
+            return new GameValue(movetofailed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue MusicVolume()
+        {
+            return new GameValue(musicvolume());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Name(GameValue rightInstance)
+        {
+            return new GameValue(name(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NamedProperties(GameValue rightInstance)
+        {
+            return new GameValue(namedproperties(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue NameSound(GameValue rightInstance)
+        {
+            return new GameValue(namesound(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearEntities(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearentities(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue NearestBuilding(GameValue rightInstance)
+        {
+            return new GameValue(nearestbuilding(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue location</returns>
+        public static GameValue NearestLocation(GameValue rightInstance)
+        {
+            return new GameValue(nearestlocation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearestLocations(GameValue rightInstance)
+        {
+            return new GameValue(nearestlocations(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue location</returns>
+        public static GameValue NearestLocationWithDubbing(GameValue rightInstance)
+        {
+            return new GameValue(nearestlocationwithdubbing(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearestMines(GameValue rightInstance)
+        {
+            return new GameValue(nearestmines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue NearestObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearestobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearestObjects(GameValue rightInstance)
+        {
+            return new GameValue(nearestobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearestTerrainObjects(GameValue rightInstance)
+        {
+            return new GameValue(nearestterrainobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearObjects(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearobjects(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue NearObjectsReady(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearobjectsready(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearRoads(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearroads(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearSupplies(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nearsupplies(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NearTargets(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(neartargets(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue NeedReload(GameValue rightInstance)
+        {
+            return new GameValue(needreload(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NeedService(GameValue rightInstance)
+        {
+            return new GameValue(needservice(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue NetId(GameValue rightInstance)
+        {
+            return new GameValue(netid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue NewOverlay(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(newoverlay(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue NextMenuItemIndex(GameValue rightInstance)
+        {
+            return new GameValue(nextmenuitemindex(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue NextWeatherChange()
+        {
+            return new GameValue(nextweatherchange());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue any</returns>
+        public static GameValue Nil()
+        {
+            return new GameValue(nil());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue NMenuItems(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(nmenuitems(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Not(GameValue rightInstance)
+        {
+            return new GameValue(not(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue NumberOfEnginesRTD(GameValue rightInstance)
+        {
+            return new GameValue(numberofenginesrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue NumberToDate(GameValue rightInstance)
+        {
+            return new GameValue(numbertodate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ObjectCurators(GameValue rightInstance)
+        {
+            return new GameValue(objectcurators(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue ObjectFromNetId(GameValue rightInstance)
+        {
+            return new GameValue(objectfromnetid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue ObjectParent(GameValue rightInstance)
+        {
+            return new GameValue(objectparent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue ObjNull()
+        {
+            return new GameValue(objnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ObjStatus(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(objstatus(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnBriefingGroup(GameValue rightInstance)
+        {
+            return new GameValue(onbriefinggroup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnBriefingNotes(GameValue rightInstance)
+        {
+            return new GameValue(onbriefingnotes(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnBriefingPlan(GameValue rightInstance)
+        {
+            return new GameValue(onbriefingplan(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnBriefingTeamSwitch(GameValue rightInstance)
+        {
+            return new GameValue(onbriefingteamswitch(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnCommandModeChanged(GameValue rightInstance)
+        {
+            return new GameValue(oncommandmodechanged(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue OnDoubleClick(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ondoubleclick(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnEachFrame(GameValue rightInstance)
+        {
+            return new GameValue(oneachframe(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnGroupIconClick(GameValue rightInstance)
+        {
+            return new GameValue(ongroupiconclick(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnGroupIconOverEnter(GameValue rightInstance)
+        {
+            return new GameValue(ongroupiconoverenter(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnGroupIconOverLeave(GameValue rightInstance)
+        {
+            return new GameValue(ongroupiconoverleave(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnHCGroupSelectionChanged(GameValue rightInstance)
+        {
+            return new GameValue(onhcgroupselectionchanged(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnMapSingleClick(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(onmapsingleclick(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnPlayerConnected(GameValue rightInstance)
+        {
+            return new GameValue(onplayerconnected(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnPlayerDisconnected(GameValue rightInstance)
+        {
+            return new GameValue(onplayerdisconnected(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnPreloadFinished(GameValue rightInstance)
+        {
+            return new GameValue(onpreloadfinished(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnPreloadStarted(GameValue rightInstance)
+        {
+            return new GameValue(onpreloadstarted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue OnShowNewObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(onshownewobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OnTeamSwitch(GameValue rightInstance)
+        {
+            return new GameValue(onteamswitch(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OpenCuratorInterface()
+        {
+            return new GameValue(opencuratorinterface());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue OpenDLCPage(GameValue rightInstance)
+        {
+            return new GameValue(opendlcpage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue OpenGPS(GameValue rightInstance)
+        {
+            return new GameValue(opengps(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue OpenMap(GameValue rightInstance)
+        {
+            return new GameValue(openmap(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue OpenSteamApp(GameValue rightInstance)
+        {
+            return new GameValue(opensteamapp(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue OpenYoutubeVideo(GameValue rightInstance)
+        {
+            return new GameValue(openyoutubevideo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue Opfor()
+        {
+            return new GameValue(opfor());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Or(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(or(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue OrderGetIn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ordergetin(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Overcast()
+        {
+            return new GameValue(overcast());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue OvercastForecast()
+        {
+            return new GameValue(overcastforecast());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Owner(GameValue rightInstance)
+        {
+            return new GameValue(owner(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Param(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(param(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ParseNumber(GameValue rightInstance)
+        {
+            return new GameValue(parsenumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ParseSimpleArray(GameValue rightInstance)
+        {
+            return new GameValue(parsesimplearray(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue ParseText(GameValue rightInstance)
+        {
+            return new GameValue(parsetext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue ParsingNamespace()
+        {
+            return new GameValue(parsingnamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ParticlesQuality()
+        {
+            return new GameValue(particlesquality());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PeriscopeElevation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(periscopeelevation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Pi()
+        {
+            return new GameValue(pi());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PickWeaponPool(GameValue rightInstance)
+        {
+            return new GameValue(pickweaponpool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Pitch(GameValue rightInstance)
+        {
+            return new GameValue(pitch(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PixelGrid()
+        {
+            return new GameValue(pixelgrid());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PixelGridBase()
+        {
+            return new GameValue(pixelgridbase());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PixelGridNoUIScale()
+        {
+            return new GameValue(pixelgridnouiscale());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PixelH()
+        {
+            return new GameValue(pixelh());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PixelW()
+        {
+            return new GameValue(pixelw());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PlayableSlotsNumber(GameValue rightInstance)
+        {
+            return new GameValue(playableslotsnumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue PlayableUnits()
+        {
+            return new GameValue(playableunits());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(playaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayActionNow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(playactionnow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue object</returns>
+        public static GameValue Player()
+        {
+            return new GameValue(player());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PlayerRespawnTime()
+        {
+            return new GameValue(playerrespawntime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue PlayerSide()
+        {
+            return new GameValue(playerside());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PlayersNumber(GameValue rightInstance)
+        {
+            return new GameValue(playersnumber(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayGesture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(playgesture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayMission(GameValue rightInstance)
+        {
+            return new GameValue(playmission(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayMove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(playmove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayMoveNow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(playmovenow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayMusic(GameValue rightInstance)
+        {
+            return new GameValue(playmusic(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlayScriptedMission(GameValue rightInstance)
+        {
+            return new GameValue(playscriptedmission(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue PlaySound(GameValue rightInstance)
+        {
+            return new GameValue(playsound(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlaySound3D(GameValue rightInstance)
+        {
+            return new GameValue(playsound3d(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PlaySoundUI(GameValue rightInstance)
+        {
+            return new GameValue(playsoundui(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Pose(GameValue rightInstance)
+        {
+            return new GameValue(pose(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Position(GameValue rightInstance)
+        {
+            return new GameValue(position(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue PositionCameraToWorld(GameValue rightInstance)
+        {
+            return new GameValue(positioncameratoworld(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue PosScreenToWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(posscreentoworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue PosWorldToScreen(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(posworldtoscreen(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PpEffectAdjust(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ppeffectadjust(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PpEffectCommit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ppeffectcommit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PpEffectCommitted(GameValue rightInstance)
+        {
+            return new GameValue(ppeffectcommitted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_array</returns>
+        public static GameValue PpEffectCreate(GameValue rightInstance)
+        {
+            return new GameValue(ppeffectcreate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PpEffectDestroy(GameValue rightInstance)
+        {
+            return new GameValue(ppeffectdestroy(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PpEffectEnable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ppeffectenable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PpEffectEnabled(GameValue rightInstance)
+        {
+            return new GameValue(ppeffectenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PpEffectForceInNVG(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ppeffectforceinnvg(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Precision(GameValue rightInstance)
+        {
+            return new GameValue(precision(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PreloadCamera(GameValue rightInstance)
+        {
+            return new GameValue(preloadcamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PreloadObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(preloadobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PreloadSound(GameValue rightInstance)
+        {
+            return new GameValue(preloadsound(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PreloadTitleObj(GameValue rightInstance)
+        {
+            return new GameValue(preloadtitleobj(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue PreloadTitleRsc(GameValue rightInstance)
+        {
+            return new GameValue(preloadtitlersc(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue PreprocessFile(GameValue rightInstance)
+        {
+            return new GameValue(preprocessfile(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue PreprocessFileLineNumbers(GameValue rightInstance)
+        {
+            return new GameValue(preprocessfilelinenumbers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue PrimaryWeapon(GameValue rightInstance)
+        {
+            return new GameValue(primaryweapon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue PrimaryWeaponItems(GameValue rightInstance)
+        {
+            return new GameValue(primaryweaponitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue PrimaryWeaponMagazine(GameValue rightInstance)
+        {
+            return new GameValue(primaryweaponmagazine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Priority(GameValue rightInstance)
+        {
+            return new GameValue(priority(rightInstance._internalGameValue));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ProcessDiaryLink(GameValue rightInstance)
+        {
+            return new GameValue(processdiarylink(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue ProductVersion()
+        {
+            return new GameValue(productversion());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue ProfileName()
+        {
+            return new GameValue(profilename());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue ProfileNamespace()
+        {
+            return new GameValue(profilenamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue ProfileNameSteam()
+        {
+            return new GameValue(profilenamesteam());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ProgressLoadingScreen(GameValue rightInstance)
+        {
+            return new GameValue(progressloadingscreen(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ProgressPosition(GameValue rightInstance)
+        {
+            return new GameValue(progressposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ProgressSetPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(progresssetposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PublicVariable(GameValue rightInstance)
+        {
+            return new GameValue(publicvariable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PublicVariableClient(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(publicvariableclient(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PublicVariableServer(GameValue rightInstance)
+        {
+            return new GameValue(publicvariableserver(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PushBack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(pushback(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue PushBackUnique(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(pushbackunique(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue PutWeaponPool(GameValue rightInstance)
+        {
+            return new GameValue(putweaponpool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue QueryItemsPool(GameValue rightInstance)
+        {
+            return new GameValue(queryitemspool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue QueryMagazinePool(GameValue rightInstance)
+        {
+            return new GameValue(querymagazinepool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue QueryWeaponPool(GameValue rightInstance)
+        {
+            return new GameValue(queryweaponpool(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Rad(GameValue rightInstance)
+        {
+            return new GameValue(rad(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RadioChannelAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(radiochanneladd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue RadioChannelCreate(GameValue rightInstance)
+        {
+            return new GameValue(radiochannelcreate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RadioChannelInfo(GameValue rightInstance)
+        {
+            return new GameValue(radiochannelinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RadioChannelRemove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(radiochannelremove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RadioChannelSetCallSign(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(radiochannelsetcallsign(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RadioChannelSetLabel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(radiochannelsetlabel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RadioEnabled()
+        {
+            return new GameValue(radioenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue RadioVolume()
+        {
+            return new GameValue(radiovolume());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Rain()
+        {
+            return new GameValue(rain());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Rainbow()
+        {
+            return new GameValue(rainbow());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue RainParams()
+        {
+            return new GameValue(rainparams());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Random(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(random(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Rank(GameValue rightInstance)
+        {
+            return new GameValue(rank(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue RankId(GameValue rightInstance)
+        {
+            return new GameValue(rankid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Rating(GameValue rightInstance)
+        {
+            return new GameValue(rating(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Rectangular(GameValue rightInstance)
+        {
+            return new GameValue(rectangular(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RegexFind(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(regexfind(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RegexMatch(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(regexmatch(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue RegexReplace(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(regexreplace(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RegisteredTasks(GameValue rightInstance)
+        {
+            return new GameValue(registeredtasks(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RegisterTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(registertask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Reload(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(reload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ReloadEnabled(GameValue rightInstance)
+        {
+            return new GameValue(reloadenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoteControl(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(remotecontrol(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string_nothing</returns>
+        public static GameValue RemoteExec(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(remoteexec(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string_nothing</returns>
+        public static GameValue RemoteExecCall(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(remoteexeccall(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue RemoteExecutedOwner()
+        {
+            return new GameValue(remoteexecutedowner());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Remove3DENConnection(GameValue rightInstance)
+        {
+            return new GameValue(remove3denconnection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Remove3DENEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(remove3deneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Remove3DENLayer(GameValue rightInstance)
+        {
+            return new GameValue(remove3denlayer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAll3DENEventHandlers(GameValue rightInstance)
+        {
+            return new GameValue(removeall3deneventhandlers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllActions(GameValue rightInstance)
+        {
+            return new GameValue(removeallactions(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllAssignedItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallassigneditems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllBinocularItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallbinocularitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllContainers(GameValue rightInstance)
+        {
+            return new GameValue(removeallcontainers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllCuratorAddons(GameValue rightInstance)
+        {
+            return new GameValue(removeallcuratoraddons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllCuratorCameraAreas(GameValue rightInstance)
+        {
+            return new GameValue(removeallcuratorcameraareas(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllCuratorEditingAreas(GameValue rightInstance)
+        {
+            return new GameValue(removeallcuratoreditingareas(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllEventHandlers(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removealleventhandlers(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllHandgunItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallhandgunitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllItemsWithMagazines(GameValue rightInstance)
+        {
+            return new GameValue(removeallitemswithmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllMissionEventHandlers(GameValue rightInstance)
+        {
+            return new GameValue(removeallmissioneventhandlers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllMPEventHandlers(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeallmpeventhandlers(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllMusicEventHandlers(GameValue rightInstance)
+        {
+            return new GameValue(removeallmusiceventhandlers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllOwnedMines(GameValue rightInstance)
+        {
+            return new GameValue(removeallownedmines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllPrimaryWeaponItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallprimaryweaponitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllSecondaryWeaponItems(GameValue rightInstance)
+        {
+            return new GameValue(removeallsecondaryweaponitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllUserActionEventHandlers(GameValue rightInstance)
+        {
+            return new GameValue(removealluseractioneventhandlers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveAllWeapons(GameValue rightInstance)
+        {
+            return new GameValue(removeallweapons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveBackpack(GameValue rightInstance)
+        {
+            return new GameValue(removebackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveBackpackGlobal(GameValue rightInstance)
+        {
+            return new GameValue(removebackpackglobal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveBinocularItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removebinocularitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveCuratorAddons(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removecuratoraddons(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveCuratorCameraArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removecuratorcameraarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveCuratorEditableObjects(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removecuratoreditableobjects(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveCuratorEditingArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removecuratoreditingarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveDiaryRecord(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removediaryrecord(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveDiarySubject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removediarysubject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveDrawIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removedrawicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveDrawLinks(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removedrawlinks(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveFromRemainsCollector(GameValue rightInstance)
+        {
+            return new GameValue(removefromremainscollector(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveGoggles(GameValue rightInstance)
+        {
+            return new GameValue(removegoggles(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveGroupIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removegroupicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveHandgunItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removehandgunitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveHeadgear(GameValue rightInstance)
+        {
+            return new GameValue(removeheadgear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveItemFromBackpack(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeitemfrombackpack(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveItemFromUniform(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeitemfromuniform(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveItemFromVest(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeitemfromvest(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveItems(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeitems(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMagazine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemagazine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMagazineGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemagazineglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMagazines(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemagazines(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMagazinesTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemagazinesturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMagazineTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemagazineturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMenuItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removemenuitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMissionEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(removemissioneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMPEventHandler(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removempeventhandler(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveMusicEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(removemusiceventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveOwnedMine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeownedmine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemovePrimaryWeaponItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeprimaryweaponitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveSecondaryWeaponItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removesecondaryweaponitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveSimpleTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removesimpletask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveSwitchableUnit(GameValue rightInstance)
+        {
+            return new GameValue(removeswitchableunit(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveTeamMember(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeteammember(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveUniform(GameValue rightInstance)
+        {
+            return new GameValue(removeuniform(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveUserActionEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(removeuseractioneventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveVest(GameValue rightInstance)
+        {
+            return new GameValue(removevest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveWeapon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeweapon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveWeaponAttachmentCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeweaponattachmentcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveWeaponCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeweaponcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveWeaponGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeweaponglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RemoveWeaponTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(removeweaponturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ReportRemoteTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(reportremotetarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RequiredVersion(GameValue rightInstance)
+        {
+            return new GameValue(requiredversion(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ResetCamShake()
+        {
+            return new GameValue(resetcamshake());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ResetSubgroupDirection(GameValue rightInstance)
+        {
+            return new GameValue(resetsubgroupdirection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue Resistance()
+        {
+            return new GameValue(resistance());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Resize(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(resize(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Resources(GameValue rightInstance)
+        {
+            return new GameValue(resources(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RespawnVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(respawnvehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RestartEditorCamera(GameValue rightInstance)
+        {
+            return new GameValue(restarteditorcamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Reveal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(reveal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RevealMine(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(revealmine(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Reverse(GameValue rightInstance)
+        {
+            return new GameValue(reverse(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ReversedMouseY()
+        {
+            return new GameValue(reversedmousey());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue RoadAt(GameValue rightInstance)
+        {
+            return new GameValue(roadat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RoadsConnectedTo(GameValue rightInstance)
+        {
+            return new GameValue(roadsconnectedto(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue RoleDescription(GameValue rightInstance)
+        {
+            return new GameValue(roledescription(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RopeAttachedObjects(GameValue rightInstance)
+        {
+            return new GameValue(ropeattachedobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue RopeAttachedTo(GameValue rightInstance)
+        {
+            return new GameValue(ropeattachedto(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RopeAttachEnabled(GameValue rightInstance)
+        {
+            return new GameValue(ropeattachenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RopeAttachTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ropeattachto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue RopeCreate(GameValue rightInstance)
+        {
+            return new GameValue(ropecreate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RopeCut(GameValue rightInstance)
+        {
+            return new GameValue(ropecut(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RopeDestroy(GameValue rightInstance)
+        {
+            return new GameValue(ropedestroy(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RopeDetach(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(ropedetach(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RopeEndPosition(GameValue rightInstance)
+        {
+            return new GameValue(ropeendposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue RopeLength(GameValue rightInstance)
+        {
+            return new GameValue(ropelength(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Ropes(GameValue rightInstance)
+        {
+            return new GameValue(ropes(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RopesAttachedTo(GameValue rightInstance)
+        {
+            return new GameValue(ropesattachedto(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RopeSegments(GameValue rightInstance)
+        {
+            return new GameValue(ropesegments(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RopeUnwind(GameValue rightInstance)
+        {
+            return new GameValue(ropeunwind(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue RopeUnwound(GameValue rightInstance)
+        {
+            return new GameValue(ropeunwound(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RotorsForcesRTD(GameValue rightInstance)
+        {
+            return new GameValue(rotorsforcesrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue RotorsRpmRTD(GameValue rightInstance)
+        {
+            return new GameValue(rotorsrpmrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Round(GameValue rightInstance)
+        {
+            return new GameValue(round(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue RunInitScript()
+        {
+            return new GameValue(runinitscript());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneH()
+        {
+            return new GameValue(safezoneh());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneW()
+        {
+            return new GameValue(safezonew());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneWAbs()
+        {
+            return new GameValue(safezonewabs());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneX()
+        {
+            return new GameValue(safezonex());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneXAbs()
+        {
+            return new GameValue(safezonexabs());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SafeZoneY()
+        {
+            return new GameValue(safezoney());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Save3DENInventory(GameValue rightInstance)
+        {
+            return new GameValue(save3deninventory(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SaveGame()
+        {
+            return new GameValue(savegame());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SaveIdentity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(saveidentity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SaveJoysticks()
+        {
+            return new GameValue(savejoysticks());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SaveMissionProfileNamespace()
+        {
+            return new GameValue(savemissionprofilenamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SaveOverlay(GameValue rightInstance)
+        {
+            return new GameValue(saveoverlay(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SaveProfileNamespace()
+        {
+            return new GameValue(saveprofilenamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SaveStatus(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(savestatus(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SaveVar(GameValue rightInstance)
+        {
+            return new GameValue(savevar(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SavingEnabled()
+        {
+            return new GameValue(savingenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Say(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(say(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Say2D(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(say2d(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Say3D(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(say3d(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ScopeName(GameValue rightInstance)
+        {
+            return new GameValue(scopename(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Score(GameValue rightInstance)
+        {
+            return new GameValue(score(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ScoreSide(GameValue rightInstance)
+        {
+            return new GameValue(scoreside(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Screenshot(GameValue rightInstance)
+        {
+            return new GameValue(screenshot(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ScreenToWorld(GameValue rightInstance)
+        {
+            return new GameValue(screentoworld(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ScriptDone(GameValue rightInstance)
+        {
+            return new GameValue(scriptdone(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ScriptName(GameValue rightInstance)
+        {
+            return new GameValue(scriptname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue script</returns>
+        public static GameValue ScriptNull()
+        {
+            return new GameValue(scriptnull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ScudState(GameValue rightInstance)
+        {
+            return new GameValue(scudstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue SecondaryWeapon(GameValue rightInstance)
+        {
+            return new GameValue(secondaryweapon(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SecondaryWeaponItems(GameValue rightInstance)
+        {
+            return new GameValue(secondaryweaponitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SecondaryWeaponMagazine(GameValue rightInstance)
+        {
+            return new GameValue(secondaryweaponmagazine(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Select(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(select(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SelectBestPlaces(GameValue rightInstance)
+        {
+            return new GameValue(selectbestplaces(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SelectDiarySubject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectdiarysubject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SelectedEditorObjects(GameValue rightInstance)
+        {
+            return new GameValue(selectededitorobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SelectEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selecteditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SelectionNames(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectionnames(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SelectionPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectionposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SelectionVectorDirAndUp(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectionvectordirandup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SelectLeader(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectleader(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SelectMax(GameValue rightInstance)
+        {
+            return new GameValue(selectmax(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SelectMin(GameValue rightInstance)
+        {
+            return new GameValue(selectmin(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SelectNoPlayer()
+        {
+            return new GameValue(selectnoplayer());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SelectPlayer(GameValue rightInstance)
+        {
+            return new GameValue(selectplayer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SelectRandom(GameValue rightInstance)
+        {
+            return new GameValue(selectrandom(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SelectRandomWeighted(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectrandomweighted(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool_nothing</returns>
+        public static GameValue SelectWeapon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectweapon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SelectWeaponTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(selectweaponturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SendAUMessage(GameValue rightInstance)
+        {
+            return new GameValue(sendaumessage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SendSimpleCommand(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sendsimplecommand(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue task</returns>
+        public static GameValue SendTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sendtask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SendTaskResult(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sendtaskresult(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SendUDPMessage(GameValue rightInstance)
+        {
+            return new GameValue(sendudpmessage(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SentencesEnabled()
+        {
+            return new GameValue(sentencesenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ServerCommand(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(servercommand(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ServerCommandAvailable(GameValue rightInstance)
+        {
+            return new GameValue(servercommandavailable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ServerCommandExecutable(GameValue rightInstance)
+        {
+            return new GameValue(servercommandexecutable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue ServerName()
+        {
+            return new GameValue(servername());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue ServerNamespace()
+        {
+            return new GameValue(servernamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ServerTime()
+        {
+            return new GameValue(servertime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Set(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Set3DENAttribute(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set3denattribute(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Set3DENAttributes(GameValue rightInstance)
+        {
+            return new GameValue(set3denattributes(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENGrid(GameValue rightInstance)
+        {
+            return new GameValue(set3dengrid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENIconsVisible(GameValue rightInstance)
+        {
+            return new GameValue(set3deniconsvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Set3DENLayer(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set3denlayer(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENLinesVisible(GameValue rightInstance)
+        {
+            return new GameValue(set3denlinesvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENLogicType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set3denlogictype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENMissionAttribute(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set3denmissionattribute(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENMissionAttributes(GameValue rightInstance)
+        {
+            return new GameValue(set3denmissionattributes(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENModelsVisible(GameValue rightInstance)
+        {
+            return new GameValue(set3denmodelsvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Set3DENObjectType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(set3denobjecttype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAccTime(GameValue rightInstance)
+        {
+            return new GameValue(setacctime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetActualCollectiveRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setactualcollectivertd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAirplaneThrottle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setairplanethrottle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAirportSide(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setairportside(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAmmo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setammo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAmmoCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setammocargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAmmoOnPylon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setammoonpylon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAnimSpeedCoef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setanimspeedcoef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetAperture(GameValue rightInstance)
+        {
+            return new GameValue(setaperture(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetApertureNew(GameValue rightInstance)
+        {
+            return new GameValue(setaperturenew(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetArmoryPoints(GameValue rightInstance)
+        {
+            return new GameValue(setarmorypoints(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue text</returns>
+        public static GameValue SetAttributes(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setattributes(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetAutonomous(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setautonomous(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetBehaviour(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setbehaviour(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetBehaviourStrong(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setbehaviourstrong(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetBleedingRemaining(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setbleedingremaining(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetBrakesRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setbrakesrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCameraInterest(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcamerainterest(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCamShakeDefParams(GameValue rightInstance)
+        {
+            return new GameValue(setcamshakedefparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCamShakeParams(GameValue rightInstance)
+        {
+            return new GameValue(setcamshakeparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCamUseTi(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcamuseti(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCaptive(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcaptive(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCenterOfMass(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcenterofmass(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCollisionLight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcollisionlight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCombatBehaviour(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcombatbehaviour(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCombatMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcombatmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCompassOscillation(GameValue rightInstance)
+        {
+            return new GameValue(setcompassoscillation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetConvoySeparation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setconvoyseparation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCruiseControl(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcruisecontrol(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCuratorCameraAreaCeiling(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcuratorcameraareaceiling(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCuratorCoef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcuratorcoef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCuratorEditingAreaType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcuratoreditingareatype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCuratorWaypointCost(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcuratorwaypointcost(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetCurrentChannel(GameValue rightInstance)
+        {
+            return new GameValue(setcurrentchannel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCurrentTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcurrenttask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCurrentWaypoint(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcurrentwaypoint(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCustomAimCoef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcustomaimcoef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCustomMissionData(GameValue rightInstance)
+        {
+            return new GameValue(setcustommissiondata(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetCustomSoundController(GameValue rightInstance)
+        {
+            return new GameValue(setcustomsoundcontroller(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetCustomWeightRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setcustomweightrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDamage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdamage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDammage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdammage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDate(GameValue rightInstance)
+        {
+            return new GameValue(setdate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDebriefingText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdebriefingtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDefaultCamera(GameValue rightInstance)
+        {
+            return new GameValue(setdefaultcamera(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDestination(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdestination(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDetailMapBlendPars(GameValue rightInstance)
+        {
+            return new GameValue(setdetailmapblendpars(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDiaryRecordText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdiaryrecordtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDiarySubjectPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdiarysubjectpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDirection(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdirection(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDrawIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdrawicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDriveOnPath(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdriveonpath(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDropInterval(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdropinterval(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDynamicSimulationDistance(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdynamicsimulationdistance(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetDynamicSimulationDistanceCoef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setdynamicsimulationdistancecoef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetEditorMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(seteditormode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetEditorObjectScope(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(seteditorobjectscope(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetEffectCondition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(seteffectcondition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetEffectiveCommander(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(seteffectivecommander(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetEngineRpmRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setenginerpmrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFace(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setface(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFaceanimation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfaceanimation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFatigue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfatigue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetFeatureType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfeaturetype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFlagAnimationPhase(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setflaganimationphase(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFlagOwner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setflagowner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFlagSide(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setflagside(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFlagTexture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setflagtexture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFog(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfog(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetForceGeneratorRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setforcegeneratorrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFormation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setformation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFormationTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setformationtask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFormDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setformdir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFriend(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfriend(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFromEditor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfromeditor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFSMVariable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfsmvariable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFuel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfuel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetFuelCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setfuelcargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgroupicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupIconParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgroupiconparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupIconsSelectable(GameValue rightInstance)
+        {
+            return new GameValue(setgroupiconsselectable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupIconsVisible(GameValue rightInstance)
+        {
+            return new GameValue(setgroupiconsvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupid(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgroupid(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGroupIdGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgroupidglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetGroupOwner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgroupowner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetGusts(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setgusts(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHideBehind(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sethidebehind(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sethit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHitIndex(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sethitindex(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHitPointDamage(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sethitpointdamage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHorizonParallaxCoef(GameValue rightInstance)
+        {
+            return new GameValue(sethorizonparallaxcoef(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHUDMovementLevels(GameValue rightInstance)
+        {
+            return new GameValue(sethudmovementlevels(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetHumidity(GameValue rightInstance)
+        {
+            return new GameValue(sethumidity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetIdentity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setidentity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetImportance(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setimportance(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetInfoPanel(GameValue rightInstance)
+        {
+            return new GameValue(setinfopanel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLeader(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setleader(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightAmbient(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightambient(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightAttenuation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightattenuation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightBrightness(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightbrightness(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightConePars(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightconepars(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightDayLight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightdaylight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightFlareMaxDistance(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightflaremaxdistance(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightFlareSize(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightflaresize(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightIntensity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightintensity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightIR(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightnings(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightnings(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightUseFlare(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightuseflare(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLightVolumeShape(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setlightvolumeshape(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetLocalWindParams(GameValue rightInstance)
+        {
+            return new GameValue(setlocalwindparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMagazineTurretAmmo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmagazineturretammo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerAlpha(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkeralpha(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerAlphaLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkeralphalocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerBrush(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerbrush(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerBrushLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerbrushlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkercolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerColorLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkercolorlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerdir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerDirLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerdirlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerPolyline(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerpolyline(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerPolylineLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerpolylinelocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerPosLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkerposlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerShadow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkershadow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerShadowLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkershadowlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerShape(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkershape(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerShapeLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkershapelocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerSize(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkersize(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerSizeLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkersizelocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkertext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerTextLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkertextlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkertype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMarkerTypeLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmarkertypelocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMass(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmass(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMaxLoad(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmaxload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMimic(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmimic(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetMissileTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmissiletarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMissileTargetPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmissiletargetpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMousePosition(GameValue rightInstance)
+        {
+            return new GameValue(setmouseposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMusicEffect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setmusiceffect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetMusicEventHandler(GameValue rightInstance)
+        {
+            return new GameValue(setmusiceventhandler(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetName(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setname(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetNameSound(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setnamesound(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SetObjectArguments(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjectarguments(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectMaterial(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjectmaterial(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectMaterialGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjectmaterialglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue SetObjectProxy(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjectproxy(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectScale(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjectscale(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectTexture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjecttexture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectTextureGlobal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setobjecttextureglobal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetObjectViewDistance(GameValue rightInstance)
+        {
+            return new GameValue(setobjectviewdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetOpticsMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setopticsmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetOvercast(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setovercast(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetOwner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setowner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetOxygenRemaining(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setoxygenremaining(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetParticleCircle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setparticlecircle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetParticleClass(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setparticleclass(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetParticleFire(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setparticlefire(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetParticleParams(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setparticleparams(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetParticleRandom(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setparticlerandom(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPilotCameraDirection(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpilotcameradirection(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPilotCameraRotation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpilotcamerarotation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetPilotCameraTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpilotcameratarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPilotLight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpilotlight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPiPEffect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpipeffect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPiPViewDistance(GameValue rightInstance)
+        {
+            return new GameValue(setpipviewdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPitch(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpitch(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPlateNumber(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setplatenumber(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPlayable(GameValue rightInstance)
+        {
+            return new GameValue(setplayable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPlayerRespawnTime(GameValue rightInstance)
+        {
+            return new GameValue(setplayerrespawntime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPlayerVoNVolume(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setplayervonvolume(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosASL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposasl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosASL2(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposasl2(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosASLW(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposaslw(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosATL(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposatl(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPosWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setposworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetPylonLoadout(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpylonloadout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetPylonsPriority(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setpylonspriority(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRadioMsg(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setradiomsg(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRain(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrain(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRainbow(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrainbow(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRandomLip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrandomlip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRank(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrank(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRectangular(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrectangular(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRepairCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrepaircargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetRotorBrakeRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setrotorbrakertd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetShadowDistance(GameValue rightInstance)
+        {
+            return new GameValue(setshadowdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetShotParents(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setshotparents(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSide(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setside(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskAlwaysVisible(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletaskalwaysvisible(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskCustomData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletaskcustomdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskDescription(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletaskdescription(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskDestination(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletaskdestination(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskTarget(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletasktarget(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimpleTaskType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsimpletasktype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSimulWeatherLayers(GameValue rightInstance)
+        {
+            return new GameValue(setsimulweatherlayers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSize(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsize(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSkill(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setskill(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetSlingLoad(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setslingload(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSoundEffect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsoundeffect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSpeaker(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setspeaker(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSpeech(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setspeech(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSpeedMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setspeedmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetStamina(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setstamina(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetStaminaScheme(GameValue rightInstance)
+        {
+            return new GameValue(setstaminascheme(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetStatValue(GameValue rightInstance)
+        {
+            return new GameValue(setstatvalue(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSuppression(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setsuppression(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetSystemOfUnits(GameValue rightInstance)
+        {
+            return new GameValue(setsystemofunits(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTargetAge(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settargetage(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTaskMarkerOffset(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settaskmarkeroffset(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTaskResult(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settaskresult(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTaskState(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settaskstate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTerrainGrid(GameValue rightInstance)
+        {
+            return new GameValue(setterraingrid(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTerrainHeight(GameValue rightInstance)
+        {
+            return new GameValue(setterrainheight(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTimeMultiplier(GameValue rightInstance)
+        {
+            return new GameValue(settimemultiplier(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTiParameter(GameValue rightInstance)
+        {
+            return new GameValue(settiparameter(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTitleEffect(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settitleeffect(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTowParent(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settowparent(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTrafficDensity(GameValue rightInstance)
+        {
+            return new GameValue(settrafficdensity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTrafficDistance(GameValue rightInstance)
+        {
+            return new GameValue(settrafficdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTrafficGap(GameValue rightInstance)
+        {
+            return new GameValue(settrafficgap(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTrafficSpeed(GameValue rightInstance)
+        {
+            return new GameValue(settrafficspeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerActivation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggeractivation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerArea(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggerarea(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerInterval(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggerinterval(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerStatements(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggerstatements(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggertext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerTimeout(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggertimeout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTriggerType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settriggertype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTurretLimits(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setturretlimits(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetTurretOpticsMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setturretopticsmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(settype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnconscious(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunconscious(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitAbility(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitability(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitCombatMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitcombatmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitFreefallHeight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitfreefallheight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitLoadout(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitloadout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitpos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitPosWeak(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitposweak(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitRank(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitrank(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitRecoilCoefficient(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunitrecoilcoefficient(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnitTrait(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunittrait(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUnloadInCombat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setunloadincombat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUserActionText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setuseractiontext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUserMFDText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setusermfdtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetUserMFDValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setusermfdvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVariable(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvariable(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVectorDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvectordir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVectorDirAndUp(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvectordirandup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVectorUp(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvectorup(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleAmmo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicleammo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleAmmoDef(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicleammodef(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleArmor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclearmor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetVehicleCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclecargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleId(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicleid(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleLock(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclelock(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetVehiclePosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicleposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleRadar(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicleradar(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleReceiveRemoteTargets(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclereceiveremotetargets(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleReportOwnPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclereportownposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleReportRemoteTargets(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclereportremotetargets(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleTiPars(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehicletipars(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVehicleVarName(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvehiclevarname(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVelocity(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvelocity(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVelocityModelSpace(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvelocitymodelspace(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVelocityTransformation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvelocitytransformation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetViewDistance(GameValue rightInstance)
+        {
+            return new GameValue(setviewdistance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetVisibleIfTreeCollapsed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setvisibleiftreecollapsed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWantedRPMRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwantedrpmrtd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaves(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaves(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointBehaviour(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointbehaviour(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointCombatMode(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointcombatmode(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointCompletionRadius(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointcompletionradius(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointDescription(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointdescription(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointForceBehaviour(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointforcebehaviour(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointFormation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointformation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointHousePosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointhouseposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointLoiterAltitude(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointloiteraltitude(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointLoiterRadius(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointloiterradius(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointLoiterType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointloitertype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointName(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointname(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointScript(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointscript(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointspeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointStatements(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointstatements(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointTimeout(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointtimeout(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointType(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointtype(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWaypointVisible(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwaypointvisible(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetWeaponReloadingTime(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setweaponreloadingtime(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SetWeaponZeroing(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setweaponzeroing(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWind(GameValue rightInstance)
+        {
+            return new GameValue(setwind(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWindDir(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwinddir(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWindForce(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwindforce(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWindStr(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwindstr(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWingForceScaleRTD(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwingforcescalertd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SetWPPos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(setwppos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Show3DIcons(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(show3dicons(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowChat(GameValue rightInstance)
+        {
+            return new GameValue(showchat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowCinemaBorder(GameValue rightInstance)
+        {
+            return new GameValue(showcinemaborder(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowCommandingMenu(GameValue rightInstance)
+        {
+            return new GameValue(showcommandingmenu(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowCompass(GameValue rightInstance)
+        {
+            return new GameValue(showcompass(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowCuratorCompass(GameValue rightInstance)
+        {
+            return new GameValue(showcuratorcompass(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowGps(GameValue rightInstance)
+        {
+            return new GameValue(showgps(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowHUD(GameValue rightInstance)
+        {
+            return new GameValue(showhud(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowLegend(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(showlegend(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowMap(GameValue rightInstance)
+        {
+            return new GameValue(showmap(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownArtilleryComputer()
+        {
+            return new GameValue(shownartillerycomputer());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownChat()
+        {
+            return new GameValue(shownchat());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownCompass()
+        {
+            return new GameValue(showncompass());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownCuratorCompass()
+        {
+            return new GameValue(showncuratorcompass());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue ShowNewEditorObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(showneweditorobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownGps()
+        {
+            return new GameValue(showngps());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue ShownHUD()
+        {
+            return new GameValue(shownhud());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownMap()
+        {
+            return new GameValue(shownmap());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownPad()
+        {
+            return new GameValue(shownpad());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownRadio()
+        {
+            return new GameValue(shownradio());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ShownScoretable()
+        {
+            return new GameValue(shownscoretable());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownSubtitles()
+        {
+            return new GameValue(shownsubtitles());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownUAVFeed()
+        {
+            return new GameValue(shownuavfeed());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownWarrant()
+        {
+            return new GameValue(shownwarrant());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShownWatch()
+        {
+            return new GameValue(shownwatch());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowPad(GameValue rightInstance)
+        {
+            return new GameValue(showpad(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowRadio(GameValue rightInstance)
+        {
+            return new GameValue(showradio(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowScoretable(GameValue rightInstance)
+        {
+            return new GameValue(showscoretable(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue ShowSubtitles(GameValue rightInstance)
+        {
+            return new GameValue(showsubtitles(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowUAVFeed(GameValue rightInstance)
+        {
+            return new GameValue(showuavfeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowWarrant(GameValue rightInstance)
+        {
+            return new GameValue(showwarrant(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowWatch(GameValue rightInstance)
+        {
+            return new GameValue(showwatch(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowWaypoint(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(showwaypoint(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue ShowWaypoints(GameValue rightInstance)
+        {
+            return new GameValue(showwaypoints(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue side</returns>
+        public static GameValue Side(GameValue rightInstance)
+        {
+            return new GameValue(side(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideAmbientLife()
+        {
+            return new GameValue(sideambientlife());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SideChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sidechat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideEmpty()
+        {
+            return new GameValue(sideempty());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideEnemy()
+        {
+            return new GameValue(sideenemy());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideFriendly()
+        {
+            return new GameValue(sidefriendly());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideLogic()
+        {
+            return new GameValue(sidelogic());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SideRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sideradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue SideUnknown()
+        {
+            return new GameValue(sideunknown());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SimpleTasks(GameValue rightInstance)
+        {
+            return new GameValue(simpletasks(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SimulationEnabled(GameValue rightInstance)
+        {
+            return new GameValue(simulationenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SimulCloudDensity(GameValue rightInstance)
+        {
+            return new GameValue(simulclouddensity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SimulCloudOcclusion(GameValue rightInstance)
+        {
+            return new GameValue(simulcloudocclusion(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SimulInClouds(GameValue rightInstance)
+        {
+            return new GameValue(simulinclouds(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SimulWeatherSync()
+        {
+            return new GameValue(simulweathersync());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Sin(GameValue rightInstance)
+        {
+            return new GameValue(sin(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Size(GameValue rightInstance)
+        {
+            return new GameValue(size(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SizeOf(GameValue rightInstance)
+        {
+            return new GameValue(sizeOf(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Skill(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(skill(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SkillFinal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(skillfinal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SkipTime(GameValue rightInstance)
+        {
+            return new GameValue(skiptime(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Sleep(GameValue rightInstance)
+        {
+            return new GameValue(sleep(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SliderPosition(GameValue rightInstance)
+        {
+            return new GameValue(sliderposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SliderRange(GameValue rightInstance)
+        {
+            return new GameValue(sliderrange(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SliderSetPosition(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(slidersetposition(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SliderSetRange(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(slidersetrange(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SliderSetSpeed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(slidersetspeed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SliderSpeed(GameValue rightInstance)
+        {
+            return new GameValue(sliderspeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SlingLoadAssistantShown()
+        {
+            return new GameValue(slingloadassistantshown());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SoldierMagazines(GameValue rightInstance)
+        {
+            return new GameValue(soldiermagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SomeAmmo(GameValue rightInstance)
+        {
+            return new GameValue(someammo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Sort(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(sort(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SoundVolume()
+        {
+            return new GameValue(soundvolume());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue script</returns>
+        public static GameValue Spawn(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(spawn(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Speaker(GameValue rightInstance)
+        {
+            return new GameValue(speaker(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SpeechVolume()
+        {
+            return new GameValue(speechvolume());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Speed(GameValue rightInstance)
+        {
+            return new GameValue(speed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue SpeedMode(GameValue rightInstance)
+        {
+            return new GameValue(speedmode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SplitString(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(splitstring(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Sqrt(GameValue rightInstance)
+        {
+            return new GameValue(sqrt(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SquadParams(GameValue rightInstance)
+        {
+            return new GameValue(squadparams(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Stance(GameValue rightInstance)
+        {
+            return new GameValue(stance(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue StartLoadingScreen(GameValue rightInstance)
+        {
+            return new GameValue(startloadingscreen(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue for</returns>
+        public static GameValue Step(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(step(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Stop(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(stop(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue StopEngineRTD(GameValue rightInstance)
+        {
+            return new GameValue(stopenginertd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Stopped(GameValue rightInstance)
+        {
+            return new GameValue(stopped(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Str(GameValue rightInstance)
+        {
+            return new GameValue(str(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SunOrMoon()
+        {
+            return new GameValue(sunormoon());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SupportInfo(GameValue rightInstance)
+        {
+            return new GameValue(supportinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SuppressFor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(suppressfor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue SurfaceIsWater(GameValue rightInstance)
+        {
+            return new GameValue(surfaceiswater(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SurfaceNormal(GameValue rightInstance)
+        {
+            return new GameValue(surfacenormal(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue SurfaceTexture(GameValue rightInstance)
+        {
+            return new GameValue(surfacetexture(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue SurfaceType(GameValue rightInstance)
+        {
+            return new GameValue(surfacetype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwimInDepth(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(swimindepth(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue SwitchableUnits()
+        {
+            return new GameValue(switchableunits());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwitchAction(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(switchaction(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwitchCamera(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(switchcamera(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwitchGesture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(switchgesture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwitchLight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(switchlight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SwitchMove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(switchmove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SynchronizedObjects(GameValue rightInstance)
+        {
+            return new GameValue(synchronizedobjects(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SynchronizedTriggers(GameValue rightInstance)
+        {
+            return new GameValue(synchronizedtriggers(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue SynchronizedWaypoints(GameValue rightInstance)
+        {
+            return new GameValue(synchronizedwaypoints(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SynchronizeObjectsAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(synchronizeobjectsadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SynchronizeObjectsRemove(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(synchronizeobjectsremove(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SynchronizeTrigger(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(synchronizetrigger(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SynchronizeWaypoint(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(synchronizewaypoint(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue SystemChat(GameValue rightInstance)
+        {
+            return new GameValue(systemchat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue SystemOfUnits()
+        {
+            return new GameValue(systemofunits());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue SystemTime()
+        {
+            return new GameValue(systemtime());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue SystemTimeUTC()
+        {
+            return new GameValue(systemtimeutc());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TargetKnowledge(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(targetknowledge(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Targets(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(targets(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TargetsAggregate(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(targetsaggregate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TargetsQuery(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(targetsquery(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TaskAlwaysVisible(GameValue rightInstance)
+        {
+            return new GameValue(taskalwaysvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskChildren(GameValue rightInstance)
+        {
+            return new GameValue(taskchildren(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TaskCompleted(GameValue rightInstance)
+        {
+            return new GameValue(taskcompleted(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskCustomData(GameValue rightInstance)
+        {
+            return new GameValue(taskcustomdata(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskDescription(GameValue rightInstance)
+        {
+            return new GameValue(taskdescription(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskDestination(GameValue rightInstance)
+        {
+            return new GameValue(taskdestination(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TaskHint(GameValue rightInstance)
+        {
+            return new GameValue(taskhint(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskMarkerOffset(GameValue rightInstance)
+        {
+            return new GameValue(taskmarkeroffset(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TaskName(GameValue rightInstance)
+        {
+            return new GameValue(taskname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue task</returns>
+        public static GameValue TaskNull()
+        {
+            return new GameValue(tasknull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue task</returns>
+        public static GameValue TaskParent(GameValue rightInstance)
+        {
+            return new GameValue(taskparent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TaskResult(GameValue rightInstance)
+        {
+            return new GameValue(taskresult(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TaskState(GameValue rightInstance)
+        {
+            return new GameValue(taskstate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TaskType(GameValue rightInstance)
+        {
+            return new GameValue(tasktype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue team_member</returns>
+        public static GameValue TeamMember(GameValue rightInstance)
+        {
+            return new GameValue(teammember(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue team_member</returns>
+        public static GameValue TeamMemberNull()
+        {
+            return new GameValue(teammembernull());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TeamName(GameValue rightInstance)
+        {
+            return new GameValue(teamname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Teams()
+        {
+            return new GameValue(teams());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TeamSwitch()
+        {
+            return new GameValue(teamswitch());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TeamSwitchEnabled()
+        {
+            return new GameValue(teamswitchenabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TeamType(GameValue rightInstance)
+        {
+            return new GameValue(teamtype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue Terminate(GameValue rightInstance)
+        {
+            return new GameValue(terminate(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TerrainIntersect(GameValue rightInstance)
+        {
+            return new GameValue(terrainintersect(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TerrainIntersectASL(GameValue rightInstance)
+        {
+            return new GameValue(terrainintersectasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TerrainIntersectAtASL(GameValue rightInstance)
+        {
+            return new GameValue(terrainintersectatasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Text(GameValue rightInstance)
+        {
+            return new GameValue(text(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TextLog(GameValue rightInstance)
+        {
+            return new GameValue(textlog(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TextLogFormat(GameValue rightInstance)
+        {
+            return new GameValue(textlogformat(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar_nan</returns>
+        public static GameValue Tg(GameValue rightInstance)
+        {
+            return new GameValue(tg(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TimeMultiplier()
+        {
+            return new GameValue(timemultiplier());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TitleCut(GameValue rightInstance)
+        {
+            return new GameValue(titlecut(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TitleFadeOut(GameValue rightInstance)
+        {
+            return new GameValue(titlefadeout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TitleObj(GameValue rightInstance)
+        {
+            return new GameValue(titleobj(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TitleRsc(GameValue rightInstance)
+        {
+            return new GameValue(titlersc(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TitleText(GameValue rightInstance)
+        {
+            return new GameValue(titletext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue for</returns>
+        public static GameValue To(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(to(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue ToArray(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(toarray(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToFixed(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tofixed(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToLower(GameValue rightInstance)
+        {
+            return new GameValue(tolower(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToLowerANSI(GameValue rightInstance)
+        {
+            return new GameValue(toloweransi(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToString(GameValue rightInstance)
+        {
+            return new GameValue(tostring(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToUpper(GameValue rightInstance)
+        {
+            return new GameValue(toupper(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue ToUpperANSI(GameValue rightInstance)
+        {
+            return new GameValue(toupperansi(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TriggerActivated(GameValue rightInstance)
+        {
+            return new GameValue(triggeractivated(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TriggerActivation(GameValue rightInstance)
+        {
+            return new GameValue(triggeractivation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TriggerAmmo(GameValue rightInstance)
+        {
+            return new GameValue(triggerammo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TriggerArea(GameValue rightInstance)
+        {
+            return new GameValue(triggerarea(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue TriggerAttachedVehicle(GameValue rightInstance)
+        {
+            return new GameValue(triggerattachedvehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TriggerAttachObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(triggerattachobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TriggerAttachVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(triggerattachvehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TriggerDynamicSimulation(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(triggerdynamicsimulation(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TriggerInterval(GameValue rightInstance)
+        {
+            return new GameValue(triggerinterval(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TriggerStatements(GameValue rightInstance)
+        {
+            return new GameValue(triggerstatements(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TriggerText(GameValue rightInstance)
+        {
+            return new GameValue(triggertext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TriggerTimeout(GameValue rightInstance)
+        {
+            return new GameValue(triggertimeout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TriggerTimeoutCurrent(GameValue rightInstance)
+        {
+            return new GameValue(triggertimeoutcurrent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TriggerType(GameValue rightInstance)
+        {
+            return new GameValue(triggertype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Trim(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(trim(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TurretLocal(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(turretlocal(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TurretOwner(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(turretowner(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue TurretUnit(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(turretunit(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TvAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvadd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvClear(GameValue rightInstance)
+        {
+            return new GameValue(tvclear(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvCollapse(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvcollapse(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvCollapseAll(GameValue rightInstance)
+        {
+            return new GameValue(tvcollapseall(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TvCount(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvcount(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TvCurSel(GameValue rightInstance)
+        {
+            return new GameValue(tvcursel(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TvData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvDelete(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvdelete(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvExpand(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvexpand(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvExpandAll(GameValue rightInstance)
+        {
+            return new GameValue(tvexpandall(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue TvIsSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvisselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TvPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TvPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue TvSelection(GameValue rightInstance)
+        {
+            return new GameValue(tvselection(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetCurSel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetcursel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetData(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetdata(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPicture(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicture(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturecolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureColorDisabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturecolordisabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureColorSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturecolorselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureRight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpictureright(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureRightColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturerightcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureRightColorDisabled(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturerightcolordisabled(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetPictureRightColorSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetpicturerightcolorselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetSelectColor(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetselectcolor(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetSelected(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetselected(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsettext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsettooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSetValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsetvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSort(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsort(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSortAll(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsortall(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSortByValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsortbyvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue TvSortByValueAll(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvsortbyvalueall(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TvText(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvtext(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TvTooltip(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvtooltip(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue TvValue(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(tvvalue(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Type(GameValue rightInstance)
+        {
+            return new GameValue(type(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TypeName(GameValue rightInstance)
+        {
+            return new GameValue(typename(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue TypeOf(GameValue rightInstance)
+        {
+            return new GameValue(typeOf(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UAVControl(GameValue rightInstance)
+        {
+            return new GameValue(uavcontrol(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue namespace</returns>
+        public static GameValue UiNamespace()
+        {
+            return new GameValue(uinamespace());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UiSleep(GameValue rightInstance)
+        {
+            return new GameValue(uisleep(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UnassignCurator(GameValue rightInstance)
+        {
+            return new GameValue(unassigncurator(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UnassignItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(unassignitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UnassignTeam(GameValue rightInstance)
+        {
+            return new GameValue(unassignteam(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UnassignVehicle(GameValue rightInstance)
+        {
+            return new GameValue(unassignvehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue Underwater(GameValue rightInstance)
+        {
+            return new GameValue(underwater(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Uniform(GameValue rightInstance)
+        {
+            return new GameValue(uniform(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue UniformContainer(GameValue rightInstance)
+        {
+            return new GameValue(uniformcontainer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UniformItems(GameValue rightInstance)
+        {
+            return new GameValue(uniformitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UniformMagazines(GameValue rightInstance)
+        {
+            return new GameValue(uniformmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue hashmap</returns>
+        public static GameValue UniqueUnitItems(GameValue rightInstance)
+        {
+            return new GameValue(uniqueunititems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UnitAddons(GameValue rightInstance)
+        {
+            return new GameValue(unitaddons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UnitAimPosition(GameValue rightInstance)
+        {
+            return new GameValue(unitaimposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UnitAimPositionVisual(GameValue rightInstance)
+        {
+            return new GameValue(unitaimpositionvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue UnitBackpack(GameValue rightInstance)
+        {
+            return new GameValue(unitbackpack(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue UnitCombatMode(GameValue rightInstance)
+        {
+            return new GameValue(unitcombatmode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue UnitIsUAV(GameValue rightInstance)
+        {
+            return new GameValue(unitisuav(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue UnitPos(GameValue rightInstance)
+        {
+            return new GameValue(unitpos(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue UnitReady(GameValue rightInstance)
+        {
+            return new GameValue(unitready(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue UnitRecoilCoefficient(GameValue rightInstance)
+        {
+            return new GameValue(unitrecoilcoefficient(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue any</returns>
+        public static GameValue Units(GameValue rightInstance)
+        {
+            return new GameValue(units(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UnitsBelowHeight(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(unitsbelowheight(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue UnitTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(unitturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UnlinkItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(unlinkitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue UnlockAchievement(GameValue rightInstance)
+        {
+            return new GameValue(unlockachievement(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue UnregisterTask(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(unregistertask(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UpdateDrawIcon(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(updatedrawicon(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UpdateMenuItem(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(updatemenuitem(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UpdateObjectTree(GameValue rightInstance)
+        {
+            return new GameValue(updateobjecttree(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UseAIOperMapObstructionTest(GameValue rightInstance)
+        {
+            return new GameValue(useaiopermapobstructiontest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UseAISteeringComponent(GameValue rightInstance)
+        {
+            return new GameValue(useaisteeringcomponent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue UseAudioTimeForMoves(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(useaudiotimeformoves(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue UserInputDisabled()
+        {
+            return new GameValue(userinputdisabled());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Values(GameValue rightInstance)
+        {
+            return new GameValue(values(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorAdd(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectoradd(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorCos(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectorcos(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorCrossProduct(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectorcrossproduct(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorDiff(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectordiff(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorDir(GameValue rightInstance)
+        {
+            return new GameValue(vectordir(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorDirVisual(GameValue rightInstance)
+        {
+            return new GameValue(vectordirvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorDistance(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectordistance(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorDistanceSqr(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectordistancesqr(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorDotProduct(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectordotproduct(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorFromTo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectorfromto(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorLinearConversion(GameValue rightInstance)
+        {
+            return new GameValue(vectorlinearconversion(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorMagnitude(GameValue rightInstance)
+        {
+            return new GameValue(vectormagnitude(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue VectorMagnitudeSqr(GameValue rightInstance)
+        {
+            return new GameValue(vectormagnitudesqr(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorModelToWorld(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectormodeltoworld(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorModelToWorldVisual(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectormodeltoworldvisual(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorMultiply(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectormultiply(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorNormalized(GameValue rightInstance)
+        {
+            return new GameValue(vectornormalized(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorUp(GameValue rightInstance)
+        {
+            return new GameValue(vectorup(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorUpVisual(GameValue rightInstance)
+        {
+            return new GameValue(vectorupvisual(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorWorldToModel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectorworldtomodel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VectorWorldToModelVisual(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vectorworldtomodelvisual(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue Vehicle(GameValue rightInstance)
+        {
+            return new GameValue(vehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VehicleCargoEnabled(GameValue rightInstance)
+        {
+            return new GameValue(vehiclecargoenabled(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue VehicleChat(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vehiclechat(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VehicleMoveInfo(GameValue rightInstance)
+        {
+            return new GameValue(vehiclemoveinfo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue VehicleRadio(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(vehicleradio(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VehicleReceiveRemoteTargets(GameValue rightInstance)
+        {
+            return new GameValue(vehiclereceiveremotetargets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VehicleReportOwnPosition(GameValue rightInstance)
+        {
+            return new GameValue(vehiclereportownposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VehicleReportRemoteTargets(GameValue rightInstance)
+        {
+            return new GameValue(vehiclereportremotetargets(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Vehicles()
+        {
+            return new GameValue(vehicles());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue VehicleVarName(GameValue rightInstance)
+        {
+            return new GameValue(vehiclevarname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Velocity(GameValue rightInstance)
+        {
+            return new GameValue(velocity(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VelocityModelSpace(GameValue rightInstance)
+        {
+            return new GameValue(velocitymodelspace(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VerifySignature(GameValue rightInstance)
+        {
+            return new GameValue(verifysignature(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue Vest(GameValue rightInstance)
+        {
+            return new GameValue(vest(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue VestContainer(GameValue rightInstance)
+        {
+            return new GameValue(vestcontainer(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VestItems(GameValue rightInstance)
+        {
+            return new GameValue(vestitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VestMagazines(GameValue rightInstance)
+        {
+            return new GameValue(vestmagazines(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue ViewDistance()
+        {
+            return new GameValue(viewdistance());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VisibleCompass()
+        {
+            return new GameValue(visiblecompass());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VisibleGps()
+        {
+            return new GameValue(visiblegps());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VisibleMap()
+        {
+            return new GameValue(visiblemap());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VisiblePosition(GameValue rightInstance)
+        {
+            return new GameValue(visibleposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue VisiblePositionASL(GameValue rightInstance)
+        {
+            return new GameValue(visiblepositionasl(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VisibleScoretable()
+        {
+            return new GameValue(visiblescoretable());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue bool</returns>
+        public static GameValue VisibleWatch()
+        {
+            return new GameValue(visiblewatch());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue WaitUntil(GameValue rightInstance)
+        {
+            return new GameValue(waituntil(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue Waves()
+        {
+            return new GameValue(waves());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue WaypointAttachedObject(GameValue rightInstance)
+        {
+            return new GameValue(waypointattachedobject(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue object</returns>
+        public static GameValue WaypointAttachedVehicle(GameValue rightInstance)
+        {
+            return new GameValue(waypointattachedvehicle(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue WaypointAttachObject(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(waypointattachobject(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue nothing</returns>
+        public static GameValue WaypointAttachVehicle(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(waypointattachvehicle(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointBehaviour(GameValue rightInstance)
+        {
+            return new GameValue(waypointbehaviour(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointCombatMode(GameValue rightInstance)
+        {
+            return new GameValue(waypointcombatmode(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointCompletionRadius(GameValue rightInstance)
+        {
+            return new GameValue(waypointcompletionradius(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointDescription(GameValue rightInstance)
+        {
+            return new GameValue(waypointdescription(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue WaypointForceBehaviour(GameValue rightInstance)
+        {
+            return new GameValue(waypointforcebehaviour(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointFormation(GameValue rightInstance)
+        {
+            return new GameValue(waypointformation(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointHousePosition(GameValue rightInstance)
+        {
+            return new GameValue(waypointhouseposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointLoiterAltitude(GameValue rightInstance)
+        {
+            return new GameValue(waypointloiteraltitude(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointLoiterRadius(GameValue rightInstance)
+        {
+            return new GameValue(waypointloiterradius(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointLoiterType(GameValue rightInstance)
+        {
+            return new GameValue(waypointloitertype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointName(GameValue rightInstance)
+        {
+            return new GameValue(waypointname(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WaypointPosition(GameValue rightInstance)
+        {
+            return new GameValue(waypointposition(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Waypoints(GameValue rightInstance)
+        {
+            return new GameValue(waypoints(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointScript(GameValue rightInstance)
+        {
+            return new GameValue(waypointscript(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue WaypointsEnabledUAV(GameValue rightInstance)
+        {
+            return new GameValue(waypointsenableduav(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointShow(GameValue rightInstance)
+        {
+            return new GameValue(waypointshow(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointSpeed(GameValue rightInstance)
+        {
+            return new GameValue(waypointspeed(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WaypointStatements(GameValue rightInstance)
+        {
+            return new GameValue(waypointstatements(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WaypointTimeout(GameValue rightInstance)
+        {
+            return new GameValue(waypointtimeout(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointTimeoutCurrent(GameValue rightInstance)
+        {
+            return new GameValue(waypointtimeoutcurrent(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WaypointType(GameValue rightInstance)
+        {
+            return new GameValue(waypointtype(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WaypointVisible(GameValue rightInstance)
+        {
+            return new GameValue(waypointvisible(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponAccessories(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponaccessories(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponAccessoriesCargo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponaccessoriescargo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponCargo(GameValue rightInstance)
+        {
+            return new GameValue(weaponcargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponDirection(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weapondirection(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponInertia(GameValue rightInstance)
+        {
+            return new GameValue(weaponinertia(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue bool</returns>
+        public static GameValue WeaponLowered(GameValue rightInstance)
+        {
+            return new GameValue(weaponlowered(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WeaponReloadingTime(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponreloadingtime(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue Weapons(GameValue rightInstance)
+        {
+            return new GameValue(weapons(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponsInfo(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponsinfo(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponsItems(GameValue rightInstance)
+        {
+            return new GameValue(weaponsitems(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponsItemsCargo(GameValue rightInstance)
+        {
+            return new GameValue(weaponsitemscargo(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponState(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponstate(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeaponsTurret(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(weaponsturret(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WeightRTD(GameValue rightInstance)
+        {
+            return new GameValue(weightrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue side</returns>
+        public static GameValue West()
+        {
+            return new GameValue(west());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue string</returns>
+        public static GameValue WFSideText(GameValue rightInstance)
+        {
+            return new GameValue(wfsidetext(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue Wind()
+        {
+            return new GameValue(wind());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WindDir()
+        {
+            return new GameValue(winddir());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue array</returns>
+        public static GameValue WindRTD()
+        {
+            return new GameValue(windrtd());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WindStr()
+        {
+            return new GameValue(windstr());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WingsForcesRTD(GameValue rightInstance)
+        {
+            return new GameValue(wingsforcesrtd(rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue string</returns>
+        public static GameValue WorldName()
+        {
+            return new GameValue(worldname());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>GameValue scalar</returns>
+        public static GameValue WorldSize()
+        {
+            return new GameValue(worldsize());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WorldToModel(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(worldtomodel(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="leftInstance"></param>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WorldToModelVisual(GameValue leftInstance, GameValue rightInstance)
+        {
+            return new GameValue(worldtomodelvisual(leftInstance._internalGameValue, rightInstance._internalGameValue));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rightInstance"></param>
+        /// <returns>GameValue array</returns>
+        public static GameValue WorldToScreen(GameValue rightInstance)
+        {
+            return new GameValue(worldtoscreen(rightInstance._internalGameValue));
+        }
+
+
     }
 }
