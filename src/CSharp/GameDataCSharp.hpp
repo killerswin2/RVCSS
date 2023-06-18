@@ -3,6 +3,8 @@
 #include <intercept.hpp>
 #include <string_view>
 
+#define NETHOST_USE_AS_STATIC
+
 #include "../hosting/nethostfxr/nethostfxr.hpp"
 #include "../commands/commands.hpp"
 

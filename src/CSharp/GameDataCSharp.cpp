@@ -180,6 +180,7 @@ void path_set_up()
 	}
 
 
+	// get the exec path on the system.
 	char_t buffer[MAX_PATH] = { 0 };
 	GetModuleFileNameW(NULL, buffer, MAX_PATH);
 	string_t pathString = buffer;
