@@ -43,6 +43,9 @@ namespace RV
         private static extern void DeleteGameValue(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
+        private static extern void FreeRVAllocation(IntPtr allocationPointer, int type);
+
+        [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
         private static extern IntPtr GetDataString(IntPtr gameValuePointer);
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64")]
@@ -7591,22 +7594,22 @@ namespace RV
             }
         }
 
-        private GameValue(IntPtr array, int length)
+        public GameValue(IntPtr array, int length)
         {
             _internalGameValue = CreateGameValueArray(array, length);
         }
 
-        private GameValue(Vector2 value)
+        public GameValue(Vector2 value)
         {
             _internalGameValue = CreateGameValueVector2(value);
         }
 
-        private GameValue(Vector3 value)
+        public GameValue(Vector3 value)
         {
             _internalGameValue = CreateGameValueVector3(value);
         }
 
-        private GameValue(IntPtr gamePointer)
+        public GameValue(IntPtr gamePointer)
         {
             _internalGameValue = gamePointer;
         }
@@ -7617,7 +7620,7 @@ namespace RV
         }
 
         /// <summary>
-        /// Method <c>GetString</c> returns a c# type from an GameValue instance from the RV engine
+        /// Method <c>GetString</c> returns a c# String type from an GameValue instance from the RV engine
         /// </summary>
         public static String GetString(GameValue instance)
         {
@@ -7626,10 +7629,14 @@ namespace RV
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 message = Marshal.PtrToStringUni(pointer);
+                // free memory
+                FreeRVAllocation(pointer, 0);
             }
             else
             {
                 message = Marshal.PtrToStringUTF8(pointer);
+                // again free memory
+                FreeRVAllocation(pointer, 0);
             }
 
             if (message != null)
@@ -7643,29 +7650,72 @@ namespace RV
 
         }
 
+        /// <summary>
+        /// Method <c>GetFloat</c> returns a c# Float type from an GameValue instance from the RV engine
+        /// </summary>
         public static float GetFloat(GameValue instance)
         {
             return GetDataFloat(instance._internalGameValue);
         }
 
+        /// <summary>
+        /// Method <c>GetInt</c> returns a c# Int type from an GameValue instance from the RV engine
+        /// </summary>
         public static int GetInt(GameValue instance)
         {
             return GetDataInt(instance._internalGameValue);
         }
 
+        /// <summary>
+        /// Method <c>GetBool</c> returns a c# Bool type from an GameValue instance from the RV engine
+        /// </summary>
         public static bool GetBool(GameValue instance)
         {
             return GetDataBool(instance._internalGameValue);
         }
 
+        /// <summary>
+        /// Method <c>GetVector2</c> returns a c# Vector2 type from an GameValue instance from the RV engine
+        /// </summary>
         public static Vector2 GetVector2(GameValue instance)
         {
-            return Marshal.PtrToStructure<Vector2>(GetDataVector2(instance._internalGameValue));
+            var pointer = GetDataVector2(instance._internalGameValue);
+            try
+            {
+                var vec2 = Marshal.PtrToStructure<Vector2>(pointer);
+                // free the memory in the pointer
+                FreeRVAllocation(pointer, 1);
+                return vec2;
+            }
+            catch (NullReferenceException exception)
+            {
+                String message = String.Format("Null Execetion: {0}", exception);
+                // log the exception in the rpt.
+                diag_log(new GameValue(message)._internalGameValue);
+                return new Vector2(0, 0);
+            }
         }
 
+        /// <summary>
+        /// Method <c>GetVector3</c> returns a c# Vector3 type from an GameValue instance from the RV engine
+        /// </summary>
         public static Vector3 GetVector3(GameValue instance)
         {
-            return Marshal.PtrToStructure<Vector3>(GetDataVector3(instance._internalGameValue));
+            var pointer = GetDataVector3(instance._internalGameValue);
+            try
+            {
+                var vec3 = Marshal.PtrToStructure<Vector3>(pointer);
+                // free the memory in the pointer
+                FreeRVAllocation(pointer, 2);
+                return vec3;
+            }
+            catch (NullReferenceException exception)
+            {
+                String message = String.Format("Null Execetion: {0}", exception);
+                // log the exception in the rpt.
+                diag_log(new GameValue(message)._internalGameValue);
+                return new Vector3(0, 0, 0);
+            }
         }
 
         //static methods

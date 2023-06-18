@@ -70,6 +70,41 @@ extern "C" __declspec(dllexport) void DeleteGameValue(intercept::types::game_val
 	delete value;
 }
 
+extern "C" __declspec(dllexport) void FreeRVAllocation(void* bytes, int type)
+{
+	if (bytes == nullptr)
+	{
+		return;
+	}
+
+	switch (type)
+	{
+		// string
+		case 0:
+		{
+			rv_allocator<char_t>::deallocate(reinterpret_cast<char_t*>(bytes));
+			break;
+		}
+		// vector 2
+		case 1:
+		{
+			rv_allocator<vector2>::deallocate(reinterpret_cast<vector2*>(bytes));
+			break;
+		}
+		// vector 3
+		case 2:
+		{
+			rv_allocator<vector3>::deallocate(reinterpret_cast<vector3*>(bytes));
+			break;
+		}
+		default:
+		{
+			// why was this called?
+			break;
+		}
+	}
+}
+
 extern "C" __declspec(dllexport) char_t* GetDataString(intercept::types::game_value * value)
 {
 	game_data* GameDataPointer = value->data.get();
