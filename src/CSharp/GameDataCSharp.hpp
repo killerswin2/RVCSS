@@ -3,10 +3,25 @@
 #include <intercept.hpp>
 #include <string_view>
 
+#include "../hosting/nethostfxr/nethostfxr.hpp"
+#include "../commands/commands.hpp"
+
+namespace rvcss
+{
+	class hosting
+	{
+	public:
+		static void pre_start();
+	};
+}
+
 class game_data_c_sharp: public game_data
 {
 public:
-	game_data_c_sharp() {}
+	game_data_c_sharp(){}
+	game_data_c_sharp(string_t& assemblyName, string_t& assemblyClassName, std::filesystem::path& configPath) {
+		_host = Nethostfxr{ assemblyName, assemblyClassName, configPath };
+	}
 	void lastRefDeleted() const override { delete this; }
 	const sqf_script_type& type() const override;
 	~game_data_c_sharp() override {};
@@ -20,4 +35,7 @@ public:
 	bool is_nil() const override { return false; }
 	bool can_serialize() override { return true; }
 	serialization_return serialize(param_archive& ar) override;
+
+	Nethostfxr _host;
+
 };

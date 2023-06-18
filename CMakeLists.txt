@@ -40,4 +40,3 @@ set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
 
 
 add_subdirectory(src)
-add_subdirectory(intercept)

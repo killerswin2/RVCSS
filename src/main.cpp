@@ -1,16 +1,14 @@
 #include <intercept.hpp>
 #include "commands/commands.hpp"
 
-#include <windows.h>
-#include "hosting/nethostfxr/nethostfxr.hpp"
-
-#include <filesystem>
+//#include "hosting/nethostfxr/nethostfxr.hpp"
+#include "CSharp/GameDataCSharp.hpp"
 
 game_value testFunction();
 
 // keep this global, so commands can't go out of scope.
 Commands& commands = Commands::get();
-Nethostfxr host;
+//Nethostfxr host;
 
 void createConsole()
 {
@@ -30,12 +28,13 @@ void intercept::register_interfaces() {
 void intercept::pre_start() {
 
     createConsole();
-    string_t assemblyName{STR("arma_code")};
-    string_t assemblyClassName{ STR("Printer") };
-    std::filesystem::path path{ STR("@rvcss/assembly/") };
-    host = Nethostfxr{ assemblyName, assemblyClassName,  path };
+    rvcss::hosting::pre_start();
+    //string_t assemblyName{STR("arma_code")};
+    //string_t assemblyClassName{ STR("Printer") };
+    //std::filesystem::path path{ STR("@rvcss/assembly/") };
+    //host = Nethostfxr{ assemblyName, assemblyClassName,  path };
    
-    commands.addCommand("callFunction", "testFunction for C#", userFunctionWrapper<testFunction>, game_data_type::NOTHING);
+    //commands.addCommand("callFunction", "testFunction for C#", userFunctionWrapper<testFunction>, game_data_type::NOTHING);
 }
 
 void intercept::post_init()
@@ -49,8 +48,8 @@ void intercept::pre_init() {
 
 game_value testFunction()
 {
-    auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(STR("EntryLocation"), STR("CustomEntryPointDelegate"));
-    hello();
+    //auto hello = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(STR("EntryLocation"), STR("CustomEntryPointDelegate"));
+    //hello();
     return {};
 }
 
