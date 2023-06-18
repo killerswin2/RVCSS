@@ -30,6 +30,7 @@
 #include <filesystem>
 #include <functional>
 #include <type_traits>
+#include "../error_handling/errormessing.hpp"
 
 using string_t = std::basic_string<char_t>;
 
@@ -78,6 +79,7 @@ t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName, cons
 
     if (rc != 0)
     {
+        ErrorDescription(rc);
         std::cout << "Error code: " << rc << "\n";
     }
     assert(rc == 0 && custom != nullptr && "Failure: load_assembly_and_get_function_pointer()");

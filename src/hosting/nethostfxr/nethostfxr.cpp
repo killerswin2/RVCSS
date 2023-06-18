@@ -1,4 +1,5 @@
 #include "nethostfxr.hpp"
+#include "../error_handling/errormessing.hpp"
 
 Nethostfxr::Nethostfxr(string_t& assemblyName, string_t& assemblyStaticClassName, std::filesystem::path& configPath) : _assemblyName{ assemblyName }
 {
@@ -37,6 +38,7 @@ load_assembly_and_get_function_pointer_fn Nethostfxr::get_dotnet_load_assembly()
     int rc = _hostfxr_initialize_for_runtime_config(_configPath.c_str(), nullptr, &cxt);
     if (rc != 0 || cxt == nullptr)
     {
+        ErrorDescription(rc);
         std::cerr << "Init failed: " << std::hex << std::showbase << rc << std::endl;
         _hostfxr_close(cxt);
         return nullptr;
@@ -49,6 +51,7 @@ load_assembly_and_get_function_pointer_fn Nethostfxr::get_dotnet_load_assembly()
     );
     if (rc != 0 || load_assembly_and_get_function_pointer == nullptr)
     {
+        ErrorDescription(rc);
         std::cerr << "Get delegate failed: " << std::hex << std::showbase << rc << std::endl;
     }
     _hostfxr_close(cxt);
@@ -67,6 +70,7 @@ bool Nethostfxr::load_hostfxr()
     int rc = get_hostfxr_path(buffer, &bufferSize, nullptr);
     if (rc != 0)
     {
+        ErrorDescription(rc);
         return false;
     }
     // load hostfxr and get desired exports
