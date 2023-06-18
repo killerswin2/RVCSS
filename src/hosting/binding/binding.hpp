@@ -33,9 +33,6 @@
 
 using string_t = std::basic_string<char_t>;
 
-
-
-
 class Bindings
 {
 private:

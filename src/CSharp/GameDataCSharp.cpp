@@ -118,7 +118,7 @@ game_value call_cs_code(game_value_parameter csHost, game_value_parameter callin
 
 	auto function = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(methodName, customDelegateName);
 	function();
-
+	return {};
 }
 
 void find_assembly_path(const std::filesystem::path& path, const std::vector<string_t>& nonOfficalModsDirs)
@@ -200,6 +200,6 @@ void rvcss::hosting::pre_start()
 	game_data_c_sharp_type = *codeType.second;
 
 	Commands& commands = Commands::get();
-	commands.addCommand("csLoad", "checks if a json array is empty", userFunctionWrapper<create_game_c_sharp_object>, codeType.first, game_data_type::STRING);
-	commands.addCommand("csCall", "push back element to json array", userFunctionWrapper<call_cs_code>, game_data_type::NOTHING, codeType.first, game_data_type::ARRAY);
+	commands.addCommand("csLoad", "", userFunctionWrapper<create_game_c_sharp_object>, codeType.first, game_data_type::STRING);
+	commands.addCommand("csCall", "", userFunctionWrapper<call_cs_code>, game_data_type::NOTHING, codeType.first, game_data_type::ARRAY);
 }
