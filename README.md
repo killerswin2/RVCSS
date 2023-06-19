@@ -5,12 +5,12 @@ RVCSS (Real Virtual C Sharp Scripting) is a intercept based plugin that allows f
 This project was designed as a entire replacement of sqf. RVCSS main target is developers, mainly those tired of SQF, and want modern language features that SQF cannot provide. RVCSS is not designed for beginners of Arma 3 modding. Beginners should instead focus on learning more about SQF, Arma 3 in general,  and design some scripts before moving on to RVCSS. 
 
 ## Requirements to use
-RVCSS currently only works on windows (2023-06-18). (Linux support will be provided later) As such given the nature of C#, developers should install the [.NET 7 SDK](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Non-devs should install [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Installation of .NET Desktop Runtime 7.0.5 will be left up to developers, if they want to target features from it.
+RVCSS currently only works on windows (2023-06-18). (Linux support will be provided later) As such given the nature of C#, developers should install the [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Non-devs should install [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Installation of .NET Desktop Runtime 7.0.5 will be left up to developers, if they want to target features from it.
 
 ## Offical Requirements
 - [CBA](https://github.com/CBATeam/CBA_A3)
 - [Intercept](https://github.com/intercept/intercept)
-- [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK").
+- [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK").
 
 ### Building Requirements
 TODO
