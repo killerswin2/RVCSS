@@ -94,6 +94,9 @@ RVCSS provides a binding (wrapper) for every single SQF function. These function
 
 Now that is out of the way, lets talk about real development. RVCSS expects your assemblies to be in a certain file under the name of "assembly" in your mod directory.
 
+![Screenshot 2023-06-18 194915](https://github.com/killerswin2/RVCSS/assets/8095345/1b602541-7153-46cf-ae56-77a295e601fa)
+![Screenshot 2023-06-18 194941](https://github.com/killerswin2/RVCSS/assets/8095345/d811cfe7-224f-41a8-b038-a23dfc346cde)
+
 If assembly does not exist or RVCSS can not find, RVCSS will not work.
 
 #### General Arma Development
