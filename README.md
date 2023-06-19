@@ -73,18 +73,18 @@ A3A_CSHOST csCall ["EntryLocation","CustomEntryPointDelegate"];
 ### Developing with RVCSS
 RVCSS implements two sqf commands that it depends on for initialization and calling methods in C#.
 
-#####csLoad
+##### csLoad
 csLoad loads the assembly code for cs and initializes the runtime.
 It takes a string as an argument. This string is the classname under the rvcss class.
 csLoad returns a cs_game_data_type, which is an object that holds the host context.
-######csLoad Example
+###### csLoad Example
 ```
 A3A_CSHOST = csLoad "test_cs_code";
 ```
-#####csCall
+##### csCall
 csCall simple calls the method supplied using the initialized runtime, host context, and loaded assembly code.
 It takes two arguments. The left arg is the cs_game_data_type c# host and loaded assembly. The right arg is an array of strings of size two. The first element in the array is the method name to call. The second element is the custom delegate name used for the call.
-######csCall Example
+###### csCall Example
 ```
 A3A_CSHOST csCall ["EntryLocation","
 CustomEntryPointDelegate"];
