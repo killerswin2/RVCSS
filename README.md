@@ -5,12 +5,12 @@ RVCSS (Real Virtual C Sharp Scripting) is a intercept based plugin that allows f
 This project was designed as a entire replacement of sqf. RVCSS main target is developers, mainly those tired of SQF, and want modern language features that SQF cannot provide. RVCSS is not designed for beginners of Arma 3 modding. Beginners should instead focus on learning more about SQF, Arma 3 in general,  and design some scripts before moving on to RVCSS. 
 
 ## Requirements to use
-RVCSS currently only works on windows (2023-06-18). (Linux support will be provided later) As such given the nature of C#, developers should install the [.NET 7 SDK](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Non-devs should install [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Installation of .NET Desktop Runtime 7.0.5 will be left up to developers, if they want to target features from it.
+RVCSS currently only works on windows (2023-06-18). (Linux support will be provided later) As such given the nature of C#, developers should install the [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Non-devs should install [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK"). Installation of .NET Desktop Runtime 7.0.5 will be left up to developers, if they want to target features from it.
 
 ## Offical Requirements
 - [CBA](https://github.com/CBATeam/CBA_A3)
 - [Intercept](https://github.com/intercept/intercept)
-- [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](http://https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK").
+- [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK").
 
 ### Building Requirements
 TODO
@@ -73,18 +73,18 @@ A3A_CSHOST csCall ["EntryLocation","CustomEntryPointDelegate"];
 ### Developing with RVCSS
 RVCSS implements two sqf commands that it depends on for initialization and calling methods in C#.
 
-#####csLoad
+##### csLoad
 csLoad loads the assembly code for cs and initializes the runtime.
 It takes a string as an argument. This string is the classname under the rvcss class.
 csLoad returns a cs_game_data_type, which is an object that holds the host context.
-######csLoad Example
+###### csLoad Example
 ```
 A3A_CSHOST = csLoad "test_cs_code";
 ```
-#####csCall
+##### csCall
 csCall simple calls the method supplied using the initialized runtime, host context, and loaded assembly code.
 It takes two arguments. The left arg is the cs_game_data_type c# host and loaded assembly. The right arg is an array of strings of size two. The first element in the array is the method name to call. The second element is the custom delegate name used for the call.
-######csCall Example
+###### csCall Example
 ```
 A3A_CSHOST csCall ["EntryLocation","
 CustomEntryPointDelegate"];
