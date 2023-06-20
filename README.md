@@ -13,7 +13,16 @@ RVCSS currently only works on windows (2023-06-18). (Linux support will be provi
 - [ASP.NET Core Runtime 7.0.5 and .NET Runtime 7.0.5](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 ".NET SDK").
 
 ### Building Requirements
-TODO
+- CMake Version 3.0+
+- [Dotnet SDK Version 7.0.203](https://dotnet.microsoft.com/en-us/download/dotnet/7.0 "Dotnet SDK Version 7.0.203")
+- MSVC 17 (Visual Studio 22)
+
+For easy of use, a bat file is provided for cmake Configuration and Building.
+
+To build navigate to the root RVCSS folder in your choose of console and run
+```
+.\config_and_build.bat
+```
 
 ### Example of use
 This C# code is the code we will use, look over it, and notice a few things.

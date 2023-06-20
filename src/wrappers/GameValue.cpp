@@ -30,7 +30,6 @@ extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueF
 
 extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueInt(int value)
 {
-	std::cout << "Size: " << sizeof(game_value) << "\n";
 	return new game_value(value);
 }
 
