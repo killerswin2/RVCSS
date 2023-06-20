@@ -30,6 +30,7 @@ extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueF
 
 extern "C" __declspec(dllexport) intercept::types::game_value * CreateGameValueInt(int value)
 {
+	std::cout << "Size: " << sizeof(game_value) << "\n";
 	return new game_value(value);
 }
 
@@ -200,6 +201,22 @@ extern "C" __declspec(dllexport) vector3* GetDataVector3(intercept::types::game_
 		std::cout << "Not A Vec3\n";
 		return nullptr;
 	}
+}
+
+extern "C" __declspec(dllexport) game_value* GetElementFromArray(intercept::types::game_value *array, int index)
+{
+	if (array->type() != game_data_array::type_def)
+	{
+		// do this nasty thing
+		return nullptr;
+	}
+
+	if (array->size() < index)
+	{
+		return nullptr;
+	}
+
+	return &array[index];
 }
 
 extern "C" __declspec(dllexport) game_value * acctime()
