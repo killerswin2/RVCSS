@@ -6,8 +6,6 @@
 #include <filesystem>
 #include <cassert>
 
-#define NETHOST_USE_AS_STATIC
-
 #include <nethost.h>
 #include <coreclr_delegates.h>
 #include <hostfxr.h>

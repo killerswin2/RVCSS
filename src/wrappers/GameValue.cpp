@@ -2,6 +2,7 @@
 #include "client/pointers.hpp"
 
 #include <vector>
+#include <cstdio>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -11,202 +12,172 @@
 #define char_t char
 #endif
 
-#pragma warning(disable: 4996)
-
 using host = intercept::client::host;
 using __sqf = intercept::client::__sqf;
 
- __declspec(dllexport) intercept::types::game_value CreateGameValue()
+static game_data* gameDataTestPointer = nullptr;
+static game_value* gameValueTestPointer = nullptr;
+
+void print_data(void* pointer, int length)
 {
-	 sizeof(game_value);
-	 sizeof(ref<game_data>);
-	return game_value();
-}
+	unsigned char* tempPointer = reinterpret_cast<unsigned char*>(pointer);
+	std::cout << "pointer printing\n";
 
- __declspec(dllexport) intercept::types::game_value  CreateGameValueFloat(float value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) intercept::types::game_value  CreateGameValueInt(int value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) intercept::types::game_value  CreateGameValueBool(bool value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) intercept::types::game_value  CreateGameValueString(const char* value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) intercept::types::game_value CreateGameValueArrayEmpty()
-{
-	std::vector<game_value> object{};
-	return game_value(object);
-}
-
-//__declspec(dllexport) intercept::types::game_value  CreateGameValueArray(intercept::types::game_value  array, int length)
-//{
-
-//	std::vector<game_value> object{array, array + length};
-//	return  game_value(object);
-//}
-
- __declspec(dllexport) intercept::types::game_value CreateGameValueVector2(intercept::types::vector2 value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) intercept::types::game_value CreateGameValueVector3(intercept::types::vector3 value)
-{
-	return game_value(value);
-}
-
- __declspec(dllexport) void FreeRVAllocation(void* bytes, int type)
-{
-	if (bytes == nullptr)
+	for (int i = 0; i < length; i++)
 	{
+		printf("%x", (unsigned char)tempPointer[i]);
+	}
+
+	std::cout << "\n";
+
+}
+
+__declspec(dllexport) void TestGameDataPointer(game_value instance)
+{
+	game_data* pointer = instance.data.get();
+	if (pointer == nullptr)
+	{
+		std::cout << "Instance pointer is null\n";
+		return;
+	}
+	if (gameDataTestPointer == nullptr)
+	{
+		std::cout << "Pointer is null\n";
 		return;
 	}
 
-	switch (type)
+	if (gameDataTestPointer == pointer)
 	{
-		// string
-	case 0:
+		std::cout << "gameDataTestPointer is equal to Instance pointer\n";
+		print_data(pointer, sizeof(game_data*));
+		print_data(gameDataTestPointer, sizeof(game_data*));
+
+	}
+	if (instance.type() == game_data_array::type_def)
 	{
-		rv_allocator<char_t>::deallocate(reinterpret_cast<char_t*>(bytes));
-		break;
+		for (int i = 0; i < instance.size(); i++)
+		{
+			std::cout << "index " << i << ": " << intercept::sqf::str(instance[i]) << "\n";
+		}
 	}
-	// vector 2
-	case 1:
-	{
-		rv_allocator<vector2>::deallocate(reinterpret_cast<vector2*>(bytes));
-		break;
-	}
-	// vector 3
-	case 2:
-	{
-		rv_allocator<vector3>::deallocate(reinterpret_cast<vector3*>(bytes));
-		break;
-	}
-	default:
-	{
-		// why was this called?
-		break;
-	}
-	}
+	//okay now print out value;
+	float number = reinterpret_cast<game_data_number*>(gameDataTestPointer)->number;
+	std::cout << "Float from pointer value is: " << number << "\n";
 }
 
- __declspec(dllexport) char_t * GetDataString(intercept::types::game_value value)
+__declspec(dllexport) void TestGameAutoArray(auto_array<game_value> array)
 {
-	game_data* GameDataPointer = value.data.get();
+	auto pointer = array.data();
+	std::cout << " Array Pointer: " << std::hex << pointer << "\n";
+	std::cout << " Test Pointer: " << std::hex << gameValueTestPointer << "\n";
 
-	//string
-	if (value.type() == game_data_string::type_def)
+	if (pointer != gameValueTestPointer)
 	{
-		auto GameDataStringPointer = reinterpret_cast<game_data_string*>(GameDataPointer);
-		auto stringData = GameDataStringPointer->raw_string.c_str();
-		auto size = GameDataStringPointer->raw_string.size() + 1;
-
-		char_t* str = rv_allocator<char_t>::allocate(size);
-		int rc = MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED, stringData, -1, str, size);
-		return str;
+		std::cout << "Array pointer does not equal Test pointer!\n";
 	}
-	else
+	
+	if (pointer == nullptr)
 	{
-		// this is dangerous, but easy to do
-		std::cout << "Not A String\n";
-		return nullptr;
+		std::cout << "Array pointer is null\n";
+		return;
+	}
+
+	print_data(pointer, sizeof(game_value) * array.count());
+
+	game_value temp = array.get(0);
+	if (temp.data.get() == nullptr)
+	{
+		std::cout << "data pointer is null\n";
+	}
+
+	std::cout << "Count: " << array.count() << "\n";
+	for (int i = 0; i < array.count(); i++)
+	{
+		std::cout <<"index " << i << ": " << intercept::sqf::str(array[i]) << "\n";
 	}
 }
 
- __declspec(dllexport) float GetDataFloat(intercept::types::game_value value)
+__declspec(dllexport) auto_array<game_value> CreateAutoArray()
 {
-	game_data* GameDataPointer = value.data.get();
-
-	//number/float
-	if (value.type() == game_data_number::type_def)
-	{
-		auto GameDataNumberPointer = reinterpret_cast<game_data_number*>(GameDataPointer);
-		return GameDataNumberPointer->number;
-	}
-	else
-	{
-		std::cout << "Not A Number\n";
-		return 0.0;
-	}
+	return auto_array<game_value>();
 }
 
- __declspec(dllexport) int GetDataInt(intercept::types::game_value value)
+__declspec(dllexport) game_value CreateGameValue()
 {
-	return static_cast<int>(GetDataFloat(value));
+	return game_value();
 }
 
- __declspec(dllexport) bool GetDataBool(intercept::types::game_value value)
+__declspec(dllexport) game_value CreateGameValue(float value)
 {
-	game_data* GameDataPointer = value.data.get();
-
-	//bool
-	if (value.type() == game_data_bool::type_def)
-	{
-		auto GameDataBoolPointer = reinterpret_cast<game_data_bool*>(GameDataPointer);
-		return GameDataBoolPointer->val;
-	}
-	else
-	{
-		std::cout << "Not A Bool\n";
-		// yes this is dumb, but it's what I want to do at 11 pm
-		return false;
-	}
+	game_value temp = game_value(value);
+	void* table = temp.data.get();
+	std::cout << "game_data_number number: " << std::hex << reinterpret_cast<game_data_number*>(table)->number << "\n";
+	gameDataTestPointer = temp.data.get();
+	return temp;
 }
 
- __declspec(dllexport) vector2 GetDataVector2(intercept::types::game_value value)
+ __declspec(dllexport) game_value CreateGameValue(bool value)
 {
-	game_data* GameDataPointer = value.data.get();
-
-	if (value.type() == game_data_array::type_def && value.size() == 2)
-	{
-		vector2 temp = value;
-		return temp;
-	}
-	else
-	{
-		
-		return vector2();
-	}
+	return game_value(value);
 }
 
- __declspec(dllexport) vector3 GetDataVector3(intercept::types::game_value value)
+ __declspec(dllexport) game_value CreateGameValue(const char* value)
 {
-	game_data* GameDataPointer = value.data.get();
-
-	if (value.type() == game_data_array::type_def && value.size() == 3)
-	{
-		vector3 temp = value;
-		return temp;
-	}
-	else
-	{
-		return vector3();
-	}
+	return game_value(value);
 }
 
- __declspec(dllexport) game_value GetElementFromArray(intercept::types::game_value array, int index)
+ __declspec(dllexport) game_value CreateGameValue(game_value* array, int length)
+ {
+	 return game_value(auto_array<game_value>(array, array + length));
+ }
+
+__declspec(dllexport) game_value CreateGameValue(auto_array<game_value> array)
 {
-	if (array.type() != game_data_array::type_def)
-	{
-		// do this nasty thing
-		return array;
-	}
-
-	if (array.size() < index)
-	{
-		return array;
-	}
-
-	return array[index];
+	return game_value(array);
 }
+
+ __declspec(dllexport) game_value CreateGameValue(vector2 value)
+{
+	return game_value(value);
+}
+
+ __declspec(dllexport) game_value CreateGameValue(vector3 value)
+{
+	return game_value(value);
+}
+
+ __declspec(dllexport) game_value CreateGameValue(game_data *data)
+ {
+	 return game_value(data);
+ }
+
+ // allocators
+ __declspec(dllexport) void* Allocate(size_t size)
+ {
+	 auto temp = rv_allocator<char>::allocate(size);
+	 gameValueTestPointer = reinterpret_cast<game_value*>(temp);
+	 return temp;
+ }
+
+ __declspec(dllexport) void Deallocate(void* pointer)
+ {
+	 if (pointer == nullptr)
+	 {
+		 return;
+	 }
+	 rv_allocator<char>::deallocate(reinterpret_cast<char*>(pointer));
+ }
+
+ __declspec(dllexport) game_value NearRoads(game_value pos, game_value radius)
+ {
+	 
+	 return host::functions.invoke_raw_binary(__sqf::binary__nearroads__object_array__scalar__ret__array, pos, radius);
+ }
+
+ __declspec(dllexport) game_value NearestTerrainObjects(game_value right_arg)
+ {
+	 return host::functions.invoke_raw_unary(__sqf::unary__nearestterrainobjects__array__ret__array, right_arg);
+ }
+
+
+ 

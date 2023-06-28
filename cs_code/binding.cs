@@ -7,125 +7,159 @@ using System.Numerics;
 
 namespace RV
 {
+    [StructLayout(LayoutKind.Sequential)]
+    public struct AutoArray
+    {
+        IntPtr _shared_memory; //(is this data?) hard to tell here. It might be the pointer for game_value objects
+        //offset 8
+        Int32 _n;
+        //offset 12
+        Int32 _padding1;
+        //offset 16
+        Int32 _maxItems;
+        //offset 20
+        Int32 _padding2;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct Ref
     {
-        IntPtr _data;
+        IntPtr data;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameData
     {
         IntPtr _vtptr;
-        // 8 bytes
-        public Ref;
+        // offset 8
+        int _refCount;
+        //offset 12
+        private Int32 _dummy;       // WHY ?
+        //offset 16
+        IntPtr _vtptr_debug;
+        //ends at 24 for padding
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataArray : GameData
     {
-
+        AutoArray data;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataBool: GameData
     {
-
+        Byte val;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataCode : GameData
     {
+        Ref codeString;
+        AutoArray instrunctions;    // don't use this.
+        Byte isFinal;
 
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataConfig : GameData
     {
-
+        IntPtr config;
+        AutoArray path; // don't use
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataControl : GameData
     {
-
+        IntPtr control;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataDisplay : GameData
     {
-
+        IntPtr display;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataGroup : GameData
     {
-
+        IntPtr group;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataHashmap : GameData
     {
-
+        IntPtr _table;
+        Int32 _tableCount;
+        Int32 _count;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataLocation : GameData
     {
-
+        IntPtr location;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataNamespace : GameData
     {
+        IntPtr dummyVtable;
 
+        // _variables
+        IntPtr _table;
+        Int32 _tableCount;
+        Int32 _count;
+
+        IntPtr _name;
+        Byte _1; //? okay
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataNothing : GameData
     {
-
+        // nothing here...
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataNumber : GameData
     {
-
+        float number;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataObject : GameData
     {
-
+        IntPtr object;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataRVText : GameData
     {
-
+        IntPtr rv_text;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataScript : GameData
     {
-
+        IntPtr script;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataSide : GameData
     {
-
+        IntPtr side;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataString : GameData
     {
-
+        IntPtr rawString;
     }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct GameDataTeamMember : GameData
     {
-
+        IntPtr teamMember;
     }
 
 
@@ -135,8 +169,11 @@ namespace RV
     [StructLayout(LayoutKind.Sequential)]
 	public struct GameValue
     {
+        //VTablePtr
         public IntPtr _vtptr;
-        public GameData Data;
+
+        //Data pointer
+        public Ref Data;
 
         [SuppressUnmanagedCodeSecurity, DllImport("rvcss_x64", EntryPoint = "?CreateGameValue@@YA?AVgame_value@types@intercept@@XZ", CallingConvention = __CallingConvention.Cdecl)]
         private static extern GameValue CreateGameValue();

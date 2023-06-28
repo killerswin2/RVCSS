@@ -1,5 +1,10 @@
 #include "GameDataCSharp.hpp"
 
+#pragma push_macro("min")
+#pragma push_macro("max")
+#undef min
+#undef max
+
 static sqf_script_type game_data_c_sharp_type;
 static std::vector<string_t> possiblePaths;
 static std::vector<string_t> finalPaths;
@@ -71,8 +76,9 @@ game_value create_game_c_sharp_object(game_value_parameter className)
 		{
 			return {};
 		}
-
-		return game_value(new game_data_c_sharp(string_t{ assemblyName }, string_t{ assemblyClassName }, assemblyPath));
+		string_t tempString = assemblyName;
+		string_t tempString1 = assemblyClassName;
+		return game_value(new game_data_c_sharp(tempString, tempString1, assemblyPath));
 		
 	}
 	else
@@ -204,3 +210,7 @@ void rvcss::hosting::pre_start()
 	commands.addCommand("csLoad", "", userFunctionWrapper<create_game_c_sharp_object>, codeType.first, game_data_type::STRING);
 	commands.addCommand("csCall", "", userFunctionWrapper<call_cs_code>, game_data_type::NOTHING, codeType.first, game_data_type::ARRAY);
 }
+
+
+#pragma pop_macro("min")
+#pragma pop_macro("max")

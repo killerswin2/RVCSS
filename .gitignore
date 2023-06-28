@@ -56,3 +56,6 @@ CTestTestfile.cmake
 # .NET Outpput and Intermediate Directories
 **/bin/**
 **/obj/**
+
+# Misc
+StructLayoutSettings.json
