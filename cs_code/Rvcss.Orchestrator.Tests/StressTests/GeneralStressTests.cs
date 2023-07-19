@@ -19,7 +19,7 @@ public class GeneralStressTests
         this.output = output;
     }
 
-    [Fact]
+    [Fact(Skip = "Runtime too long on DotNetIsolator")]
     public async Task PrimeSieveTest()
     {
         // Set up the runtime
