@@ -103,8 +103,9 @@ RVCSS provides a binding (wrapper) for every single SQF function. These function
 
 Now that is out of the way, lets talk about real development. RVCSS expects your assemblies to be in a certain file under the name of "assembly" in your mod directory.
 
-![Screenshot 2023-06-18 194915](https://github.com/killerswin2/RVCSS/assets/8095345/1b602541-7153-46cf-ae56-77a295e601fa)
-![Screenshot 2023-06-18 194941](https://github.com/killerswin2/RVCSS/assets/8095345/d811cfe7-224f-41a8-b038-a23dfc346cde)
+![Screenshot 2023-06-18 194915](https://github.com/killerswin2/RVCSS/assets/8095345/98b6f046-681d-4583-bee0-cfe4cc8b2df1)
+![Screenshot 2023-06-18 194941](https://github.com/killerswin2/RVCSS/assets/8095345/4f0b6ea6-1e2d-457e-9d4c-b14fab89d5b6)
+
 
 If assembly does not exist or RVCSS can not find, RVCSS will not work.
 

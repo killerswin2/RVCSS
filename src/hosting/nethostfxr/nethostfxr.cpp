@@ -71,6 +71,17 @@ bool Nethostfxr::load_hostfxr()
     if (rc != 0)
     {
         ErrorDescription(rc);
+#ifdef _WIN32
+        MessageBoxW(nullptr, STR("Failed to find hostfxr"), STR("RVCSS Hosting"), MB_ICONERROR | MB_OK);
+        // open the download page for dotnet on windows.
+        ShellExecuteW(nullptr, nullptr, STR("https://dotnet.microsoft.com/en-us/download/dotnet/7.0"), nullptr, nullptr, SW_SHOW);
+#else 
+        char url = "https://dotnet.microsoft.com/en-us/download/dotnet/7.0";
+        char cmd[1024] = { 0 };
+        sprintf(cmd, "xdg-open %s", url);
+        system(cmd);
+#endif
+
         return false;
     }
     // load hostfxr and get desired exports
