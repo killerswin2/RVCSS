@@ -17,6 +17,6 @@ internal interface IWorkerToolkitInternal
     public byte[]? SerializeFromStorage(long maxBytes);
     public void DeserializeToStorage(byte[]? serializedStorage);
     public void WorkerInvokeVoid(string methodName);
-    public object WorkerInvoke(string methodName, object?[]? @params);
+    public object? WorkerInvoke(string methodName, object?[]? @params);
     #endregion
 }

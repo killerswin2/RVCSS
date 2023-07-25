@@ -298,8 +298,8 @@ public class AckermannFunctionTest
         IsolatedRuntime isolatedRuntime = new IsolatedRuntime(isolatedRuntimeHost);
         Mediator worker = Mediator.CreateFromWorkerType<AckermannRunner>(isolatedRuntime);
         // Act
-        int actualResult = worker.Invoke<int, int, int>(nameof(AckermannRunner.AckermannHeapSingleReturn), m, n);
-        output.WriteLine($"Ack({m}, {n}) = {actualResult}");
+        (int actualResult, int maxStackSize) = worker.Invoke<int, int, (int,int)>(nameof(AckermannRunner.AckermannHeap), m, n);
+        output.WriteLine($"Ack({m}, {n}) = {actualResult}; Max Stack: {maxStackSize}");
         // Assert
         Assert.Equal(result, actualResult);
     }
@@ -391,8 +391,6 @@ Recurse:
         {
             return (1uL << (n + 3)) - 3;
         }
-
-        public int AckermannHeapSingleReturn(int m, int n) => AckermannHeap(m, n).AckResult;
     }
 }
 

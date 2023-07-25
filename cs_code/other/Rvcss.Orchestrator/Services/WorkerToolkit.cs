@@ -73,12 +73,16 @@ internal class WorkerToolkit : IWorkerToolkitInternal, IWorkerToolkit
     }
     public void WorkerInvokeVoid(string methodName)
     {
-        worker.GetType().GetMethod(methodName).Invoke(worker, null);
+        if (worker?.GetType().GetMethod(methodName) is not MethodInfo method)
+            return;
+        method.Invoke(worker, null);
     }
 
-    public object WorkerInvoke(string methodName, object?[]? @params)
+    public object? WorkerInvoke(string methodName, object?[]? @params)
     {
-        return worker.GetType().GetMethod(methodName).Invoke(worker, @params);
+        if (worker?.GetType().GetMethod(methodName) is not MethodInfo method)
+            return null;
+        return method.Invoke(worker, @params);
     }
     #endregion
 

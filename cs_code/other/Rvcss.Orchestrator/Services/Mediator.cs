@@ -43,19 +43,19 @@ internal class Mediator : IMediatorInternal, IMediator, IDisposable
         }
     }
 
-    public TRes Invoke<T0, TRes>(string methodName, T0 param0)
+    public TRes? Invoke<T0, TRes>(string methodName, T0 param0)
     {
         lock (invokeLock)
         {
-            return isolatedObject.Invoke<string, object?, TRes>(nameof(IWorkerToolkitInternal.WorkerInvoke), methodName, new object?[] { param0 });
+            return isolatedObject.Invoke<string, object?, TRes?>(nameof(IWorkerToolkitInternal.WorkerInvoke), methodName, new object?[] { param0 });
         }
     }
 
-    public TRes Invoke<T0, T1, TRes>(string methodName, T0 param0, T1 param1)
+    public TRes? Invoke<T0, T1, TRes>(string methodName, T0 param0, T1 param1)
     {
         lock (invokeLock)
         {
-            return isolatedObject.Invoke<string, object?, TRes>(nameof(IWorkerToolkitInternal.WorkerInvoke), methodName, new object?[] { param0, param1 });
+            return isolatedObject.Invoke<string, object?, TRes?>(nameof(IWorkerToolkitInternal.WorkerInvoke), methodName, new object?[] { param0, param1 });
         }
     }
     #endregion
