@@ -18,11 +18,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout repository and submodules
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
     - name: Setup .NET 7
       uses: actions/setup-dotnet@v3
       with:
