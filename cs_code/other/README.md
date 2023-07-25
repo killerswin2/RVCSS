@@ -1,3 +1,7 @@
+# Build
+
+- [Install Wiser](./Docs/InstallWiser.md)
+
 # IsolatedCodeHosting
 Built on top of [@SteveSandersonMS's DotNetIsolator](https://github.com/SteveSandersonMS/DotNetIsolator) (For now)<br/>
 Provides additional features such as async await. <br/>

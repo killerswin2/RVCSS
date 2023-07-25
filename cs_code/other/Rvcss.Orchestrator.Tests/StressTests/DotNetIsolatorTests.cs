@@ -16,7 +16,7 @@ public class DotNetIsolatorTests
     }
     readonly ITestOutputHelper output;
 
-    [Fact(Skip = "Runtime too long on DotNetIsolator")]
+    [Fact(Skip = "Runtime too long on DotNetIsolator ~8.6 sec")]
     public async Task SmallDataTransferTest()
     {
         // Set up the runtime
@@ -26,9 +26,9 @@ public class DotNetIsolatorTests
             //.WithPreopenedDirectory(Path.Combine(Environment.CurrentDirectory, "\\DummyDir"), "/")
             ;
         // Start runtime
-        using var host = new IsolatedRuntimeHost()
+        var host = new IsolatedRuntimeHost()
             .WithAssemblyLoader(LoadAssembly);
-        using var isolatedRuntime = new IsolatedRuntime(host);
+        var isolatedRuntime = new IsolatedRuntime(host);
 
 
         // 1 Megabyte of bytes
@@ -65,14 +65,14 @@ public class DotNetIsolatorTests
             //.WithPreopenedDirectory(Path.Combine(Environment.CurrentDirectory, "\\DummyDir"), "/")
             ;
         // Start runtime
-        using var host = new IsolatedRuntimeHost()
+        var host = new IsolatedRuntimeHost()
             .WithAssemblyLoader(LoadAssembly);
         using var isolatedRuntime = new IsolatedRuntime(host);
 
 
         // 1 Megabyte of bytes
-        // Maximum bytes without crash: 7752420, 0b0111_0110_0100_1010_1110_0100
-        const int bytesToGenerate = 0b0111_0110_0100_1010_1110_0100;
+        // Maximum bytes without crash: 7752419, 0b0111_0110_0100_1010_1110_0011
+        const int bytesToGenerate = 0b0111_0110_0100_1010_1110_0011 + 1;
         Random seedGenerator = new();
         Stopwatch stopwatch = new();
         IsolatedObject isolatedByteGenerator = isolatedRuntime.CreateObject<ReturnManyPseudoRandomByteGenerator>();

@@ -16,12 +16,10 @@ public class AckermannFunctionTest
     public AckermannFunctionTest(AckermannFunctionTestFixture fixture, ITestOutputHelper output)
     {
         this.output = output;
-        isolatedRuntime = fixture.IsolatedRuntime;
         isolatedRuntimeHost = fixture.IsolatedRuntimeHost;
     }
     readonly ITestOutputHelper output;
     readonly IsolatedRuntimeHost isolatedRuntimeHost;
-    readonly IsolatedRuntime isolatedRuntime;
 
     [Theory]
     [InlineData(0, 0, 1)]
@@ -192,35 +190,35 @@ public class AckermannFunctionTest
         Assert.Equal(result, actualResult);
     }
 
-    [Theory(Skip = "DotNetIsolatorUnableToNotCrash")]
+    [Theory]
     [InlineData(0, 0, 1)]
-    [InlineData(0, 1, 2)]
-    [InlineData(0, 2, 3)]
-    [InlineData(0, 3, 4)]
-    [InlineData(0, 4, 5)]
-    [InlineData(1, 0, 2)]
-    [InlineData(1, 1, 3)]
-    [InlineData(1, 2, 4)]
-    [InlineData(1, 3, 5)]
-    [InlineData(1, 4, 6)]
-    [InlineData(2, 0, 3)]
-    [InlineData(2, 1, 5)]
-    [InlineData(2, 2, 7)]
-    [InlineData(2, 3, 9)]
-    [InlineData(2, 4, 11)]
-    [InlineData(3, 0, 5)]
-    [InlineData(3, 1, 13)]
-    [InlineData(3, 2, 29)]
-    [InlineData(3, 3, 61)]
-    [InlineData(3, 4, 125)]
-    [InlineData(3, 5, 253)]
-    [InlineData(3, 6, 509)]
-    [InlineData(3, 7, 1021)]
+    //[InlineData(0, 1, 2)]
+    //[InlineData(0, 2, 3)]
+    //[InlineData(0, 3, 4)]
+    //[InlineData(0, 4, 5)]
+    //[InlineData(1, 0, 2)]
+    //[InlineData(1, 1, 3)]
+    //[InlineData(1, 2, 4)]
+    //[InlineData(1, 3, 5)]
+    //[InlineData(1, 4, 6)]
+    //[InlineData(2, 0, 3)]
+    //[InlineData(2, 1, 5)]
+    //[InlineData(2, 2, 7)]
+    //[InlineData(2, 3, 9)]
+    //[InlineData(2, 4, 11)]
+    //[InlineData(3, 0, 5)]
+    //[InlineData(3, 1, 13)]
+    //[InlineData(3, 2, 29)]
+    //[InlineData(3, 3, 61)]
+    //[InlineData(3, 4, 125)]
+    //[InlineData(3, 5, 253)]
+    //[InlineData(3, 6, 509)]
+    //[InlineData(3, 7, 1021)]
     [InlineData(3, 8, 2045)]
     public void AckermannRunsOnWasm(int m, int n, int result)
     {
         // Arrange
-        using IsolatedRuntime isolatedRuntime = new IsolatedRuntime(isolatedRuntimeHost);
+        IsolatedRuntime isolatedRuntime = new IsolatedRuntime(isolatedRuntimeHost);
         Mediator worker = Mediator.CreateFromWorkerType<AckermannRunner>(isolatedRuntime);
         // Act
         int actualResult = worker.Invoke<int,int,int>(nameof(AckermannRunner.Ackermann), m, n);
@@ -228,36 +226,36 @@ public class AckermannFunctionTest
         Assert.Equal(result, actualResult);
     }
 
-    [Theory(Skip = "DotNetIsolatorUnableToNotCrash")]
+    [Theory]
     [InlineData(0, 0, 1)]
-    [InlineData(0, 1, 2)]
-    [InlineData(0, 2, 3)]
-    [InlineData(0, 3, 4)]
-    [InlineData(0, 4, 5)]
-    [InlineData(1, 0, 2)]
-    [InlineData(1, 1, 3)]
-    [InlineData(1, 2, 4)]
-    [InlineData(1, 3, 5)]
-    [InlineData(1, 4, 6)]
-    [InlineData(2, 0, 3)]
-    [InlineData(2, 1, 5)]
-    [InlineData(2, 2, 7)]
-    [InlineData(2, 3, 9)]
-    [InlineData(2, 4, 11)]
-    [InlineData(3, 0, 5)]
-    [InlineData(3, 1, 13)]
-    [InlineData(3, 2, 29)]
-    [InlineData(3, 3, 61)]
-    [InlineData(3, 4, 125)]
-    [InlineData(3, 5, 253)]
-    [InlineData(3, 6, 509)]
-    [InlineData(3, 7, 1021)]
+    //[InlineData(0, 1, 2)]
+    //[InlineData(0, 2, 3)]
+    //[InlineData(0, 3, 4)]
+    //[InlineData(0, 4, 5)]
+    //[InlineData(1, 0, 2)]
+    //[InlineData(1, 1, 3)]
+    //[InlineData(1, 2, 4)]
+    //[InlineData(1, 3, 5)]
+    //[InlineData(1, 4, 6)]
+    //[InlineData(2, 0, 3)]
+    //[InlineData(2, 1, 5)]
+    //[InlineData(2, 2, 7)]
+    //[InlineData(2, 3, 9)]
+    //[InlineData(2, 4, 11)]
+    //[InlineData(3, 0, 5)]
+    //[InlineData(3, 1, 13)]
+    //[InlineData(3, 2, 29)]
+    //[InlineData(3, 3, 61)]
+    //[InlineData(3, 4, 125)]
+    //[InlineData(3, 5, 253)]
+    //[InlineData(3, 6, 509)]
+    //[InlineData(3, 7, 1021)]
     [InlineData(3, 8, 2045)]
     [InlineData(4, 0, 13)]
     public void AckermannTailRunsOnWasm(int m, int n, int result)
     {
         // Arrange
-        using IsolatedRuntime isolatedRuntime = new IsolatedRuntime(isolatedRuntimeHost);
+        IsolatedRuntime isolatedRuntime = new IsolatedRuntime(isolatedRuntimeHost);
         Mediator worker = Mediator.CreateFromWorkerType<AckermannRunner>(isolatedRuntime);
         // Act
         int actualResult = worker.Invoke<int, int, int>(nameof(AckermannRunner.AckermannTail), m, n);
@@ -265,31 +263,34 @@ public class AckermannFunctionTest
         Assert.Equal(result, actualResult);
     }
 
-    [Theory(Skip = "DotNetIsolatorUnableToNotCrash")]
+    [Theory]
     [InlineData(0, 0, 1)]
-    [InlineData(0, 1, 2)]
-    [InlineData(0, 2, 3)]
-    [InlineData(0, 3, 4)]
-    [InlineData(0, 4, 5)]
-    [InlineData(1, 0, 2)]
-    [InlineData(1, 1, 3)]
-    [InlineData(1, 2, 4)]
-    [InlineData(1, 3, 5)]
-    [InlineData(1, 4, 6)]
-    [InlineData(2, 0, 3)]
-    [InlineData(2, 1, 5)]
-    [InlineData(2, 2, 7)]
-    [InlineData(2, 3, 9)]
-    [InlineData(2, 4, 11)]
-    [InlineData(3, 0, 5)]
-    [InlineData(3, 1, 13)]
-    [InlineData(3, 2, 29)]
-    [InlineData(3, 3, 61)]
-    [InlineData(3, 4, 125)]
-    [InlineData(3, 5, 253)]
-    [InlineData(3, 6, 509)]
-    [InlineData(3, 7, 1021)]
-    [InlineData(3, 8, 2045)]
+    //[InlineData(0, 1, 2)]
+    //[InlineData(0, 2, 3)]
+    //[InlineData(0, 3, 4)]
+    //[InlineData(0, 4, 5)]
+    //[InlineData(1, 0, 2)]
+    //[InlineData(1, 1, 3)]
+    //[InlineData(1, 2, 4)]
+    //[InlineData(1, 3, 5)]
+    //[InlineData(1, 4, 6)]
+    //[InlineData(2, 0, 3)]
+    //[InlineData(2, 1, 5)]
+    //[InlineData(2, 2, 7)]
+    //[InlineData(2, 3, 9)]
+    //[InlineData(2, 4, 11)]
+    //[InlineData(3, 0, 5)]
+    //[InlineData(3, 1, 13)]
+    //[InlineData(3, 2, 29)]
+    //[InlineData(3, 3, 61)]
+    //[InlineData(3, 4, 125)]
+    //[InlineData(3, 5, 253)]
+    //[InlineData(3, 6, 509)]
+    //[InlineData(3, 7, 1021)]
+    [InlineData(3, 8, 2045, Skip = "Runtime too long ~1.2 sec")]
+    //[InlineData(3, 10, 8189)]  // 9.3 sec
+    //[InlineData(3, 11, 16381)]  // 34 sec
+    //[InlineData(3, 12, 32765)]  // 2.8 min
     [InlineData(4, 0, 13)]
     public void AckermannHeapRunsOnWasm(int m, int n, int result)
     {
@@ -404,10 +405,8 @@ public class AckermannFunctionTestFixture //: IDisposable
     {
         IsolatedRuntimeHost = new IsolatedRuntimeHost()
             .WithBinDirectoryAssemblyLoader();
-        IsolatedRuntime = new IsolatedRuntime(IsolatedRuntimeHost);
     }
     public readonly IsolatedRuntimeHost IsolatedRuntimeHost;
-    public readonly IsolatedRuntime IsolatedRuntime;
 
     #region IDisposable
 
@@ -419,7 +418,6 @@ public class AckermannFunctionTestFixture //: IDisposable
         {
             if (disposing)
             {
-                IsolatedRuntime.Dispose();
                 IsolatedRuntimeHost.Dispose();
             }
             disposedValue = true;

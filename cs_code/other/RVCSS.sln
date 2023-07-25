@@ -16,6 +16,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIsolator", "IS4Code-DotNetIsolator\src\DotNetIsolator\DotNetIsolator.csproj", "{7F77D605-F1F2-4E75-BE31-4D6E366DEB77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIsolator.Guest", "IS4Code-DotNetIsolator\src\DotNetIsolator.Guest\DotNetIsolator.Guest.csproj", "{E3013CBB-1679-4D69-BC28-6765335775FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIsolator.WasmApp", "IS4Code-DotNetIsolator\src\DotNetIsolator.WasmApp\DotNetIsolator.WasmApp.csproj", "{99AC26F2-BAE7-48DE-8E99-E829E82650D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIsolator.Test", "IS4Code-DotNetIsolator\test\DotNetIsolator.Test\DotNetIsolator.Test.csproj", "{752BC6DF-8788-4772-B5B0-324EB5EA311E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{D2C1C427-72DE-4F91-95E6-8694B1C904E3}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\InstallWiser.md = Docs\InstallWiser.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +52,22 @@ Global
 		{9FA03488-73DE-4071-818E-B5F2160A82E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FA03488-73DE-4071-818E-B5F2160A82E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FA03488-73DE-4071-818E-B5F2160A82E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F77D605-F1F2-4E75-BE31-4D6E366DEB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F77D605-F1F2-4E75-BE31-4D6E366DEB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F77D605-F1F2-4E75-BE31-4D6E366DEB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F77D605-F1F2-4E75-BE31-4D6E366DEB77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3013CBB-1679-4D69-BC28-6765335775FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3013CBB-1679-4D69-BC28-6765335775FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3013CBB-1679-4D69-BC28-6765335775FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3013CBB-1679-4D69-BC28-6765335775FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99AC26F2-BAE7-48DE-8E99-E829E82650D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99AC26F2-BAE7-48DE-8E99-E829E82650D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99AC26F2-BAE7-48DE-8E99-E829E82650D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99AC26F2-BAE7-48DE-8E99-E829E82650D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752BC6DF-8788-4772-B5B0-324EB5EA311E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752BC6DF-8788-4772-B5B0-324EB5EA311E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752BC6DF-8788-4772-B5B0-324EB5EA311E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752BC6DF-8788-4772-B5B0-324EB5EA311E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
