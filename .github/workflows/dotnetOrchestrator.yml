@@ -6,8 +6,11 @@ name: RVCSS .NET Orchestrator
 on:
   push:
     branches: [ "master", "orchestrator-mediator-worker" ]
+    paths: [ "cs_code/other/**/*" ]
   pull_request:
     branches: [ "master", "orchestrator-mediator-worker" ]
+    paths: [ "cs_code/other/**/*" ]
+  workflow_dispatch:
 
 jobs:
   build:
