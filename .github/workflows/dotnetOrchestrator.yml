@@ -12,6 +12,10 @@ on:
     paths: [ "cs_code/other/**/*" ]
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: cs_code/other/
+
 jobs:
   build:
 
