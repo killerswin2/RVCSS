@@ -12,9 +12,9 @@ on:
     paths: [ "cs_code/other/**/*" ]
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: cs_code/other/
+#defaults:
+#  run:
+#    working-directory: cs_code/other/
 
 jobs:
   build:
@@ -28,8 +28,8 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore cs_code/other
+      run: dotnet restore cs_code/other/Rvcss.Orchestrator.Tests/Rvcss.Orchestrator.Tests.csproj
     - name: Build
-      run: dotnet build cs_code/other --no-restore
+      run: dotnet build cs_code/other/Rvcss.Orchestrator.Tests/Rvcss.Orchestrator.Tests.csproj --no-restore
     - name: Test Rvcss.Orchestrator
-      run: dotnet test cs_code/other/Rvcss.Orchestrator.Tests --no-build --verbosity normal
+      run: dotnet test cs_code/other/Rvcss.Orchestrator.Tests/Rvcss.Orchestrator.Tests.csproj --no-build --verbosity normal
