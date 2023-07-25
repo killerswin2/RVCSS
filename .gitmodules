@@ -1,3 +1,6 @@
 [submodule "intercept"]
 	path = intercept
 	url = https://github.com/intercept/intercept.git
+[submodule "IS4Code-DotNetIsolator"]
+	path = cs_code/other/IS4Code-DotNetIsolator
+	url = https://github.com/IS4Code/DotNetIsolator.git
