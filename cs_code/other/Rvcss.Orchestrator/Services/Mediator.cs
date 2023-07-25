@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 using DotNetIsolator;
 
@@ -28,7 +29,7 @@ internal class Mediator : IMediatorInternal, IMediator, IDisposable
     private Mediator(IsolatedRuntime isolatedRuntime)
     {
         this.isolatedRuntime = isolatedRuntime;
-        isolatedObject = isolatedRuntime.CreateObject<WorkerToolkit>();
+        isolatedObject = isolatedRuntime.CreateObject<WorkerToolkit>() ?? throw new InvalidOperationException("Unable to create object of WorkerToolkit");
 
         isolatedObject.InvokeVoid($"set_{nameof(WorkerToolkit.Version)}", 1);
         isolatedObject.InvokeVoid($"set_{nameof(WorkerToolkit.VersionFriendly)}", "Version 1 Test Preview");
