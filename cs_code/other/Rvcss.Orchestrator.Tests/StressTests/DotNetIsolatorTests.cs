@@ -36,7 +36,8 @@ public class DotNetIsolatorTests
         const int bytesToGenerate = 0b0111_0110_0100_1010_1110_0011;
         Random seedGenerator = new();
         Stopwatch stopwatch = new();
-        IsolatedObject isolatedByteGenerator = isolatedRuntime.CreateObject<ReturnManyPseudoRandomByteGenerator>();
+        IsolatedObject? isolatedByteGenerator = isolatedRuntime.CreateObject<ReturnManyPseudoRandomByteGenerator>();
+        Assert.NotNull(isolatedByteGenerator);
         GC.Collect();
         stopwatch.Restart();
         // Native Execution of random bytes
@@ -75,7 +76,8 @@ public class DotNetIsolatorTests
         const int bytesToGenerate = 0b0111_0110_0100_1010_1110_0011 + 1;
         Random seedGenerator = new();
         Stopwatch stopwatch = new();
-        IsolatedObject isolatedByteGenerator = isolatedRuntime.CreateObject<ReturnManyPseudoRandomByteGenerator>();
+        IsolatedObject? isolatedByteGenerator = isolatedRuntime.CreateObject<ReturnManyPseudoRandomByteGenerator>();
+        Assert.NotNull(isolatedByteGenerator);
         GC.Collect();
         stopwatch.Restart();
         // Native Execution of random bytes
