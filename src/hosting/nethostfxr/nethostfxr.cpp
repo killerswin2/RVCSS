@@ -36,7 +36,8 @@ load_assembly_and_get_function_pointer_fn Nethostfxr::get_dotnet_load_assembly()
     void* load_assembly_and_get_function_pointer = nullptr;
     hostfxr_handle cxt = nullptr;
     int rc = _hostfxr_initialize_for_runtime_config(_configPath.c_str(), nullptr, &cxt);
-    if (rc != 0 || cxt == nullptr)
+    // error codes below zero are failures, 1 is that the host is already init, 2 is different Runtime Properties 
+    if (rc < 0 || cxt == nullptr)
     {
         ErrorDescription(rc);
         std::cerr << "Init failed: " << std::hex << std::showbase << rc << std::endl;
@@ -49,6 +50,7 @@ load_assembly_and_get_function_pointer_fn Nethostfxr::get_dotnet_load_assembly()
         hdt_load_assembly_and_get_function_pointer,
         &load_assembly_and_get_function_pointer
     );
+
     if (rc != 0 || load_assembly_and_get_function_pointer == nullptr)
     {
         ErrorDescription(rc);
