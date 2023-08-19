@@ -57,6 +57,10 @@ CTestTestfile.cmake
 **/bin/**
 **/obj/**
 
+
+# Struct layout tool
+StructLayoutSettings.json
+
 # Misc
 StructLayoutSettings.json
 /cs_code/arma_code/debug_build.bat
