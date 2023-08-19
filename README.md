@@ -30,11 +30,13 @@ RVCSS requires that your code be wrapped into a namespace with same name as your
 ```csharp
 using System;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 using System.Numerics;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using RV;
+using RV.Scripting;
+using System.Text.Encodings.Web;
+
 namespace arma_code
 {
     public static class Printer
@@ -42,30 +44,34 @@ namespace arma_code
         public delegate void CustomEntryPointDelegate();
         public static void EntryLocation()
         {
-            Console.WriteLine("Before");
-            GameValue hello = new GameValue("Hello!");
-            GameValue.SystemChat(hello);
+            TestGameDataReferences.TestReferences();
+            Value floatValue = new Value(20.0f);
+            Value boolValue = new Value(true);
+            Value stringValue = new Value("String!");
 
-            List<int> list = new List<int>() {10, 20, 30};
-            GameValue array = new GameValue(list);
-            GameValue arrayStr = GameValue.Str(array);
-            String gameString = GameValue.GetString(arrayStr);
+            Value player = GameValueMethods.Player();
+            Value radius = new Value(1000.0f);
+            Value roads = new Value(GameValueMethods.NearRoads(player.Data, radius.Data));
 
-            Console.WriteLine("Well this is from Arma 3: " + gameString);
+            String? returnString = roads.ToString();
+            Console.WriteLine("Roads: {0}", returnString);
 
-            GameValue vectorDis = GameValue.VectorDistance(array, new GameValue(new Vector3(100, 200, 330)));
-            GameValue.SystemChat(GameValue.Str(vectorDis));
+            //Now Test the player again!!!
+            String? playerString = player.ToString();
+            Console.WriteLine("Player: {0}", playerString);
 
-            // convert to c# native vector3
-            float distance = GameValue.GetFloat(vectorDis);
-            Console.WriteLine("distance: " + distance);
-            float velocity = 10.0f; //10 m/s
+            RVArray types = new() { "ROAD" };
 
-            float timeToReach = distance / velocity;
-            String message = string.Format("This object will travel {0} meters in {1} secs.", distance, timeToReach);
+            RVArray nearestParams = new() {
+                player, 
+                types,
+                3000.0f,
+                false,
+                false
+            };
 
-            GameValue.Diag_log(new GameValue(message));
-            Console.WriteLine(message);
+            Value nearestTerrain = GameValueMethods.NearestTerrainObjects(nearestParams);
+            Console.WriteLine("Nearest Terrain Objects: {0}", nearestTerrain.ToString());
 
         }
     }
