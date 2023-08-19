@@ -1,12 +1,13 @@
 #pragma once
 
-#include <intercept.hpp>
 #include <string_view>
+#include <intercept.hpp>
+#include "../commands/commands.hpp"
 
-#define NETHOST_USE_AS_STATIC
 
 #include "../hosting/nethostfxr/nethostfxr.hpp"
-#include "../commands/commands.hpp"
+
+#pragma warning(disable : 4003) 
 
 namespace rvcss
 {

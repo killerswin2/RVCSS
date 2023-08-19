@@ -6,8 +6,6 @@
 #include <filesystem>
 #include <cassert>
 
-#define NETHOST_USE_AS_STATIC
-
 #include <nethost.h>
 #include <coreclr_delegates.h>
 #include <hostfxr.h>
@@ -58,16 +56,22 @@ public:
     Bindings() {}
     Bindings(string_t& assemblyName, string_t assemblyStaticClassName, std::filesystem::path& assemblyPath, load_assembly_and_get_function_pointer_fn functionPointer);
     template<typename t1>
-    t1 get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate);
+    t1 get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate, const string_t& assemblyClassName, const string_t& namespaceName);
 };
 
 //@TODO: make this cached.
 template<typename t1>
-t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate)
+t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName, const string_t& customDelegate, const string_t& assemblyClassName, const string_t& namespaceName)
 {
-
-    const string_t dotnetType = _assemblyName + STR(".") + _assemblyStaticClassName + STR(", ") + _assemblyName;
-    const string_t delegateTypeName = _assemblyName + STR(".") + _assemblyStaticClassName + STR("+") + customDelegate + STR(", ") + _assemblyName;
+    string_t assemblyStaticClassName = assemblyClassName;
+    if (assemblyStaticClassName == string_t())
+    {
+        assemblyStaticClassName = _assemblyStaticClassName;
+    }
+    const string_t dotnetType = namespaceName + STR(".") + assemblyStaticClassName + STR(", ") + _assemblyName;
+    //std::wcout << dotnetType << STR("\n");
+    const string_t delegateTypeName = namespaceName + STR(".") + assemblyStaticClassName + STR("+") + customDelegate + STR(", ") + _assemblyName;
+    //std::wcout << delegateTypeName << STR("\n");
 
     t1 custom = nullptr;
     int rc = _load_assembly_and_get_function_pointer(
@@ -87,4 +91,5 @@ t1 Bindings::get_function_pointer_from_assembly(const string_t& methodName, cons
     assert(rc == 0 && custom != nullptr && "Failure: load_assembly_and_get_function_pointer()");
     return custom;
 }
+
 #endif

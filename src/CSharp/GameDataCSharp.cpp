@@ -1,5 +1,10 @@
 #include "GameDataCSharp.hpp"
 
+#pragma push_macro("min")
+#pragma push_macro("max")
+#undef min
+#undef max
+
 static sqf_script_type game_data_c_sharp_type;
 static std::vector<string_t> possiblePaths;
 static std::vector<string_t> finalPaths;
@@ -71,8 +76,28 @@ game_value create_game_c_sharp_object(game_value_parameter className)
 		{
 			return {};
 		}
+		
+		/*
+			We need to pass in the vtableptrs to allow for type checking in the engine. 
+			This warranted a whole rewrite for passing in data for get_function_pointer
+		*/
+		string_t tempString = assemblyName;
+		string_t tempString1 = assemblyClassName;
+		auto host = new game_data_c_sharp(tempString, tempString1, assemblyPath);
+		auto function = host->_host.get_function_pointer<void (CORECLR_DELEGATE_CALLTYPE*)(uintptr_t* args, int length)>(STR("AssignPointers"), string_t(STR("AssignPointersDelegate")), string_t(STR("VTablePtrs")), string_t(STR("RV")));
+		
+		game_value table;
+		uintptr_t gameValuePointer = *reinterpret_cast<uintptr_t*>(&table);
 
-		return game_value(new game_data_c_sharp(string_t{ assemblyName }, string_t{ assemblyClassName }, assemblyPath));
+		std::vector<uintptr_t> buffer = {
+			game_data_array::type_def, game_data_bool::type_def, game_data_code::type_def, game_data_config::type_def,
+			game_data_control::type_def, game_data_display::type_def, game_data_group::type_def, game_data_hashmap::type_def,
+			game_data_location::type_def, game_data_namespace::type_def, game_data_nothing::type_def, game_data_number::type_def,
+			game_data_object::type_def, game_data_rv_text::type_def, game_data_script::type_def, game_data_side::type_def, 
+			game_data_string::type_def, game_data_team_member::type_def, gameValuePointer
+		};
+		function(buffer.data(), buffer.size());
+		return game_value(host);
 		
 	}
 	else
@@ -116,7 +141,7 @@ game_value call_cs_code(game_value_parameter csHost, game_value_parameter callin
 	// get the hosting object
 	auto host = reinterpret_cast<game_data_c_sharp*>(csHost.data.get())->_host;
 
-	auto function = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(methodName, customDelegateName);
+	auto function = host.get_function_pointer<void(CORECLR_DELEGATE_CALLTYPE*)(void)>(methodName, customDelegateName, string_t(), string_t());
 	function();
 	return {};
 }
@@ -204,3 +229,7 @@ void rvcss::hosting::pre_start()
 	commands.addCommand("csLoad", "", userFunctionWrapper<create_game_c_sharp_object>, codeType.first, game_data_type::STRING);
 	commands.addCommand("csCall", "", userFunctionWrapper<call_cs_code>, game_data_type::NOTHING, codeType.first, game_data_type::ARRAY);
 }
+
+
+#pragma pop_macro("min")
+#pragma pop_macro("max")
