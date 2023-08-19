@@ -11,6 +11,7 @@ void createConsole()
     AllocConsole();
     FILE* fp = new FILE();
     freopen_s(&fp, "CONOUT$", "w", stdout);
+    freopen_s(&fp, "CONOUT$", "w", stderr);
 }
 
 int intercept::api_version() { //This is required for the plugin to work.

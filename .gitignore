@@ -59,3 +59,5 @@ CTestTestfile.cmake
 
 # Misc
 StructLayoutSettings.json
+/cs_code/arma_code/debug_build.bat
+/cs_code/arma_code/release_build.bat

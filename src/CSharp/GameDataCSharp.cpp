@@ -76,16 +76,25 @@ game_value create_game_c_sharp_object(game_value_parameter className)
 		{
 			return {};
 		}
+		
+		/*
+			We need to pass in the vtableptrs to allow for type checking in the engine. 
+			This warranted a whole rewrite for passing in data for get_function_pointer
+		*/
 		string_t tempString = assemblyName;
 		string_t tempString1 = assemblyClassName;
 		auto host = new game_data_c_sharp(tempString, tempString1, assemblyPath);
 		auto function = host->_host.get_function_pointer<void (CORECLR_DELEGATE_CALLTYPE*)(uintptr_t* args, int length)>(STR("AssignPointers"), string_t(STR("AssignPointersDelegate")), string_t(STR("VTablePtrs")), string_t(STR("RV")));
+		
+		game_value table;
+		uintptr_t gameValuePointer = *reinterpret_cast<uintptr_t*>(&table);
+
 		std::vector<uintptr_t> buffer = {
 			game_data_array::type_def, game_data_bool::type_def, game_data_code::type_def, game_data_config::type_def,
 			game_data_control::type_def, game_data_display::type_def, game_data_group::type_def, game_data_hashmap::type_def,
 			game_data_location::type_def, game_data_namespace::type_def, game_data_nothing::type_def, game_data_number::type_def,
 			game_data_object::type_def, game_data_rv_text::type_def, game_data_script::type_def, game_data_side::type_def, 
-			game_data_string::type_def, game_data_team_member::type_def
+			game_data_string::type_def, game_data_team_member::type_def, gameValuePointer
 		};
 		function(buffer.data(), buffer.size());
 		return game_value(host);
