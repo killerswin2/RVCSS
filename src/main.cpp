@@ -3,7 +3,7 @@
 #include "CSharp/GameDataCSharp.hpp"
 
 #if UNIT_TESTING_BUILD
-#include "Tests/Tests.hpp"
+//#include "Tests/Tests.hpp"
 #endif
 
 void createConsole()
