@@ -75,7 +75,6 @@ namespace RV
         //[SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?NearestTerrainObjects@@YA?AVgame_value@types@intercept@@V123@@Z")]
         //[UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
         //public static partial GameValue NearestTerrainObjects(GameValue data);
-
         #region commands
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?unary__abs__scalar_nan__ret__scalar_nan@@YA?AVgame_value@types@intercept@@V123@@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -5619,5019 +5618,5019 @@ namespace RV
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__action__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__action__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__action__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__actionparams__object__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__actionparams__object__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__actionparams__object__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__add3denlayer__scalar__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__add3denlayer__scalar__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__add3denlayer__scalar__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addaction__object__array__ret__nothing_scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addaction__object__array__ret__nothing_scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addaction__object__array__ret__nothing_scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addbackpack__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addbackpack__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addbackpack__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addbackpackcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addbackpackcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addbackpackcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addbackpackcargoglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addbackpackcargoglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addbackpackcargoglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addbackpackglobal__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addbackpackglobal__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addbackpackglobal__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addbinocularitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addbinocularitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addbinocularitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addcuratoraddons__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addcuratoraddons__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addcuratoraddons__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addcuratorcameraarea__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addcuratorcameraarea__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addcuratorcameraarea__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addcuratoreditableobjects__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addcuratoreditableobjects__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addcuratoreditableobjects__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addcuratoreditingarea__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addcuratoreditingarea__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addcuratoreditingarea__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addcuratorpoints__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addcuratorpoints__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addcuratorpoints__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addeditorobject__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addeditorobject__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__addeditorobject__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addeventhandler__object__array__ret__nothing_scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addeventhandler__object__array__ret__nothing_scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addeventhandler__object__array__ret__nothing_scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addeventhandler__group__array__ret__nothing_scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addeventhandler__group__array__ret__nothing_scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addeventhandler__group__array__ret__nothing_scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addforce__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addforce__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addforce__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addgoggles__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addgoggles__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addgoggles__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addgroupicon__group__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addgroupicon__group__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addgroupicon__group__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addhandgunitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addhandgunitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addhandgunitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addheadgear__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addheadgear__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addheadgear__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additemcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additemcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additemcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additemcargoglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additemcargoglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additemcargoglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additemtobackpack__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additemtobackpack__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additemtobackpack__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additemtouniform__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additemtouniform__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additemtouniform__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__additemtovest__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__additemtovest__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__additemtovest__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addlivestats__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addlivestats__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addlivestats__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazine__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazine__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazine__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazine__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazine__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazine__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazineammocargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazineammocargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazineammocargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazinecargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazinecargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazinecargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazinecargoglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazinecargoglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazinecargoglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazineglobal__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazineglobal__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazineglobal__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazines__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazines__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazines__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmagazineturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addmagazineturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addmagazineturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmenu__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addmenu__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addmenu__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmenuitem__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addmenuitem__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addmenuitem__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addmpeventhandler__object__array__ret__nothing_scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addmpeventhandler__object__array__ret__nothing_scalar(GameValue rightGameValue);
+        public static partial GameValue binary__addmpeventhandler__object__array__ret__nothing_scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addownedmine__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addownedmine__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addownedmine__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addplayerscores__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addplayerscores__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addplayerscores__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addprimaryweaponitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addprimaryweaponitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addprimaryweaponitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addpublicvariableeventhandler__string__code__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addpublicvariableeventhandler__string__code__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addpublicvariableeventhandler__string__code__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addpublicvariableeventhandler__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addpublicvariableeventhandler__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addpublicvariableeventhandler__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addrating__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addrating__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addrating__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addresources__team_member__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addresources__team_member__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addresources__team_member__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addscore__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addscore__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addscore__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addscoreside__side__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addscoreside__side__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addscoreside__side__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addsecondaryweaponitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addsecondaryweaponitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addsecondaryweaponitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addteammember__team_member__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addteammember__team_member__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addteammember__team_member__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addtorque__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addtorque__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addtorque__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__adduniform__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__adduniform__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__adduniform__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addvehicle__group__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addvehicle__group__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addvehicle__group__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addvest__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addvest__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addvest__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addwaypoint__group__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__addwaypoint__group__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__addwaypoint__group__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweapon__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweapon__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweapon__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponcargoglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponcargoglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponcargoglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponglobal__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponglobal__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponglobal__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponitem__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponitem__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponitem__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponwithattachmentscargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponwithattachmentscargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponwithattachmentscargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__addweaponwithattachmentscargoglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__addweaponwithattachmentscargoglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__addweaponwithattachmentscargoglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__aimedattarget__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__aimedattarget__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__aimedattarget__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__alldiaryrecords__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__alldiaryrecords__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__alldiaryrecords__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allobjects__scalar__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__allobjects__scalar__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__allobjects__scalar__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allobjects__string__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__allobjects__string__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__allobjects__string__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allow3dmode__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allow3dmode__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allow3dmode__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowcrewinimmobile__object__bool_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowcrewinimmobile__object__bool_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowcrewinimmobile__object__bool_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowcuratorlogicignoreareas__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowcuratorlogicignoreareas__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowcuratorlogicignoreareas__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowdamage__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowdamage__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowdamage__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowdammage__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowdammage__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowdammage__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowfileoperations__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowfileoperations__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowfileoperations__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowfleeing__object_group__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowfleeing__object_group__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowfleeing__object_group__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowgetin__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowgetin__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowgetin__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowservice__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowservice__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowservice__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__allowsprint__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__allowsprint__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__allowsprint__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ammo__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ammo__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ammo__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ammoonpylon__object__string_scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ammoonpylon__object__string_scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ammoonpylon__object__string_scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__and__bool__bool__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__and__bool__bool__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__and__bool__bool__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__and__bool__code__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__and__bool__code__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__and__bool__code__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animate__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__animate__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__animate__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animatebay__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__animatebay__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__animatebay__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animatedoor__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__animatedoor__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__animatedoor__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animatepylon__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__animatepylon__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__animatepylon__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animatesource__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__animatesource__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__animatesource__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animationphase__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__animationphase__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__animationphase__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__animationsourcephase__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__animationsourcephase__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__animationsourcephase__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__append__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__append__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__append__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__apply__array__code__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__apply__array__code__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__apply__array__code__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__apply__hashmap__code__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__apply__hashmap__code__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__apply__hashmap__code__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__arrayintersect__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__arrayintersect__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__arrayintersect__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignascargo__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignascargo__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignascargo__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignascargoindex__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignascargoindex__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignascargoindex__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignascommander__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignascommander__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignascommander__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignasdriver__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignasdriver__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignasdriver__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignasgunner__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignasgunner__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignasgunner__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignasturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignasturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignasturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assigncurator__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assigncurator__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assigncurator__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assignteam__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assignteam__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assignteam__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__assigntoairport__object__object_scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__assigntoairport__object__object_scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__assigntoairport__object__object_scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__atan2__scalar_nan__scalar_nan__ret__scalar_nan@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__atan2__scalar_nan__scalar_nan__ret__scalar_nan(GameValue rightGameValue);
+        public static partial GameValue binary__atan2__scalar_nan__scalar_nan__ret__scalar_nan(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__attachobject__location__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__attachobject__location__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__attachobject__location__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__attachto__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__attachto__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__attachto__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__awake__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__awake__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__awake__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__backpackspacefor__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__backpackspacefor__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__backpackspacefor__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__bezierinterpolation__scalar__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__bezierinterpolation__scalar__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__bezierinterpolation__scalar__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__boundingbox__scalar__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__boundingbox__scalar__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__boundingbox__scalar__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__boundingboxreal__scalar__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__boundingboxreal__scalar__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__boundingboxreal__scalar__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__breakout__any__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__breakout__any__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__breakout__any__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__buildingexit__object__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__buildingexit__object__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__buildingexit__object__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__buildingpos__object__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__buildingpos__object__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__buildingpos__object__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__buttonsetaction__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__buttonsetaction__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__buttonsetaction__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__call__any__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__call__any__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__call__any__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__call__hashmap__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__call__hashmap__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__call__hashmap__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__callextension__string__string__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__callextension__string__string__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__callextension__string__string__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__callextension__string__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__callextension__string__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__callextension__string__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camcommand__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camcommand__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camcommand__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camcommit__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camcommit__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camcommit__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camcommitprepared__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camcommitprepared__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camcommitprepared__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camconstuctionsetparams__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camconstuctionsetparams__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camconstuctionsetparams__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camcreate__string__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__camcreate__string__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__camcreate__string__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cameraeffect__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cameraeffect__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cameraeffect__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreload__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreload__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreload__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparebank__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparebank__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparebank__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparedir__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparedir__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparedir__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparedive__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparedive__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparedive__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparefocus__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparefocus__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparefocus__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparefov__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparefov__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparefov__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparefovrange__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparefovrange__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparefovrange__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparepos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparepos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparepos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparerelpos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparerelpos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparerelpos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparetarget__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparetarget__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparetarget__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__campreparetarget__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__campreparetarget__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__campreparetarget__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetbank__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetbank__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetbank__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetdir__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetdir__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetdir__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetdive__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetdive__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetdive__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetfocus__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetfocus__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetfocus__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetfov__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetfov__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetfov__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetfovrange__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetfovrange__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetfovrange__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetpos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetpos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetpos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsetrelpos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsetrelpos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsetrelpos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsettarget__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsettarget__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsettarget__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__camsettarget__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__camsettarget__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__camsettarget__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canadd__object__string_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canadd__object__string_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canadd__object__string_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canadd__string__string_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canadd__string__string_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canadd__string__string_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canadditemtobackpack__object__string_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canadditemtobackpack__object__string_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canadditemtobackpack__object__string_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canadditemtouniform__object__string_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canadditemtouniform__object__string_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canadditemtouniform__object__string_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canadditemtovest__object__string_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canadditemtovest__object__string_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canadditemtovest__object__string_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canslingload__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canslingload__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canslingload__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canslingload__string__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canslingload__string__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__canslingload__string__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__canvehiclecargo__object__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__canvehiclecargo__object__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__canvehiclecargo__object__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__catch__exception__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__catch__exception__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__catch__exception__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cbsetchecked__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cbsetchecked__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cbsetchecked__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__checkaifeature__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__checkaifeature__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__checkaifeature__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__checkvisibility__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__checkvisibility__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__checkvisibility__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__clear3denattribute__any__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__clear3denattribute__any__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__clear3denattribute__any__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__closedisplay__display__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__closedisplay__display__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__closedisplay__display__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__collect3denhistory__array__code__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__collect3denhistory__array__code__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__collect3denhistory__array__code__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandartilleryfire__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandartilleryfire__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandartilleryfire__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandchat__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandchat__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandchat__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandfire__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandfire__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandfire__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandfollow__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandfollow__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandfollow__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandfsm__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandfsm__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandfsm__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandmove__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandmove__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandmove__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandradio__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandradio__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandradio__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandsuppressivefire__object_array__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandsuppressivefire__object_array__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandsuppressivefire__object_array__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandtarget__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandtarget__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandtarget__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandwatch__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandwatch__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandwatch__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__commandwatch__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__commandwatch__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__commandwatch__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__configaccessor__config__string__ret__config@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__configaccessor__config__string__ret__config(GameValue rightGameValue);
+        public static partial GameValue binary__configaccessor__config__string__ret__config(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__configclasses__string__config__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__configclasses__string__config__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__configclasses__string__config__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__confirmsensortarget__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__confirmsensortarget__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__confirmsensortarget__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__connectterminaltouav__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__connectterminaltouav__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__connectterminaltouav__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__controlsgroupctrl__control__scalar__ret__control@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__controlsgroupctrl__control__scalar__ret__control(GameValue rightGameValue);
+        public static partial GameValue binary__controlsgroupctrl__control__scalar__ret__control(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__copywaypoints__group__group__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__copywaypoints__group__group__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__copywaypoints__group__group__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__count__code__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__count__code__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__count__code__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__countenemy__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__countenemy__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__countenemy__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__countfriendly__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__countfriendly__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__countfriendly__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__countside__side__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__countside__side__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__countside__side__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__counttype__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__counttype__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__counttype__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__countunknown__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__countunknown__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__countunknown__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__create3denentity__group__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__create3denentity__group__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__create3denentity__group__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__creatediaryrecord__object__array__ret__diary_record@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__creatediaryrecord__object__array__ret__diary_record(GameValue rightGameValue);
+        public static partial GameValue binary__creatediaryrecord__object__array__ret__diary_record(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__creatediarysubject__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__creatediarysubject__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__creatediarysubject__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createdisplay__display__string__ret__display@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createdisplay__display__string__ret__display(GameValue rightGameValue);
+        public static partial GameValue binary__createdisplay__display__string__ret__display(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createhashmapfromarray__array__array__ret__hashmap@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createhashmapfromarray__array__array__ret__hashmap(GameValue rightGameValue);
+        public static partial GameValue binary__createhashmapfromarray__array__array__ret__hashmap(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createmenu__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__createmenu__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__createmenu__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createmissiondisplay__display__string__ret__display@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createmissiondisplay__display__string__ret__display(GameValue rightGameValue);
+        public static partial GameValue binary__createmissiondisplay__display__string__ret__display(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createmissiondisplay__display__array__ret__display@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createmissiondisplay__display__array__ret__display(GameValue rightGameValue);
+        public static partial GameValue binary__createmissiondisplay__display__array__ret__display(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__creatempcampaigndisplay__display__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__creatempcampaigndisplay__display__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__creatempcampaigndisplay__display__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createsimpletask__object__array__ret__task@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createsimpletask__object__array__ret__task(GameValue rightGameValue);
+        public static partial GameValue binary__createsimpletask__object__array__ret__task(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createsite__string__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createsite__string__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__createsite__string__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createtask__team_member__array__ret__task@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createtask__team_member__array__ret__task(GameValue rightGameValue);
+        public static partial GameValue binary__createtask__team_member__array__ret__task(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createunit__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__createunit__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__createunit__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createunit__group__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createunit__group__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__createunit__group__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createvehicle__string__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createvehicle__string__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__createvehicle__string__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createvehiclecrew__group__object__ret__group@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createvehiclecrew__group__object__ret__group(GameValue rightGameValue);
+        public static partial GameValue binary__createvehiclecrew__group__object__ret__group(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createvehiclecrew__side__object__ret__group@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createvehiclecrew__side__object__ret__group(GameValue rightGameValue);
+        public static partial GameValue binary__createvehiclecrew__side__object__ret__group(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__createvehiclelocal__string__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__createvehiclelocal__string__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__createvehiclelocal__string__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctdata__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctdata__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__ctdata__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctfindheaderrows__control__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctfindheaderrows__control__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__ctfindheaderrows__control__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctfindrowheader__control__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctfindrowheader__control__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ctfindrowheader__control__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctheadercontrols__control__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctheadercontrols__control__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__ctheadercontrols__control__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctremoveheaders__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctremoveheaders__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctremoveheaders__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctremoverows__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctremoverows__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctremoverows__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrladdeventhandler__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrladdeventhandler__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ctrladdeventhandler__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlanimatemodel__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlanimatemodel__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlanimatemodel__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlanimationphasemodel__control__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlanimationphasemodel__control__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlanimationphasemodel__control__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlat__display__array__ret__control@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlat__display__array__ret__control(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlat__display__array__ret__control(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlchecked__control__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlchecked__control__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlchecked__control__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlcommit__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlcommit__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlcommit__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlcreate__display__array__ret__control@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlcreate__display__array__ret__control(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlcreate__display__array__ret__control(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlenable__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlenable__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlenable__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlmapanimadd__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlmapanimadd__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlmapanimadd__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlmapcursor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlmapcursor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlmapcursor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlmapscreentoworld__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlmapscreentoworld__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlmapscreentoworld__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlmapsetposition__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlmapsetposition__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlmapsetposition__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlmapworldtoscreen__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlmapworldtoscreen__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlmapworldtoscreen__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlremovealleventhandlers__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlremovealleventhandlers__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlremovealleventhandlers__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlremoveeventhandler__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlremoveeventhandler__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlremoveeventhandler__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetactivecolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetactivecolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetactivecolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetangle__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetangle__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetangle__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetautoscrolldelay__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetautoscrolldelay__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetautoscrolldelay__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetautoscrollrewind__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetautoscrollrewind__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetautoscrollrewind__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetautoscrollspeed__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetautoscrollspeed__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetautoscrollspeed__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetbackgroundcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetbackgroundcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetbackgroundcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetchecked__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetchecked__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetchecked__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetchecked__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetchecked__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetchecked__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetdisabledcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetdisabledcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetdisabledcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlseteventhandler__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlseteventhandler__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlseteventhandler__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfade__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfade__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfade__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfont__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfont__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfont__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth1__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth1__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth1__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth1b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth1b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth1b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth2__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth2__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth2__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth2b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth2b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth2b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth3__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth3__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth3__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth3b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth3b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth3b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth4__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth4__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth4__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth4b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth4b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth4b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth5__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth5__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth5__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth5b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth5b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth5b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth6__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth6__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth6__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfonth6b__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfonth6b__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfonth6b__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheight__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheight__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheight__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth1__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth1__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth1__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth2__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth2__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth2__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth3__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth3__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth3__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth4__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth4__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth4__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth5__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth5__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth5__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheighth6__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheighth6__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheighth6__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontheightsecondary__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontheightsecondary__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontheightsecondary__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontp__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontp__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontp__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontp__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontp__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontp__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontpb__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontpb__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontpb__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetfontsecondary__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetfontsecondary__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetfontsecondary__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetforegroundcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetforegroundcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetforegroundcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetmodel__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetmodel__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetmodel__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetmodeldirandup__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetmodeldirandup__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetmodeldirandup__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetmodelscale__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetmodelscale__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetmodelscale__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetmouseposition__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetmouseposition__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetmouseposition__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpixelprecision__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpixelprecision__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpixelprecision__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpixelprecision__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpixelprecision__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpixelprecision__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetposition__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetposition__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetposition__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpositionh__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpositionh__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpositionh__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpositionw__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpositionw__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpositionw__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpositionx__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpositionx__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpositionx__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetpositiony__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetpositiony__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetpositiony__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetscale__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetscale__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetscale__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetscrollvalues__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetscrollvalues__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetscrollvalues__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetshadow__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetshadow__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetshadow__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsetstructuredtext__control__text__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsetstructuredtext__control__text__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsetstructuredtext__control__text__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettext__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettext__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettext__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettextcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettextcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettextcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettextcolorsecondary__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettextcolorsecondary__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettextcolorsecondary__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettextsecondary__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettextsecondary__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettextsecondary__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettextselection__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettextselection__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettextselection__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettooltip__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettooltip__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettooltip__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettooltipcolorbox__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettooltipcolorbox__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettooltipcolorbox__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettooltipcolorshade__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettooltipcolorshade__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettooltipcolorshade__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettooltipcolortext__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlsettooltipcolortext__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlsettooltipcolortext__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlsettooltipmaxwidth__control__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrlsettooltipmaxwidth__control__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ctrlsettooltipmaxwidth__control__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlseturl__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlseturl__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlseturl__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlseturloverlaymode__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlseturloverlaymode__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlseturloverlaymode__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrlshow__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctrlshow__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctrlshow__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctrowcontrols__control__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctrowcontrols__control__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__ctrowcontrols__control__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctsetcursel__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctsetcursel__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctsetcursel__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctsetdata__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctsetdata__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctsetdata__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctsetheadertemplate__control__config__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctsetheadertemplate__control__config__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctsetheadertemplate__control__config__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctsetrowtemplate__control__config__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctsetrowtemplate__control__config__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctsetrowtemplate__control__config__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctsetvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ctsetvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ctsetvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ctvalue__control__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ctvalue__control__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__ctvalue__control__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__curatorcoef__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__curatorcoef__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__curatorcoef__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentmagazinedetailturret__object__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentmagazinedetailturret__object__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__currentmagazinedetailturret__object__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentmagazineturret__object__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentmagazineturret__object__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__currentmagazineturret__object__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentvisionmode__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentvisionmode__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__currentvisionmode__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentvisionmode__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentvisionmode__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__currentvisionmode__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentweaponturret__object__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentweaponturret__object__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__currentweaponturret__object__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__currentzeroing__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__currentzeroing__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__currentzeroing__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__customchat__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__customchat__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__customchat__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__customradio__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__customradio__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__customradio__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutfadeout__string__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__cutfadeout__string__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__cutfadeout__string__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutfadeout__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cutfadeout__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cutfadeout__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutobj__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__cutobj__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__cutobj__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutobj__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cutobj__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cutobj__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutrsc__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__cutrsc__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__cutrsc__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cutrsc__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cutrsc__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cutrsc__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cuttext__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__cuttext__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__cuttext__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__cuttext__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__cuttext__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__cuttext__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__debugfsm__scalar__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__debugfsm__scalar__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__debugfsm__scalar__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deleteat__array__scalar__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__deleteat__array__scalar__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__deleteat__array__scalar__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deleteat__hashmap__side_config__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__deleteat__hashmap__side_config__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__deleteat__hashmap__side_config__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deleteeditorobject__control__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__deleteeditorobject__control__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__deleteeditorobject__control__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deletegroupwhenempty__group__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__deletegroupwhenempty__group__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__deletegroupwhenempty__group__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deleterange__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__deleterange__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__deleterange__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deleteresources__team_member__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__deleteresources__team_member__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__deleteresources__team_member__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__deletevehiclecrew__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__deletevehiclecrew__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__deletevehiclecrew__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__diag_enable__string__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__diag_enable__string__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__diag_enable__string__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__diarysubjectexists__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__diarysubjectexists__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__diarysubjectexists__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__directionstabilizationenabled__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__directionstabilizationenabled__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__directionstabilizationenabled__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__directsay__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__directsay__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__directsay__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disableai__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disableai__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disableai__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disablebrakes__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disablebrakes__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disablebrakes__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disablecollisionwith__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disablecollisionwith__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disablecollisionwith__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disableconversation__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disableconversation__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disableconversation__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disablenvgequipment__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disablenvgequipment__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disablenvgequipment__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disabletiequipment__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disabletiequipment__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disabletiequipment__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__disableuavconnectability__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__disableuavconnectability__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__disableuavconnectability__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__displayaddeventhandler__display__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__displayaddeventhandler__display__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__displayaddeventhandler__display__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__displayctrl__display__scalar__ret__control@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__displayctrl__display__scalar__ret__control(GameValue rightGameValue);
+        public static partial GameValue binary__displayctrl__display__scalar__ret__control(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__displayremovealleventhandlers__display__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__displayremovealleventhandlers__display__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__displayremovealleventhandlers__display__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__displayremoveeventhandler__display__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__displayremoveeventhandler__display__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__displayremoveeventhandler__display__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__displayseteventhandler__display__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__displayseteventhandler__display__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__displayseteventhandler__display__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distance__object_array__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distance__object_array__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distance__object_array__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distance__location__location__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distance__location__location__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distance__location__location__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distance__location__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distance__location__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distance__location__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distance__array__location__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distance__array__location__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distance__array__location__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distance2d__object_array__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distance2d__object_array__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distance2d__object_array__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distancesqr__object_array__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distancesqr__object_array__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distancesqr__object_array__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distancesqr__location__location__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distancesqr__location__location__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distancesqr__location__location__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distancesqr__location__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distancesqr__location__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distancesqr__location__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__distancesqr__array__location__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__distancesqr__array__location__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__distancesqr__array__location__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__do__while__code__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__do__while__code__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__do__while__code__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__do__with__code__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__do__with__code__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__do__with__code__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__do__for__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__do__for__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__do__for__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__do__switch__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__do__switch__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__do__switch__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__doartilleryfire__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__doartilleryfire__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__doartilleryfire__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dofire__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dofire__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dofire__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dofollow__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dofollow__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dofollow__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dofsm__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dofsm__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dofsm__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__domove__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__domove__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__domove__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__doorphase__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__doorphase__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__doorphase__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dosuppressivefire__object_array__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dosuppressivefire__object_array__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dosuppressivefire__object_array__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dotarget__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dotarget__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dotarget__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dowatch__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dowatch__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dowatch__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__dowatch__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__dowatch__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__dowatch__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawarrow__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawarrow__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawarrow__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawellipse__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawellipse__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawellipse__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawicon__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawicon__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawicon__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawline__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawline__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawline__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawlink__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawlink__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawlink__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawlocation__control__location__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawlocation__control__location__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawlocation__control__location__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawpolygon__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawpolygon__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawpolygon__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawrectangle__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawrectangle__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawrectangle__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__drawtriangle__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__drawtriangle__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__drawtriangle__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__editobject__control__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__editobject__control__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__editobject__control__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__editorseteventhandler__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__editorseteventhandler__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__editorseteventhandler__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__elevateperiscope__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__elevateperiscope__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__elevateperiscope__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__else__code__code__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__else__code__code__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__else__code__code__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__emptypositions__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__emptypositions__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__emptypositions__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableai__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableai__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableai__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableaifeature__string__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableaifeature__string__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableaifeature__string__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableaifeature__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableaifeature__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableaifeature__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableaimprecision__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableaimprecision__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableaimprecision__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableattack__object_group__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableattack__object_group__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableattack__object_group__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableaudiofeature__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__enableaudiofeature__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__enableaudiofeature__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableautostartuprtd__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableautostartuprtd__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableautostartuprtd__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableautotrimrtd__object__bool__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__enableautotrimrtd__object__bool__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__enableautotrimrtd__object__bool__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablechannel__scalar__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablechannel__scalar__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablechannel__scalar__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablechannel__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablechannel__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablechannel__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablecollisionwith__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablecollisionwith__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablecollisionwith__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablecopilot__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablecopilot__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablecopilot__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enabledirectionstabilization__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enabledirectionstabilization__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enabledirectionstabilization__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enabledynamicsimulation__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enabledynamicsimulation__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enabledynamicsimulation__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enabledynamicsimulation__group__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enabledynamicsimulation__group__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enabledynamicsimulation__group__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablefatigue__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablefatigue__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablefatigue__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablegunlights__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablegunlights__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablegunlights__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableinfopanelcomponent__object_array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__enableinfopanelcomponent__object_array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__enableinfopanelcomponent__object_array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableirlasers__object_group__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableirlasers__object_group__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableirlasers__object_group__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablemimics__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablemimics__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablemimics__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablepersonturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablepersonturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablepersonturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablereload__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablereload__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablereload__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableropeattach__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableropeattach__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableropeattach__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablesimulation__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablesimulation__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablesimulation__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablesimulationglobal__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablesimulationglobal__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablesimulationglobal__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablestamina__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablestamina__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablestamina__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableuavconnectability__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableuavconnectability__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableuavconnectability__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableuavwaypoints__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableuavwaypoints__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableuavwaypoints__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablevehiclecargo__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablevehiclecargo__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablevehiclecargo__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enablevehiclesensor__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enablevehiclesensor__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enablevehiclesensor__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__enableweapondisassembly__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__enableweapondisassembly__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__enableweapondisassembly__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__engineon__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__engineon__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__engineon__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__evalobjectargument__control__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__evalobjectargument__control__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__evalobjectargument__control__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__exec__any__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__exec__any__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__exec__any__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__execeditorscript__control__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__execeditorscript__control__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__execeditorscript__control__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__execfsm__any__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__execfsm__any__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__execfsm__any__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__execvm__any__string__ret__script@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__execvm__any__string__ret__script(GameValue rightGameValue);
+        public static partial GameValue binary__execvm__any__string__ret__script(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__exitwith__if__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__exitwith__if__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__exitwith__if__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fadeenvironment__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fadeenvironment__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fadeenvironment__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fademusic__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fademusic__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fademusic__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__faderadio__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__faderadio__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__faderadio__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fadesound__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fadesound__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fadesound__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fadespeech__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fadespeech__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fadespeech__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__find__array__any__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__find__array__any__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__find__array__any__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__find__string__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__find__string__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__find__string__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__find__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__find__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__find__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findany__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findany__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__findany__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findcover__object__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findcover__object__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__findcover__object__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findeditorobject__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findeditorobject__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__findeditorobject__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findeditorobject__control__any__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findeditorobject__control__any__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__findeditorobject__control__any__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findemptyposition__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findemptyposition__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__findemptyposition__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findemptypositionready__array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findemptypositionready__array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__findemptypositionready__array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findif__array__code__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findif__array__code__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__findif__array__code__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__findnearestenemy__object__object_array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__findnearestenemy__object__object_array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__findnearestenemy__object__object_array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fire__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fire__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fire__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fire__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__fire__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__fire__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__fireattarget__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__fireattarget__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__fireattarget__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__flyinheight__object__scalar_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__flyinheight__object__scalar_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__flyinheight__object__scalar_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__flyinheightasl__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__flyinheightasl__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__flyinheightasl__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forceadduniform__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forceadduniform__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forceadduniform__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forceflagtexture__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forceflagtexture__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forceflagtexture__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forcefollowroad__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forcefollowroad__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forcefollowroad__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forcespeed__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forcespeed__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forcespeed__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forcewalk__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forcewalk__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forcewalk__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forceweaponfire__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forceweaponfire__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forceweaponfire__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreach__code__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__foreach__code__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__foreach__code__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreach__code__hashmap__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__foreach__code__hashmap__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__foreach__code__hashmap__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreachmember__code__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__foreachmember__code__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__foreachmember__code__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreachmemberagent__code__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__foreachmemberagent__code__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__foreachmemberagent__code__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreachmemberteam__code__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__foreachmemberteam__code__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__foreachmemberteam__code__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__foreachreversed__code__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__foreachreversed__code__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__foreachreversed__code__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__forgettarget__object_group__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__forgettarget__object_group__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__forgettarget__object_group__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__from__for__scalar__ret__for@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__from__for__scalar__ret__for(GameValue rightGameValue);
+        public static partial GameValue binary__from__for__scalar__ret__for(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get__hashmap__side_config__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get__hashmap__side_config__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__get__hashmap__side_config__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denattribute__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denattribute__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__get3denattribute__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denattribute__group__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denattribute__group__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__get3denattribute__group__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denattribute__array__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denattribute__array__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__get3denattribute__array__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denattribute__string__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denattribute__string__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__get3denattribute__string__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denattribute__scalar__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denattribute__scalar__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__get3denattribute__scalar__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__get3denmissionattribute__string__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__get3denmissionattribute__string__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__get3denmissionattribute__string__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getartilleryeta__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getartilleryeta__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getartilleryeta__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getcargoindex__object__object__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getcargoindex__object__object__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getcargoindex__object__object__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getcompatiblepylonmagazines__object__string_scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getcompatiblepylonmagazines__object__string_scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getcompatiblepylonmagazines__object__string_scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getcompatiblepylonmagazines__string__string_scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getcompatiblepylonmagazines__string__string_scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getcompatiblepylonmagazines__string__string_scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getdir__object_array__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getdir__object_array__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getdir__object_array__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getdirvisual__object_array__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getdirvisual__object_array__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getdirvisual__object_array__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__geteditorobjectscope__control__string__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__geteditorobjectscope__control__string__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__geteditorobjectscope__control__string__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getenv3dsoundcontroller__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getenv3dsoundcontroller__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getenv3dsoundcontroller__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getenvsoundcontroller__array__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getenvsoundcontroller__array__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getenvsoundcontroller__array__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__geteventhandlerinfo__object_group__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__geteventhandlerinfo__object_group__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__geteventhandlerinfo__object_group__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getfriend__side__side__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getfriend__side__side__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getfriend__side__side__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getfsmvariable__scalar__string_array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getfsmvariable__scalar__string_array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getfsmvariable__scalar__string_array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getgroupicon__group__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getgroupicon__group__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getgroupicon__group__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__gethidefrom__object__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__gethidefrom__object__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__gethidefrom__object__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__gethit__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__gethit__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__gethit__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__gethitindex__object__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__gethitindex__object__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__gethitindex__object__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__gethitpointdamage__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__gethitpointdamage__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__gethitpointdamage__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getobjectargument__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getobjectargument__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__getobjectargument__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getobjectchildren__control__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getobjectchildren__control__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getobjectchildren__control__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getobjectproxy__control__string__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getobjectproxy__control__string__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__getobjectproxy__control__string__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getopticsmode__object__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getopticsmode__object__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__getopticsmode__object__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getordefault__hashmap__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getordefault__hashmap__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getordefault__hashmap__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getordefaultcall__hashmap__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getordefaultcall__hashmap__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getordefaultcall__hashmap__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getpos__object_array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getpos__object_array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getpos__object_array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getreldir__object__object_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getreldir__object__object_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getreldir__object__object_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getrelpos__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getrelpos__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getrelpos__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getrelpos__object__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getrelpos__object__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getrelpos__object__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getslotitemname__object__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getslotitemname__object__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__getslotitemname__object__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getsoundcontroller__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getsoundcontroller__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getsoundcontroller__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getsoundcontrollerresult__object__config__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getsoundcontrollerresult__object__config__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getsoundcontrollerresult__object__config__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getspeed__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getspeed__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__getspeed__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__gettextwidth__string__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__gettextwidth__string__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__gettextwidth__string__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getturretlimits__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getturretlimits__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__getturretlimits__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getturretopticsmode__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__getturretopticsmode__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__getturretopticsmode__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getunittrait__object__string__ret__nothing_bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getunittrait__object__string__ret__nothing_bool(GameValue rightGameValue);
+        public static partial GameValue binary__getunittrait__object__string__ret__nothing_bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__display__string_array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__display__string_array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__display__string_array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__control__string_array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__control__string_array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__control__string_array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__object__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__object__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__object__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__object__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__object__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__object__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__group__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__group__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__group__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__group__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__group__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__group__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__namespace__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__namespace__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__namespace__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__namespace__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__namespace__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__namespace__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__team_member__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__team_member__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__team_member__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__team_member__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__team_member__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__team_member__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__task__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__task__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__task__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__task__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__task__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__task__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__location__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__location__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__location__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__getvariable__location__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__getvariable__location__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__getvariable__location__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__glanceat__object_array__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__glanceat__object_array__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__glanceat__object_array__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__globalchat__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__globalchat__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__globalchat__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__globalradio__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__globalradio__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__globalradio__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__groupchat__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__groupchat__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__groupchat__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__groupradio__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__groupradio__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__groupradio__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__groupselectunit__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__groupselectunit__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__groupselectunit__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hasweapon__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__hasweapon__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__hasweapon__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hcgroupparams__object__group__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__hcgroupparams__object__group__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__hcgroupparams__object__group__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hcremovegroup__object__group__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hcremovegroup__object__group__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hcremovegroup__object__group__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hcselectgroup__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hcselectgroup__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hcselectgroup__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hcsetgroup__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hcsetgroup__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hcsetgroup__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hideobject__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hideobject__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hideobject__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hideobjectglobal__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hideobjectglobal__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hideobjectglobal__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hideselection__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hideselection__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hideselection__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hintc__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hintc__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hintc__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hintc__string__text__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hintc__string__text__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hintc__string__text__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__hintc__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__hintc__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__hintc__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__htmlload__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__htmlload__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__htmlload__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__in__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__in__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__in__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__in__string__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__in__string__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__in__string__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__in__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__in__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__in__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__in__side_config__hashmap__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__in__side_config__hashmap__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__in__side_config__hashmap__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__in__array__location__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__in__array__location__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__in__array__location__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inarea__object_array__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inarea__object_array__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inarea__object_array__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inarea__object_array__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inarea__object_array__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inarea__object_array__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inarea__object_array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inarea__object_array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inarea__object_array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inarea__object__location__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inarea__object__location__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inarea__object__location__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inarea__array__location__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inarea__array__location__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inarea__array__location__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarray__array__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarray__array__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarray__array__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarray__array__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarray__array__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarray__array__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarray__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarray__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarray__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarray__array__location__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarray__array__location__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarray__array__location__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarrayindexes__array__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarrayindexes__array__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarrayindexes__array__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarrayindexes__array__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarrayindexes__array__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarrayindexes__array__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarrayindexes__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarrayindexes__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarrayindexes__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inareaarrayindexes__array__location__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inareaarrayindexes__array__location__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__inareaarrayindexes__array__location__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inflame__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__inflame__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__inflame__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__infopanelcomponentenabled__object_array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__infopanelcomponentenabled__object_array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__infopanelcomponentenabled__object_array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__infopanelcomponents__object_array__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__infopanelcomponents__object_array__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__infopanelcomponents__object_array__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inpolygon__object_array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inpolygon__object_array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inpolygon__object_array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inrangeofartillery__array__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inrangeofartillery__array__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__inrangeofartillery__array__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__insert__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__insert__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__insert__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__insert__string__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__insert__string__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__insert__string__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__insert__hashmap__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__insert__hashmap__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__insert__hashmap__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__inserteditorobject__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__inserteditorobject__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__inserteditorobject__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__intersect__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__intersect__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__intersect__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequalref__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequalref__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequalref__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequalto__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequalto__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequalto__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequaltype__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequaltype__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequaltype__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequaltypeall__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequaltypeall__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequaltypeall__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequaltypeany__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequaltypeany__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequaltypeany__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequaltypearray__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequaltypearray__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequaltypearray__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isequaltypeparams__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isequaltypeparams__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isequaltypeparams__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isflashlighton__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isflashlighton__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isflashlighton__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isflatempty__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isflatempty__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__isflatempty__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isirlaseron__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isirlaseron__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isirlaseron__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__iskindof__string__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__iskindof__string__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__iskindof__string__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__iskindof__string__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__iskindof__string__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__iskindof__string__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__iskindof__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__iskindof__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__iskindof__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__islaseron__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__islaseron__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__islaseron__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isnotequalref__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isnotequalref__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isnotequalref__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isnotequalto__any__any__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isnotequalto__any__any__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isnotequalto__any__any__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__issensortargetconfirmed__object__side__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__issensortargetconfirmed__object__side__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__issensortargetconfirmed__object__side__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isuavconnectable__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isuavconnectable__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isuavconnectable__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isuniformallowed__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isuniformallowed__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__isuniformallowed__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__isvehiclesensorenabled__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__isvehiclesensorenabled__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__isvehiclesensorenabled__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__join__array__object_group__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__join__array__object_group__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__join__array__object_group__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__joinas__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__joinas__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__joinas__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__joinassilent__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__joinassilent__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__joinassilent__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__joinsilent__array__object_group__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__joinsilent__array__object_group__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__joinsilent__array__object_group__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__joinstring__array__string__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__joinstring__array__string__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__joinstring__array__string__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbadddatabase__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__kbadddatabase__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__kbadddatabase__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbadddatabasetargets__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__kbadddatabasetargets__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__kbadddatabasetargets__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbaddtopic__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__kbaddtopic__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__kbaddtopic__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbhastopic__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__kbhastopic__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__kbhastopic__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbreact__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__kbreact__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__kbreact__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbremovetopic__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__kbremovetopic__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__kbremovetopic__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbtell__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__kbtell__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__kbtell__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__kbwassaid__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__kbwassaid__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__kbwassaid__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__knowsabout__object_group__object__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__knowsabout__object_group__object__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__knowsabout__object_group__object__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__knowsabout__side__object__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__knowsabout__side__object__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__knowsabout__side__object__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__land__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__land__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__land__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__landat__object__object_scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__landat__object__object_scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__landat__object__object_scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lasertarget__object__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lasertarget__object__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__lasertarget__object__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbadd__control__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbadd__control__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__lbadd__control__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbcolor__control__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbcolor__control__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__lbcolor__control__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbcolorright__control__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbcolorright__control__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__lbcolorright__control__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbdata__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbdata__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbdata__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbdelete__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbdelete__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbdelete__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbisselected__control__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbisselected__control__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__lbisselected__control__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbpicture__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbpicture__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbpicture__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbpictureright__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbpictureright__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbpictureright__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetcolorright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetcolorright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetcolorright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetcursel__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetcursel__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetcursel__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetdata__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetdata__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetdata__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicture__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicture__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicture__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturecolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturecolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturecolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturecolordisabled__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturecolordisabled__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturecolordisabled__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturecolorselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturecolorselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturecolorselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpictureright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpictureright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpictureright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturerightcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturerightcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturerightcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturerightcolordisabled__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturerightcolordisabled__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturerightcolordisabled__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetpicturerightcolorselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetpicturerightcolorselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetpicturerightcolorselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetselectcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetselectcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetselectcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetselectcolorright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetselectcolorright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetselectcolorright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsettext__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsettext__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsettext__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsettextright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsettextright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsettextright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsettooltip__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsettooltip__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsettooltip__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsetvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsetvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsetvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbsortby__control_scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lbsortby__control_scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lbsortby__control_scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbtext__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbtext__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbtext__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbtextright__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbtextright__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbtextright__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbtooltip__control__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbtooltip__control__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lbtooltip__control__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lbvalue__control__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lbvalue__control__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__lbvalue__control__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__leavevehicle__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__leavevehicle__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__leavevehicle__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__leavevehicle__group__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__leavevehicle__group__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__leavevehicle__group__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lightattachobject__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lightattachobject__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lightattachobject__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__limitspeed__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__limitspeed__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__limitspeed__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__linkitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__linkitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__linkitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__listobjects__control__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__listobjects__control__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__listobjects__control__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbaddcolumn__control__scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbaddcolumn__control__scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__lnbaddcolumn__control__scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbaddrow__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbaddrow__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__lnbaddrow__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbcolor__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbcolor__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__lnbcolor__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbcolorright__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbcolorright__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__lnbcolorright__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbdata__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbdata__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lnbdata__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbdeletecolumn__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbdeletecolumn__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbdeletecolumn__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbdeleterow__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbdeleterow__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbdeleterow__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbpicture__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbpicture__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lnbpicture__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbpictureright__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbpictureright__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lnbpictureright__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetcolorright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetcolorright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetcolorright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetcolumnspos__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetcolumnspos__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetcolumnspos__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetcurselrow__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetcurselrow__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetcurselrow__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetdata__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetdata__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetdata__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpicture__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpicture__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpicture__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpicturecolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpicturecolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpicturecolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpicturecolorright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpicturecolorright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpicturecolorright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpicturecolorselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpicturecolorselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpicturecolorselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpicturecolorselectedright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpicturecolorselectedright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpicturecolorselectedright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetpictureright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetpictureright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetpictureright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsettext__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsettext__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsettext__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsettextright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsettextright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsettextright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsettooltip__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsettooltip__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsettooltip__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsetvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsetvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsetvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsort__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsort__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsort__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsortby__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsortby__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsortby__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbsortbyvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lnbsortbyvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lnbsortbyvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbtext__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbtext__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lnbtext__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbtextright__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbtextright__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__lnbtextright__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lnbvalue__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lnbvalue__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__lnbvalue__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__loadidentity__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__loadidentity__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__loadidentity__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__loadmagazine__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__loadmagazine__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__loadmagazine__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__loadoverlay__control__config__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__loadoverlay__control__config__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__loadoverlay__control__config__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__loadstatus__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__loadstatus__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__loadstatus__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lock__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lock__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lock__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lock__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lock__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lock__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockcamerato__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockcamerato__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockcamerato__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockcargo__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockcargo__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockcargo__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockdriver__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockdriver__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockdriver__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockedcamerato__object__array__ret__nothing_object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lockedcamerato__object__array__ret__nothing_object(GameValue rightGameValue);
+        public static partial GameValue binary__lockedcamerato__object__array__ret__nothing_object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockedcargo__object__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lockedcargo__object__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__lockedcargo__object__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockedturret__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__lockedturret__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__lockedturret__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockinventory__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockinventory__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockinventory__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lockwp__object_group__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lockwp__object_group__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lockwp__object_group__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lookat__object_array__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lookat__object_array__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lookat__object_array__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__lookatpos__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__lookatpos__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__lookatpos__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__magazinesturret__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__magazinesturret__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__magazinesturret__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__magazineturretammo__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__magazineturretammo__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__magazineturretammo__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__mapcenteroncamera__control__bool__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__mapcenteroncamera__control__bool__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__mapcenteroncamera__control__bool__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__matrixmultiply__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__matrixmultiply__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__matrixmultiply__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__max__scalar_nan__scalar_nan__ret__scalar_nan@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__max__scalar_nan__scalar_nan__ret__scalar_nan(GameValue rightGameValue);
+        public static partial GameValue binary__max__scalar_nan__scalar_nan__ret__scalar_nan(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuaction__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuaction__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menuaction__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuadd__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuadd__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__menuadd__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuchecked__control__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuchecked__control__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__menuchecked__control__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menucollapse__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menucollapse__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menucollapse__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menudata__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menudata__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menudata__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menudelete__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menudelete__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menudelete__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuenable__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menuenable__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menuenable__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuenabled__control__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuenabled__control__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__menuenabled__control__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuexpand__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menuexpand__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menuexpand__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menupicture__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menupicture__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menupicture__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetaction__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetaction__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetaction__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetcheck__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetcheck__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetcheck__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetdata__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetdata__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetdata__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetpicture__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetpicture__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetpicture__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetshortcut__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetshortcut__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetshortcut__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusettext__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusettext__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusettext__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuseturl__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menuseturl__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menuseturl__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusetvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusetvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusetvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menushortcut__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menushortcut__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__menushortcut__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menushortcuttext__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menushortcuttext__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menushortcuttext__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusize__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menusize__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__menusize__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menusort__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__menusort__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__menusort__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menutext__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menutext__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menutext__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuurl__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuurl__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__menuurl__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__menuvalue__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__menuvalue__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__menuvalue__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__merge__hashmap__hashmap_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__merge__hashmap__hashmap_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__merge__hashmap__hashmap_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__min__scalar_nan__scalar_nan__ret__scalar_nan@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__min__scalar_nan__scalar_nan__ret__scalar_nan(GameValue rightGameValue);
+        public static partial GameValue binary__min__scalar_nan__scalar_nan__ret__scalar_nan(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__minedetectedby__object__side__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__minedetectedby__object__side__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__minedetectedby__object__side__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__mod__scalar_nan__scalar_nan__ret__scalar_nan@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__mod__scalar_nan__scalar_nan__ret__scalar_nan(GameValue rightGameValue);
+        public static partial GameValue binary__mod__scalar_nan__scalar_nan__ret__scalar_nan(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__modeltoworld__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__modeltoworld__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__modeltoworld__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__modeltoworldvisual__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__modeltoworldvisual__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__modeltoworldvisual__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__modeltoworldvisualworld__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__modeltoworldvisualworld__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__modeltoworldvisualworld__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__modeltoworldworld__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__modeltoworldworld__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__modeltoworldworld__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__move__object_group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__move__object_group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__move__object_group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveinany__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__moveinany__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__moveinany__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveincargo__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveincargo__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveincargo__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveincargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveincargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveincargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveincommander__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveincommander__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveincommander__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveindriver__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveindriver__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveindriver__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveingunner__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveingunner__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveingunner__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveinturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveinturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveinturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveobjecttoend__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveobjecttoend__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveobjecttoend__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveout__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveout__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveout__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__moveto__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__moveto__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__moveto__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__namedproperties__object__array__ret__hashmap@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__namedproperties__object__array__ret__hashmap(GameValue rightGameValue);
+        public static partial GameValue binary__namedproperties__object__array__ret__hashmap(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearentities__object_array__scalar_array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearentities__object_array__scalar_array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__nearentities__object_array__scalar_array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearestobject__array__string__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearestobject__array__string__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__nearestobject__array__string__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearestobject__array__scalar__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearestobject__array__scalar__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__nearestobject__array__scalar__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearobjects__object_array__scalar_array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearobjects__object_array__scalar_array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__nearobjects__object_array__scalar_array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearobjectsready__object_array__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearobjectsready__object_array__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__nearobjectsready__object_array__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearroads__object_array__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearroads__object_array__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__nearroads__object_array__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nearsupplies__object_array__scalar_array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nearsupplies__object_array__scalar_array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__nearsupplies__object_array__scalar_array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__neartargets__object__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__neartargets__object__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__neartargets__object__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__newoverlay__control__config__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__newoverlay__control__config__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__newoverlay__control__config__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__nmenuitems__control__string_scalar__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__nmenuitems__control__string_scalar__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__nmenuitems__control__string_scalar__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__objstatus__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__objstatus__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__objstatus__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ondoubleclick__control__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__ondoubleclick__control__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__ondoubleclick__control__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__onmapsingleclick__any__code_string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__onmapsingleclick__any__code_string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__onmapsingleclick__any__code_string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__onshownewobject__control__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__onshownewobject__control__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__onshownewobject__control__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__or__bool__bool__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__or__bool__bool__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__or__bool__bool__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__or__bool__code__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__or__bool__code__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__or__bool__code__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ordergetin__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ordergetin__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ordergetin__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__param__any__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__param__any__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__param__any__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__params__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__params__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__params__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__periscopeelevation__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__periscopeelevation__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__periscopeelevation__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__playaction__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__playaction__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__playaction__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__playactionnow__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__playactionnow__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__playactionnow__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__playgesture__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__playgesture__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__playgesture__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__playmove__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__playmove__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__playmove__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__playmovenow__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__playmovenow__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__playmovenow__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__posscreentoworld__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__posscreentoworld__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__posscreentoworld__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__posworldtoscreen__control__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__posworldtoscreen__control__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__posworldtoscreen__control__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectadjust__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectadjust__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectadjust__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectadjust__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectadjust__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectadjust__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectcommit__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectcommit__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectcommit__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectcommit__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectcommit__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectcommit__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectcommit__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectcommit__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectcommit__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectenable__string__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectenable__string__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectenable__string__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectenable__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectenable__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectenable__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectenable__scalar__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectenable__scalar__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectenable__scalar__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ppeffectforceinnvg__scalar__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ppeffectforceinnvg__scalar__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ppeffectforceinnvg__scalar__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__preloadobject__scalar__object_string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__preloadobject__scalar__object_string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__preloadobject__scalar__object_string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__progresssetposition__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__progresssetposition__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__progresssetposition__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__publicvariableclient__scalar__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__publicvariableclient__scalar__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__publicvariableclient__scalar__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__pushback__array__any__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__pushback__array__any__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__pushback__array__any__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__pushbackunique__array__any__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__pushbackunique__array__any__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__pushbackunique__array__any__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__radiochanneladd__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__radiochanneladd__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__radiochanneladd__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__radiochannelremove__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__radiochannelremove__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__radiochannelremove__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__radiochannelsetcallsign__scalar__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__radiochannelsetcallsign__scalar__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__radiochannelsetcallsign__scalar__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__radiochannelsetlabel__scalar__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__radiochannelsetlabel__scalar__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__radiochannelsetlabel__scalar__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__random__scalar__scalar_array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__random__scalar__scalar_array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__random__scalar__scalar_array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__regexfind__string__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__regexfind__string__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__regexfind__string__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__regexmatch__string__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__regexmatch__string__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__regexmatch__string__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__regexreplace__string__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__regexreplace__string__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__regexreplace__string__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__registertask__team_member__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__registertask__team_member__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__registertask__team_member__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__reload__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__reload__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__reload__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__remotecontrol__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__remotecontrol__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__remotecontrol__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__remoteexec__any__array__ret__string_nothing@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__remoteexec__any__array__ret__string_nothing(GameValue rightGameValue);
+        public static partial GameValue binary__remoteexec__any__array__ret__string_nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__remoteexeccall__any__array__ret__string_nothing@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__remoteexeccall__any__array__ret__string_nothing(GameValue rightGameValue);
+        public static partial GameValue binary__remoteexeccall__any__array__ret__string_nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeaction__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeaction__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeaction__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removealleventhandlers__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removealleventhandlers__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removealleventhandlers__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removealleventhandlers__group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removealleventhandlers__group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removealleventhandlers__group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeallmpeventhandlers__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeallmpeventhandlers__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeallmpeventhandlers__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removebinocularitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removebinocularitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removebinocularitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removecuratoraddons__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removecuratoraddons__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removecuratoraddons__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removecuratorcameraarea__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removecuratorcameraarea__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removecuratorcameraarea__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removecuratoreditableobjects__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removecuratoreditableobjects__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removecuratoreditableobjects__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removecuratoreditingarea__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removecuratoreditingarea__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removecuratoreditingarea__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removediaryrecord__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removediaryrecord__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removediaryrecord__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removediarysubject__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removediarysubject__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removediarysubject__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removedrawicon__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removedrawicon__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removedrawicon__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removedrawlinks__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removedrawlinks__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removedrawlinks__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeeventhandler__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeeventhandler__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeeventhandler__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeeventhandler__group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeeventhandler__group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeeventhandler__group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removegroupicon__group__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removegroupicon__group__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removegroupicon__group__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removehandgunitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removehandgunitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removehandgunitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeitemfrombackpack__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeitemfrombackpack__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeitemfrombackpack__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeitemfromuniform__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeitemfromuniform__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeitemfromuniform__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeitemfromvest__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeitemfromvest__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeitemfromvest__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeitems__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeitems__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeitems__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemagazine__object__string_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemagazine__object__string_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemagazine__object__string_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemagazineglobal__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemagazineglobal__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemagazineglobal__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemagazines__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemagazines__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemagazines__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemagazinesturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemagazinesturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemagazinesturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemagazineturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemagazineturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemagazineturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemenuitem__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemenuitem__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemenuitem__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removemenuitem__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removemenuitem__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removemenuitem__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removempeventhandler__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removempeventhandler__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removempeventhandler__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeownedmine__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeownedmine__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeownedmine__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeprimaryweaponitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeprimaryweaponitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeprimaryweaponitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removesecondaryweaponitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removesecondaryweaponitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removesecondaryweaponitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removesimpletask__object__task__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removesimpletask__object__task__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removesimpletask__object__task__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeteammember__team_member__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeteammember__team_member__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeteammember__team_member__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeweapon__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeweapon__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeweapon__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeweaponattachmentcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeweaponattachmentcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeweaponattachmentcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeweaponcargo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeweaponcargo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeweaponcargo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeweaponglobal__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeweaponglobal__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeweaponglobal__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__removeweaponturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__removeweaponturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__removeweaponturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__reportremotetarget__side__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__reportremotetarget__side__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__reportremotetarget__side__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__resize__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__resize__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__resize__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__resize__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__resize__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__resize__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__respawnvehicle__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__respawnvehicle__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__respawnvehicle__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__reveal__object_group__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__reveal__object_group__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__reveal__object_group__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__reveal__object_group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__reveal__object_group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__reveal__object_group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__revealmine__side__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__revealmine__side__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__revealmine__side__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ropeattachto__object_array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ropeattachto__object_array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ropeattachto__object_array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__ropedetach__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__ropedetach__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__ropedetach__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__saveidentity__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__saveidentity__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__saveidentity__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__savestatus__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__savestatus__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__savestatus__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__say__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__say__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__say__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__say__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say2d__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__say2d__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__say2d__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say2d__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__say2d__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__say2d__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say3d__object_array__string__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__say3d__object_array__string__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__say3d__object_array__string__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__say3d__object_array__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__say3d__object_array__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__say3d__object_array__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__array__scalar__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__array__scalar__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__select__array__scalar__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__array__bool__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__array__bool__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__select__array__bool__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__select__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__array__code__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__array__code__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__select__array__code__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__config__scalar__ret__config@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__config__scalar__ret__config(GameValue rightGameValue);
+        public static partial GameValue binary__select__config__scalar__ret__config(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__select__string__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__select__string__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__select__string__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectdiarysubject__object__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectdiarysubject__object__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__selectdiarysubject__object__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selecteditorobject__control__string__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selecteditorobject__control__string__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__selecteditorobject__control__string__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectionnames__object__string_scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectionnames__object__string_scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__selectionnames__object__string_scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectionposition__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectionposition__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__selectionposition__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectionposition__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectionposition__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__selectionposition__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectionvectordirandup__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectionvectordirandup__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__selectionvectordirandup__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectleader__group__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__selectleader__group__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__selectleader__group__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectrandomweighted__array__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectrandomweighted__array__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__selectrandomweighted__array__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectweapon__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__selectweapon__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__selectweapon__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectweapon__object__array__ret__bool_nothing@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__selectweapon__object__array__ret__bool_nothing(GameValue rightGameValue);
+        public static partial GameValue binary__selectweapon__object__array__ret__bool_nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__selectweaponturret__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__selectweaponturret__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__selectweaponturret__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sendsimplecommand__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sendsimplecommand__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sendsimplecommand__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sendtask__team_member__array__ret__task@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__sendtask__team_member__array__ret__task(GameValue rightGameValue);
+        public static partial GameValue binary__sendtask__team_member__array__ret__task(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sendtaskresult__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sendtaskresult__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sendtaskresult__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__servercommand__string__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__servercommand__string__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__servercommand__string__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__set__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__set__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set__hashmap__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__set__hashmap__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__set__hashmap__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set3denattribute__any__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__set3denattribute__any__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__set3denattribute__any__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set3denlayer__any__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__set3denlayer__any__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__set3denlayer__any__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set3denlogictype__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__set3denlogictype__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__set3denlogictype__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set3denmissionattribute__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__set3denmissionattribute__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__set3denmissionattribute__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__set3denobjecttype__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__set3denobjecttype__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__set3denobjecttype__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setactualcollectivertd__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setactualcollectivertd__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setactualcollectivertd__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setairplanethrottle__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setairplanethrottle__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setairplanethrottle__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setairportside__object_scalar__side__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setairportside__object_scalar__side__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setairportside__object_scalar__side__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setammo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setammo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setammo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setammocargo__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setammocargo__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setammocargo__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setammoonpylon__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setammoonpylon__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setammoonpylon__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setanimspeedcoef__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setanimspeedcoef__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setanimspeedcoef__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setattributes__text_string__array__ret__text@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setattributes__text_string__array__ret__text(GameValue rightGameValue);
+        public static partial GameValue binary__setattributes__text_string__array__ret__text(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setautonomous__object__bool__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setautonomous__object__bool__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setautonomous__object__bool__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setbehaviour__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setbehaviour__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setbehaviour__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setbehaviourstrong__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setbehaviourstrong__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setbehaviourstrong__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setbleedingremaining__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setbleedingremaining__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setbleedingremaining__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setbrakesrtd__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setbrakesrtd__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setbrakesrtd__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcamerainterest__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcamerainterest__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcamerainterest__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcamuseti__bool__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcamuseti__bool__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcamuseti__bool__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcaptive__object__bool_scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcaptive__object__bool_scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcaptive__object__bool_scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcenterofmass__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcenterofmass__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcenterofmass__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcollisionlight__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcollisionlight__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcollisionlight__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcombatbehaviour__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcombatbehaviour__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcombatbehaviour__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcombatbehaviour__group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcombatbehaviour__group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcombatbehaviour__group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcombatmode__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcombatmode__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcombatmode__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcombatmode__team_member__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcombatmode__team_member__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcombatmode__team_member__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setconvoyseparation__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setconvoyseparation__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setconvoyseparation__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcruisecontrol__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcruisecontrol__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcruisecontrol__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcuratorcameraareaceiling__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcuratorcameraareaceiling__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcuratorcameraareaceiling__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcuratorcoef__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcuratorcoef__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcuratorcoef__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcuratoreditingareatype__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcuratoreditingareatype__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcuratoreditingareatype__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcuratorselectionpreset__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcuratorselectionpreset__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcuratorselectionpreset__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcuratorwaypointcost__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcuratorwaypointcost__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcuratorwaypointcost__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcurrenttask__object__task__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcurrenttask__object__task__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcurrenttask__object__task__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcurrentwaypoint__group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcurrentwaypoint__group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcurrentwaypoint__group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcustomaimcoef__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcustomaimcoef__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcustomaimcoef__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setcustomweightrtd__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setcustomweightrtd__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setcustomweightrtd__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdamage__object__scalar_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdamage__object__scalar_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdamage__object__scalar_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdammage__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdammage__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdammage__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdebriefingtext__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdebriefingtext__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdebriefingtext__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdestination__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdestination__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdestination__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdiaryrecordtext__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdiaryrecordtext__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdiaryrecordtext__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdiarysubjectpicture__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdiarysubjectpicture__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdiarysubjectpicture__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdir__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdir__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdir__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdirection__location__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdirection__location__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdirection__location__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdrawicon__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdrawicon__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdrawicon__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdriveonpath__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdriveonpath__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdriveonpath__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdropinterval__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdropinterval__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdropinterval__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdynamicsimulationdistance__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdynamicsimulationdistance__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdynamicsimulationdistance__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setdynamicsimulationdistancecoef__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setdynamicsimulationdistancecoef__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setdynamicsimulationdistancecoef__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__seteditormode__control__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__seteditormode__control__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__seteditormode__control__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__seteditorobjectscope__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__seteditorobjectscope__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__seteditorobjectscope__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__seteffectcondition__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__seteffectcondition__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__seteffectcondition__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__seteffectivecommander__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__seteffectivecommander__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__seteffectivecommander__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setenginerpmrtd__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setenginerpmrtd__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setenginerpmrtd__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setface__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setface__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setface__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfaceanimation__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfaceanimation__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfaceanimation__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfatigue__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfatigue__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfatigue__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfeaturetype__object__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setfeaturetype__object__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setfeaturetype__object__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setflaganimationphase__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setflaganimationphase__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setflaganimationphase__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setflagowner__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setflagowner__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setflagowner__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setflagside__object__side__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setflagside__object__side__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setflagside__object__side__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setflagtexture__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setflagtexture__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setflagtexture__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfog__scalar__scalar_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfog__scalar__scalar_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfog__scalar__scalar_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setforcegeneratorrtd__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setforcegeneratorrtd__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setforcegeneratorrtd__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setformation__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setformation__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setformation__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setformation__team_member__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setformation__team_member__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setformation__team_member__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setformationtask__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setformationtask__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setformationtask__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setformdir__object_group__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setformdir__object_group__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setformdir__object_group__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfriend__side__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfriend__side__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfriend__side__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfromeditor__team_member__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfromeditor__team_member__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfromeditor__team_member__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfsmvariable__scalar__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfsmvariable__scalar__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfsmvariable__scalar__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfuel__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfuel__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfuel__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setfuelcargo__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setfuelcargo__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setfuelcargo__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgroupicon__group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setgroupicon__group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setgroupicon__group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgroupiconparams__group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setgroupiconparams__group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setgroupiconparams__group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgroupid__object_group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setgroupid__object_group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setgroupid__object_group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgroupidglobal__object_group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setgroupidglobal__object_group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setgroupidglobal__object_group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgroupowner__group__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setgroupowner__group__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setgroupowner__group__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setgusts__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setgusts__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setgusts__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sethidebehind__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sethidebehind__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sethidebehind__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sethit__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sethit__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sethit__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sethitindex__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sethitindex__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sethitindex__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sethitpointdamage__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sethitpointdamage__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sethitpointdamage__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setidentity__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setidentity__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setidentity__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setimportance__location__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setimportance__location__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setimportance__location__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setleader__team_member__team_member__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setleader__team_member__team_member__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setleader__team_member__team_member__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightambient__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightambient__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightambient__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightattenuation__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightattenuation__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightattenuation__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightbrightness__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightbrightness__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightbrightness__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightcolor__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightcolor__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightcolor__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightconepars__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightconepars__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightconepars__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightdaylight__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightdaylight__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightdaylight__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightflaremaxdistance__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightflaremaxdistance__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightflaremaxdistance__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightflaresize__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightflaresize__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightflaresize__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightintensity__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightintensity__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightintensity__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightir__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightir__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightir__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightnings__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightnings__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightnings__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightuseflare__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightuseflare__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightuseflare__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setlightvolumeshape__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setlightvolumeshape__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setlightvolumeshape__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmagazineturretammo__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmagazineturretammo__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmagazineturretammo__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkeralpha__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkeralpha__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkeralpha__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkeralphalocal__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkeralphalocal__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkeralphalocal__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerbrush__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerbrush__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerbrush__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerbrushlocal__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerbrushlocal__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerbrushlocal__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkercolor__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkercolor__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkercolor__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkercolorlocal__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkercolorlocal__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkercolorlocal__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerdir__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerdir__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerdir__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerdirlocal__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerdirlocal__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerdirlocal__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerdrawpriority__string__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerdrawpriority__string__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerdrawpriority__string__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerpolyline__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerpolyline__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerpolyline__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerpolylinelocal__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerpolylinelocal__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerpolylinelocal__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerpos__string__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerpos__string__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerpos__string__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkerposlocal__string__object_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkerposlocal__string__object_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkerposlocal__string__object_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkershadow__string__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkershadow__string__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkershadow__string__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkershadowlocal__string__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkershadowlocal__string__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkershadowlocal__string__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkershape__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkershape__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkershape__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkershapelocal__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkershapelocal__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkershapelocal__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkersize__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkersize__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkersize__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkersizelocal__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkersizelocal__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkersizelocal__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkertext__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkertext__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkertext__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkertextlocal__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkertextlocal__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkertextlocal__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkertype__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkertype__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkertype__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmarkertypelocal__string__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmarkertypelocal__string__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmarkertypelocal__string__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmass__object__scalar_array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmass__object__scalar_array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmass__object__scalar_array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmaxload__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmaxload__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmaxload__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmimic__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmimic__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmimic__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmissiletarget__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setmissiletarget__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setmissiletarget__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmissiletargetpos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmissiletargetpos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmissiletargetpos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setmusiceffect__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setmusiceffect__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setmusiceffect__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setname__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setname__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setname__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setname__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setname__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setname__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setname__location__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setname__location__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setname__location__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setnamesound__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setnamesound__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setnamesound__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjectarguments__control__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setobjectarguments__control__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__setobjectarguments__control__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjectmaterial__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setobjectmaterial__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setobjectmaterial__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjectmaterialglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setobjectmaterialglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setobjectmaterialglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjectproxy__control__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setobjectproxy__control__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__setobjectproxy__control__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjectscale__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setobjectscale__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setobjectscale__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjecttexture__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setobjecttexture__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setobjecttexture__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setobjecttextureglobal__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setobjecttextureglobal__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setobjecttextureglobal__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setopticsmode__object__array_string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setopticsmode__object__array_string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setopticsmode__object__array_string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setovercast__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setovercast__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setovercast__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setowner__object__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setowner__object__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setowner__object__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setoxygenremaining__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setoxygenremaining__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setoxygenremaining__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setparticlecircle__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setparticlecircle__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setparticlecircle__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setparticleclass__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setparticleclass__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setparticleclass__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setparticlefire__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setparticlefire__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setparticlefire__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setparticleparams__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setparticleparams__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setparticleparams__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setparticlerandom__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setparticlerandom__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setparticlerandom__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpilotcameradirection__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpilotcameradirection__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpilotcameradirection__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpilotcameraopticsmode__object__scalar__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setpilotcameraopticsmode__object__scalar__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setpilotcameraopticsmode__object__scalar__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpilotcamerarotation__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpilotcamerarotation__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpilotcamerarotation__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpilotcameratarget__object__object_array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setpilotcameratarget__object__object_array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setpilotcameratarget__object__object_array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpilotlight__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpilotlight__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpilotlight__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpipeffect__string__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpipeffect__string__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpipeffect__string__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpitch__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpitch__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpitch__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setplatenumber__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setplatenumber__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setplatenumber__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setplayervonvolume__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setplayervonvolume__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setplayervonvolume__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpos__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpos__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpos__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposasl__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposasl__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposasl__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposasl2__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposasl2__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposasl2__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposaslw__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposaslw__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposaslw__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposatl__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposatl__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposatl__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposition__location__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposition__location__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposition__location__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setposworld__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setposworld__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setposworld__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpylonloadout__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setpylonloadout__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setpylonloadout__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setpylonspriority__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setpylonspriority__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setpylonspriority__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setradiomsg__scalar__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setradiomsg__scalar__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setradiomsg__scalar__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrain__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrain__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrain__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrainbow__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrainbow__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrainbow__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrandomlip__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrandomlip__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrandomlip__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrank__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrank__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrank__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrectangular__location__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrectangular__location__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrectangular__location__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrepaircargo__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrepaircargo__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrepaircargo__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setrotorbrakertd__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setrotorbrakertd__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setrotorbrakertd__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setshotparents__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setshotparents__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setshotparents__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setside__location__side__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setside__location__side__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setside__location__side__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletaskalwaysvisible__task__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletaskalwaysvisible__task__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletaskalwaysvisible__task__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletaskcustomdata__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletaskcustomdata__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletaskcustomdata__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletaskdescription__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletaskdescription__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletaskdescription__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletaskdestination__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletaskdestination__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletaskdestination__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletasktarget__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletasktarget__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletasktarget__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsimpletasktype__task__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsimpletasktype__task__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsimpletasktype__task__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsize__location__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsize__location__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsize__location__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setskill__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setskill__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setskill__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setskill__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setskill__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setskill__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setslingload__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setslingload__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setslingload__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsoundeffect__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsoundeffect__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsoundeffect__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setspeaker__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setspeaker__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setspeaker__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setspeech__location__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setspeech__location__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setspeech__location__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setspeedmode__object_group__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setspeedmode__object_group__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setspeedmode__object_group__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setstamina__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setstamina__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setstamina__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setsuppression__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setsuppression__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setsuppression__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settargetage__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settargetage__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settargetage__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settaskmarkeroffset__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settaskmarkeroffset__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settaskmarkeroffset__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settaskresult__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settaskresult__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settaskresult__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settaskstate__task__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settaskstate__task__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settaskstate__task__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settext__location__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settext__location__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settext__location__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settitleeffect__object_array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settitleeffect__object_array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settitleeffect__object_array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settowparent__object__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settowparent__object__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settowparent__object__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggeractivation__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggeractivation__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggeractivation__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggerarea__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggerarea__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggerarea__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggerinterval__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggerinterval__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggerinterval__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggerstatements__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggerstatements__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggerstatements__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggertext__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggertext__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggertext__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggertimeout__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggertimeout__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggertimeout__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settriggertype__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settriggertype__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settriggertype__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setturretlimits__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setturretlimits__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setturretlimits__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setturretopticsmode__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setturretopticsmode__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setturretopticsmode__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setturretopticsmode__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setturretopticsmode__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setturretopticsmode__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__settype__location__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__settype__location__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__settype__location__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunconscious__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunconscious__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunconscious__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitability__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitability__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitability__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitcombatmode__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitcombatmode__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitcombatmode__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitfreefallheight__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitfreefallheight__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitfreefallheight__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitloadout__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitloadout__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitloadout__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitloadout__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitloadout__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitloadout__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitloadout__object__config__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitloadout__object__config__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitloadout__object__config__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitpos__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitpos__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitpos__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitposweak__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitposweak__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitposweak__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitrank__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitrank__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitrank__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunitrecoilcoefficient__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunitrecoilcoefficient__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunitrecoilcoefficient__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunittrait__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunittrait__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunittrait__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setunloadincombat__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setunloadincombat__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setunloadincombat__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setuseractiontext__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setuseractiontext__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setuseractiontext__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setusermfdtext__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setusermfdtext__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setusermfdtext__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setusermfdvalue__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setusermfdvalue__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setusermfdvalue__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__display__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__display__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__display__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__group__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__group__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__group__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__namespace__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__namespace__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__namespace__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__team_member__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__team_member__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__team_member__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__task__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__task__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__task__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvariable__location__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvariable__location__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvariable__location__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvectordir__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvectordir__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvectordir__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvectordirandup__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvectordirandup__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvectordirandup__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvectorup__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvectorup__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvectorup__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicleammo__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehicleammo__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehicleammo__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicleammodef__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehicleammodef__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehicleammodef__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclearmor__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclearmor__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclearmor__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclecargo__object__object__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setvehiclecargo__object__object__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setvehiclecargo__object__object__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicleid__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehicleid__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehicleid__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclelock__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclelock__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclelock__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicleposition__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setvehicleposition__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setvehicleposition__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicleradar__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehicleradar__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehicleradar__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclereceiveremotetargets__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclereceiveremotetargets__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclereceiveremotetargets__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclereportownposition__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclereportownposition__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclereportownposition__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclereportremotetargets__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclereportremotetargets__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclereportremotetargets__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehicletipars__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehicletipars__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehicletipars__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvehiclevarname__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvehiclevarname__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvehiclevarname__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvelocity__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvelocity__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvelocity__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvelocitymodelspace__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvelocitymodelspace__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvelocitymodelspace__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvelocitytransformation__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvelocitytransformation__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvelocitytransformation__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setvisibleiftreecollapsed__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setvisibleiftreecollapsed__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setvisibleiftreecollapsed__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwantedrpmrtd__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwantedrpmrtd__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwantedrpmrtd__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaves__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaves__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaves__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointbehaviour__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointbehaviour__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointbehaviour__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointcombatmode__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointcombatmode__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointcombatmode__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointcompletionradius__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointcompletionradius__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointcompletionradius__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointdescription__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointdescription__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointdescription__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointforcebehaviour__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointforcebehaviour__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointforcebehaviour__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointformation__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointformation__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointformation__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointhouseposition__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointhouseposition__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointhouseposition__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointloiteraltitude__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointloiteraltitude__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointloiteraltitude__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointloiterradius__array__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointloiterradius__array__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointloiterradius__array__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointloitertype__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointloitertype__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointloitertype__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointname__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointname__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointname__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointposition__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointposition__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointposition__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointscript__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointscript__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointscript__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointspeed__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointspeed__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointspeed__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointstatements__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointstatements__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointstatements__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointtimeout__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointtimeout__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointtimeout__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointtype__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointtype__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointtype__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwaypointvisible__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwaypointvisible__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwaypointvisible__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setweaponreloadingtime__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setweaponreloadingtime__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setweaponreloadingtime__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setweaponzeroing__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__setweaponzeroing__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__setweaponzeroing__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwinddir__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwinddir__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwinddir__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwindforce__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwindforce__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwindforce__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwindstr__scalar__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwindstr__scalar__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwindstr__scalar__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwingforcescalertd__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwingforcescalertd__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwingforcescalertd__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__setwppos__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__setwppos__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__setwppos__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__show3dicons__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__show3dicons__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__show3dicons__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__showlegend__control__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__showlegend__control__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__showlegend__control__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__showneweditorobject__control__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__showneweditorobject__control__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__showneweditorobject__control__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__showwaypoint__array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__showwaypoint__array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__showwaypoint__array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sidechat__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sidechat__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sidechat__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sideradio__object_array__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sideradio__object_array__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sideradio__object_array__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__skill__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__skill__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__skill__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__skillfinal__object__string__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__skillfinal__object__string__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__skillfinal__object__string__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__slidersetposition__control__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__slidersetposition__control__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__slidersetposition__control__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__slidersetrange__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__slidersetrange__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__slidersetrange__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__slidersetspeed__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__slidersetspeed__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__slidersetspeed__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__sort__array__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__sort__array__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__sort__array__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__spawn__any__code__ret__script@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__spawn__any__code__ret__script(GameValue rightGameValue);
+        public static partial GameValue binary__spawn__any__code__ret__script(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__splitstring__string__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__splitstring__string__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__splitstring__string__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__step__for__scalar__ret__for@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__step__for__scalar__ret__for(GameValue rightGameValue);
+        public static partial GameValue binary__step__for__scalar__ret__for(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__stop__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__stop__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__stop__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__suppressfor__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__suppressfor__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__suppressfor__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__swimindepth__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__swimindepth__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__swimindepth__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__switchaction__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__switchaction__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__switchaction__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__switchcamera__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__switchcamera__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__switchcamera__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__switchgesture__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__switchgesture__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__switchgesture__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__switchlight__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__switchlight__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__switchlight__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__switchmove__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__switchmove__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__switchmove__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__synchronizeobjectsadd__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__synchronizeobjectsadd__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__synchronizeobjectsadd__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__synchronizeobjectsremove__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__synchronizeobjectsremove__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__synchronizeobjectsremove__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__synchronizetrigger__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__synchronizetrigger__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__synchronizetrigger__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__synchronizewaypoint__array__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__synchronizewaypoint__array__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__synchronizewaypoint__array__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__synchronizewaypoint__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__synchronizewaypoint__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__synchronizewaypoint__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__targetknowledge__object__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__targetknowledge__object__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__targetknowledge__object__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__targets__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__targets__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__targets__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__targets__group__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__targets__group__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__targets__group__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__targetsaggregate__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__targetsaggregate__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__targetsaggregate__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__targetsquery__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__targetsquery__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__targetsquery__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__then__if__code__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__then__if__code__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__then__if__code__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__then__if__array__ret__any@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__then__if__array__ret__any(GameValue rightGameValue);
+        public static partial GameValue binary__then__if__array__ret__any(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__throw__if__any__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__throw__if__any__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__throw__if__any__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__to__for__scalar__ret__for@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__to__for__scalar__ret__for(GameValue rightGameValue);
+        public static partial GameValue binary__to__for__scalar__ret__for(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__toarray__hashmap__bool__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__toarray__hashmap__bool__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__toarray__hashmap__bool__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tofixed__scalar__scalar__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tofixed__scalar__scalar__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tofixed__scalar__scalar__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__triggerattachobject__object__scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__triggerattachobject__object__scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__triggerattachobject__object__scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__triggerattachvehicle__object__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__triggerattachvehicle__object__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__triggerattachvehicle__object__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__triggerdynamicsimulation__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__triggerdynamicsimulation__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__triggerdynamicsimulation__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__trim__string__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__trim__string__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__trim__string__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__try__any__code__ret__exception@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__try__any__code__ret__exception(GameValue rightGameValue);
+        public static partial GameValue binary__try__any__code__ret__exception(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__turretlocal__object__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__turretlocal__object__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__turretlocal__object__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__turretowner__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__turretowner__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__turretowner__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__turretunit__object__array__ret__object@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__turretunit__object__array__ret__object(GameValue rightGameValue);
+        public static partial GameValue binary__turretunit__object__array__ret__object(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvadd__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvadd__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__tvadd__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvcollapse__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvcollapse__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvcollapse__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvcount__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvcount__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__tvcount__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvdata__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvdata__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tvdata__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvdelete__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvdelete__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvdelete__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvexpand__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvexpand__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvexpand__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvisselected__control__array__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvisselected__control__array__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__tvisselected__control__array__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvpicture__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvpicture__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tvpicture__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvpictureright__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvpictureright__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tvpictureright__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetcursel__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetcursel__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetcursel__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetdata__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetdata__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetdata__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicture__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicture__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicture__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturecolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturecolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturecolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturecolordisabled__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturecolordisabled__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturecolordisabled__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturecolorselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturecolorselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturecolorselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpictureright__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpictureright__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpictureright__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturerightcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturerightcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturerightcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturerightcolordisabled__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturerightcolordisabled__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturerightcolordisabled__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetpicturerightcolorselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetpicturerightcolorselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetpicturerightcolorselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetselectcolor__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetselectcolor__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetselectcolor__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetselected__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetselected__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetselected__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsettext__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsettext__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsettext__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsettooltip__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsettooltip__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsettooltip__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsetvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsetvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsetvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsort__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsort__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsort__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsortall__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsortall__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsortall__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsortbyvalue__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsortbyvalue__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsortbyvalue__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvsortbyvalueall__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__tvsortbyvalueall__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__tvsortbyvalueall__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvtext__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvtext__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tvtext__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvtooltip__control__array__ret__string@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvtooltip__control__array__ret__string(GameValue rightGameValue);
+        public static partial GameValue binary__tvtooltip__control__array__ret__string(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__tvvalue__control__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__tvvalue__control__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__tvvalue__control__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unassignitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__unassignitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__unassignitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unitsbelowheight__group__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__unitsbelowheight__group__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__unitsbelowheight__group__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unitsbelowheight__array__scalar__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__unitsbelowheight__array__scalar__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__unitsbelowheight__array__scalar__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unitturret__object__object__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__unitturret__object__object__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__unitturret__object__object__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unlinkitem__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__unlinkitem__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__unlinkitem__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__unregistertask__team_member__string__ret__bool@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__unregistertask__team_member__string__ret__bool(GameValue rightGameValue);
+        public static partial GameValue binary__unregistertask__team_member__string__ret__bool(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__updatedrawicon__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__updatedrawicon__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__updatedrawicon__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__updatemenuitem__control__array__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__updatemenuitem__control__array__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__updatemenuitem__control__array__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__useaudiotimeformoves__object__bool__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__useaudiotimeformoves__object__bool__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__useaudiotimeformoves__object__bool__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectoradd__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectoradd__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectoradd__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectorcos__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectorcos__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__vectorcos__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectorcrossproduct__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectorcrossproduct__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectorcrossproduct__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectordiff__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectordiff__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectordiff__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectordistance__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectordistance__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__vectordistance__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectordistancesqr__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectordistancesqr__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__vectordistancesqr__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectordotproduct__array__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectordotproduct__array__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__vectordotproduct__array__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectorfromto__array__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectorfromto__array__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectorfromto__array__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectormodeltoworld__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectormodeltoworld__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectormodeltoworld__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectormodeltoworldvisual__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectormodeltoworldvisual__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectormodeltoworldvisual__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectormultiply__array__scalar_array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectormultiply__array__scalar_array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectormultiply__array__scalar_array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectorworldtomodel__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectorworldtomodel__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectorworldtomodel__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vectorworldtomodelvisual__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__vectorworldtomodelvisual__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__vectorworldtomodelvisual__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vehiclechat__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__vehiclechat__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__vehiclechat__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__vehicleradio__object__string__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__vehicleradio__object__string__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__vehicleradio__object__string__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__waypointattachobject__array__object_scalar__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__waypointattachobject__array__object_scalar__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__waypointattachobject__array__object_scalar__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__waypointattachvehicle__array__object__ret__nothing@@YAXVgame_value@types@intercept@@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial void binary__waypointattachvehicle__array__object__ret__nothing(GameValue rightGameValue);
+        public static partial void binary__waypointattachvehicle__array__object__ret__nothing(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponaccessories__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponaccessories__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weaponaccessories__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponaccessoriescargo__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponaccessoriescargo__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weaponaccessoriescargo__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weapondirection__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weapondirection__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weapondirection__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponreloadingtime__object__array__ret__scalar@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponreloadingtime__object__array__ret__scalar(GameValue rightGameValue);
+        public static partial GameValue binary__weaponreloadingtime__object__array__ret__scalar(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponsinfo__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponsinfo__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weaponsinfo__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponstate__object__string__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponstate__object__string__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weaponstate__object__string__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__weaponsturret__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__weaponsturret__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__weaponsturret__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__worldtomodel__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__worldtomodel__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__worldtomodel__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?binary__worldtomodelvisual__object__array__ret__array@@YA?AVgame_value@types@intercept@@V123@0@Z")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
-        public static partial GameValue binary__worldtomodelvisual__object__array__ret__array(GameValue rightGameValue);
+        public static partial GameValue binary__worldtomodelvisual__object__array__ret__array(GameValue leftGameValue, GameValue rightGameValue);
 
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?nular__acctime__ret__scalar@@YA?AVgame_value@types@intercept@@XZ")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -11828,9 +11827,6 @@ namespace RV
         [SuppressUnmanagedCodeSecurity, LibraryImport("rvcss_x64", EntryPoint = "?nular__worldsize__ret__scalar@@YA?AVgame_value@types@intercept@@XZ")]
         [UnmanagedCallConv(CallConvs = new[] { typeof(CallConvCdecl) })]
         public static partial GameValue nular__worldsize__ret__scalar();
-
-
         #endregion commands
-
     }
 }
